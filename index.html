@@ -4,9 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>GCSE Physics – Reflection of Sound Worksheet | MyTutBuddy</title>
+<title>MyTutBuddy | Interactive Learning</title>
 
-<meta name="description" content="Free interactive GCSE Physics worksheet on reflection of sound and echoes. Complete the worksheet online and get instant feedback.">
+<meta name="description" content="MyTutBuddy - Interactive worksheets for GCSE, A-Level, SAT and school students. Learn, practise and improve.">
 
 <style>
 * {
@@ -16,13 +16,13 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background: #f3f5fb;
+    background: #f5f7ff;
     color: #202536;
 }
 
 header {
     background: white;
-    padding: 18px 7%;
+    padding: 20px 7%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -30,167 +30,142 @@ header {
 }
 
 .logo {
-    font-size: 25px;
-    font-weight: 800;
-    color: #4f46e5;
+    font-size: 28px;
+    font-weight: bold;
+    color: #5146e5;
 }
 
 nav a {
-    margin-left: 25px;
     text-decoration: none;
-    color: #333;
+    color: #202536;
+    margin-left: 25px;
     font-weight: 600;
+}
+
+nav a:hover {
+    color: #5146e5;
 }
 
 .hero {
-    background: linear-gradient(135deg, #eef2ff, #ffffff);
     text-align: center;
-    padding: 45px 20px;
+    padding: 75px 20px 55px;
 }
 
 .hero h1 {
-    font-size: 36px;
-    margin-bottom: 10px;
+    font-size: 48px;
+    margin: 0 0 15px;
+}
+
+.hero h1 span {
+    color: #5146e5;
 }
 
 .hero p {
-    color: #60697a;
-}
-
-.container {
-    max-width: 900px;
-    margin: 35px auto;
-    padding: 0 20px;
-}
-
-.worksheet {
-    background: white;
-    padding: 45px;
-    border-radius: 16px;
-    box-shadow: 0 8px 30px rgba(0,0,0,0.08);
-}
-
-.worksheet-header {
-    border-bottom: 2px solid #e5e7eb;
-    padding-bottom: 20px;
-    margin-bottom: 30px;
-}
-
-.worksheet-header h2 {
-    margin-bottom: 8px;
-}
-
-.info {
+    font-size: 20px;
     color: #667085;
-    font-size: 14px;
+    max-width: 700px;
+    margin: 0 auto 30px;
+    line-height: 1.6;
 }
 
-.question {
-    margin: 30px 0;
-    padding: 22px;
-    background: #fafbff;
-    border-radius: 12px;
-    border: 1px solid #e5e7eb;
+.button {
+    display: inline-block;
+    background: #5146e5;
+    color: white;
+    padding: 15px 28px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 17px;
 }
 
-.question-number {
-    font-weight: 800;
+.button:hover {
+    background: #4038c7;
+}
+
+.section {
+    max-width: 1100px;
+    margin: auto;
+    padding: 30px 20px 70px;
+}
+
+.section h2 {
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 35px;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 22px;
+}
+
+.card {
+    background: white;
+    border-radius: 16px;
+    padding: 28px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.07);
+    text-align: center;
+    transition: transform 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card .icon {
+    font-size: 42px;
     margin-bottom: 12px;
 }
 
-input[type="text"],
-input[type="number"] {
-    width: 100%;
-    max-width: 500px;
-    padding: 12px;
-    border: 2px solid #d6d9e2;
-    border-radius: 8px;
-    font-size: 16px;
-    margin-top: 10px;
+.card h3 {
+    margin: 10px 0;
+    font-size: 21px;
 }
 
-input:focus {
-    outline: none;
-    border-color: #4f46e5;
+.card p {
+    color: #667085;
+    line-height: 1.5;
 }
 
-.options label {
-    display: block;
-    padding: 10px;
-    margin: 7px 0;
+.card a {
+    display: inline-block;
+    margin-top: 12px;
+    color: #5146e5;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.about {
     background: white;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    cursor: pointer;
-}
-
-.options label:hover {
-    background: #f1f2ff;
-}
-
-button {
-    border: none;
-    background: #4f46e5;
-    color: white;
-    padding: 14px 28px;
-    border-radius: 9px;
-    font-size: 16px;
-    font-weight: 700;
-    cursor: pointer;
-}
-
-button:hover {
-    opacity: 0.9;
-}
-
-#result {
-    display: none;
-    margin-top: 30px;
-    padding: 25px;
-    border-radius: 12px;
     text-align: center;
-    background: #eef2ff;
+    padding: 60px 20px;
 }
 
-#score {
-    font-size: 32px;
-    font-weight: 800;
-    color: #4f46e5;
-}
-
-.feedback {
-    margin-top: 10px;
-    font-weight: 600;
-}
-
-.correct {
-    border: 2px solid #22a06b !important;
-    background: #f0fff7 !important;
-}
-
-.incorrect {
-    border: 2px solid #dc3545 !important;
-    background: #fff5f5 !important;
+.about p {
+    max-width: 700px;
+    margin: auto;
+    color: #667085;
+    font-size: 18px;
+    line-height: 1.7;
 }
 
 footer {
+    background: #202536;
+    color: white;
     text-align: center;
-    padding: 35px;
-    color: #667085;
+    padding: 25px;
 }
 
-@media(max-width:700px) {
-
-    .worksheet {
-        padding: 22px;
-    }
-
+@media (max-width: 650px) {
     .hero h1 {
-        font-size: 28px;
+        font-size: 36px;
     }
 
-    nav {
-        display: none;
+    nav a {
+        margin-left: 10px;
+        font-size: 14px;
     }
 }
 </style>
@@ -199,347 +174,90 @@ footer {
 <body>
 
 <header>
+    <div class="logo">MyTutBuddy</div>
 
-<div class="logo">
-MyTutBuddy
-</div>
-
-<nav>
-<a href="#">Worksheets</a>
-<a href="#">Subjects</a>
-<a href="#">About</a>
-</nav>
-
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="worksheets.html">Worksheets</a>
+    </nav>
 </header>
 
-
 <section class="hero">
+    <h1>Learn. Practise. <span>Improve.</span></h1>
 
-<h1>GCSE Physics: Reflection of Sound</h1>
+    <p>
+        Interactive worksheets for GCSE, A-Level, SAT and school students.
+        Practise online and get instant feedback.
+    </p>
 
-<p>
-Interactive worksheet • Instant checking • GCSE Physics
-</p>
+    <a class="button" href="worksheets.html">
+        Explore Worksheets
+    </a>
+</section>
+
+<section class="section">
+
+    <h2>Find a Worksheet</h2>
+
+    <div class="cards">
+
+        <div class="card">
+            <div class="icon">🧮</div>
+            <h3>GCSE Maths</h3>
+            <p>
+                Algebra, equations, geometry and more.
+            </p>
+            <a href="worksheets.html">Explore →</a>
+        </div>
+
+        <div class="card">
+            <div class="icon">🔬</div>
+            <h3>GCSE Physics</h3>
+            <p>
+                Waves, electricity, forces and more.
+            </p>
+            <a href="gcse-physics-reflection-sound.html">
+                Try Physics →
+            </a>
+        </div>
+
+        <div class="card">
+            <div class="icon">📝</div>
+            <h3>SAT English</h3>
+            <p>
+                Grammar, clauses, reading and writing practice.
+            </p>
+            <a href="worksheets.html">Explore →</a>
+        </div>
+
+        <div class="card">
+            <div class="icon">📚</div>
+            <h3>Grade 9 Maths</h3>
+            <p>
+                Practice important school topics and skills.
+            </p>
+            <a href="worksheets.html">Explore →</a>
+        </div>
+
+    </div>
 
 </section>
 
+<section class="about">
 
-<div class="container">
+    <h2>Why MyTutBuddy?</h2>
 
-<div class="worksheet">
+    <p>
+        MyTutBuddy makes learning more interactive.
+        Students can practise questions online, check their answers
+        and immediately see feedback so they know what to improve.
+    </p>
 
-<div class="worksheet-header">
-
-<h2>Reflection of Sound</h2>
-
-<div class="info">
-Name: ____________________ &nbsp;&nbsp;&nbsp;
-Score: calculated automatically
-</div>
-
-</div>
-
-
-<!-- QUESTION 1 -->
-
-<div class="question" id="question1">
-
-<div class="question-number">
-1. What happens when a sound wave reaches a hard surface?
-</div>
-
-<input
-type="text"
-id="answer1"
-placeholder="Type your answer..."
->
-
-<div class="feedback" id="feedback1"></div>
-
-</div>
-
-
-<!-- QUESTION 2 -->
-
-<div class="question" id="question2">
-
-<div class="question-number">
-2. Which phenomenon is produced when reflected sound is heard separately from the original sound?
-</div>
-
-<div class="options">
-
-<label>
-<input type="radio" name="q2" value="reflection">
-Reflection
-</label>
-
-<label>
-<input type="radio" name="q2" value="echo">
-Echo
-</label>
-
-<label>
-<input type="radio" name="q2" value="refraction">
-Refraction
-</label>
-
-<label>
-<input type="radio" name="q2" value="diffraction">
-Diffraction
-</label>
-
-</div>
-
-<div class="feedback" id="feedback2"></div>
-
-</div>
-
-
-<!-- QUESTION 3 -->
-
-<div class="question" id="question3">
-
-<div class="question-number">
-3. Complete the sentence:
-<br><br>
-An echo is caused by the __________ of sound.
-</div>
-
-<input
-type="text"
-id="answer3"
-placeholder="Type your answer..."
->
-
-<div class="feedback" id="feedback3"></div>
-
-</div>
-
-
-<!-- QUESTION 4 -->
-
-<div class="question" id="question4">
-
-<div class="question-number">
-4. Sound travels at 340 m/s. If an echo returns after 2 seconds, what total distance has the sound travelled?
-</div>
-
-<input
-type="number"
-id="answer4"
-placeholder="Enter distance in metres"
->
-
-<div class="feedback" id="feedback4"></div>
-
-</div>
-
-
-<br>
-
-<button onclick="checkAnswers()">
-CHECK MY ANSWERS
-</button>
-
-
-<div id="result">
-
-<div id="score"></div>
-
-<div id="message"></div>
-
-<br>
-
-<button onclick="resetWorksheet()">
-TRY AGAIN
-</button>
-
-</div>
-
-</div>
-
-</div>
-
+</section>
 
 <footer>
-
-© 2026 MyTutBuddy • Interactive Learning
-
+    © 2026 MyTutBuddy • Interactive Learning
 </footer>
-
-
-<script>
-
-function checkAnswers() {
-
-    let score = 0;
-
-    // QUESTION 1
-
-    const q1 = document
-        .getElementById("answer1")
-        .value
-        .trim()
-        .toLowerCase();
-
-    const question1 = document.getElementById("question1");
-    const feedback1 = document.getElementById("feedback1");
-
-    if (
-        q1.includes("reflect") ||
-        q1.includes("bounces")
-    ) {
-
-        score++;
-
-        question1.classList.add("correct");
-        question1.classList.remove("incorrect");
-
-        feedback1.innerHTML = "✅ Correct!";
-
-    } else {
-
-        question1.classList.add("incorrect");
-        question1.classList.remove("correct");
-
-        feedback1.innerHTML =
-            "❌ Not quite. Think about what happens when sound reaches a hard surface.";
-
-    }
-
-
-    // QUESTION 2
-
-    const q2 = document.querySelector(
-        'input[name="q2"]:checked'
-    );
-
-    const question2 = document.getElementById("question2");
-    const feedback2 = document.getElementById("feedback2");
-
-    if (q2 && q2.value === "echo") {
-
-        score++;
-
-        question2.classList.add("correct");
-        question2.classList.remove("incorrect");
-
-        feedback2.innerHTML = "✅ Correct!";
-
-    } else {
-
-        question2.classList.add("incorrect");
-        question2.classList.remove("correct");
-
-        feedback2.innerHTML =
-            "❌ Incorrect. The correct answer is Echo.";
-
-    }
-
-
-    // QUESTION 3
-
-    const q3 = document
-        .getElementById("answer3")
-        .value
-        .trim()
-        .toLowerCase();
-
-    const question3 = document.getElementById("question3");
-    const feedback3 = document.getElementById("feedback3");
-
-    if (
-        q3.includes("reflection") ||
-        q3.includes("reflected")
-    ) {
-
-        score++;
-
-        question3.classList.add("correct");
-        question3.classList.remove("incorrect");
-
-        feedback3.innerHTML = "✅ Correct!";
-
-    } else {
-
-        question3.classList.add("incorrect");
-        question3.classList.remove("correct");
-
-        feedback3.innerHTML =
-            "❌ Incorrect. The answer is reflection.";
-
-    }
-
-
-    // QUESTION 4
-
-    const q4 = Number(
-        document.getElementById("answer4").value
-    );
-
-    const question4 = document.getElementById("question4");
-    const feedback4 = document.getElementById("feedback4");
-
-    if (q4 === 680) {
-
-        score++;
-
-        question4.classList.add("correct");
-        question4.classList.remove("incorrect");
-
-        feedback4.innerHTML =
-            "✅ Correct! 340 × 2 = 680 m.";
-
-    } else {
-
-        question4.classList.add("incorrect");
-        question4.classList.remove("correct");
-
-        feedback4.innerHTML =
-            "❌ Incorrect. Remember: distance = speed × time.";
-
-    }
-
-
-    // SHOW RESULT
-
-    const percentage = Math.round(
-        (score / 4) * 100
-    );
-
-    document.getElementById("result").style.display = "block";
-
-    document.getElementById("score").innerHTML =
-        score + " / 4 — " + percentage + "%";
-
-    if (score === 4) {
-
-        document.getElementById("message").innerHTML =
-            "🎉 Excellent work! You got everything correct.";
-
-    } else if (score >= 2) {
-
-        document.getElementById("message").innerHTML =
-            "👍 Good effort! Review the questions you missed.";
-
-    } else {
-
-        document.getElementById("message").innerHTML =
-            "📚 Keep practising. You can try again!";
-
-    }
-
-}
-
-
-function resetWorksheet() {
-
-    location.reload();
-
-}
-
-</script>
 
 </body>
 </html>
