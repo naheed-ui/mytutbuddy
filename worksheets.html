@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Interactive Worksheets | MyTutBuddy</title>
+
+<meta name="description"
+content="Free interactive worksheets for GCSE Maths, GCSE Physics, SAT English and Grade 9 Maths. Practise online and get instant feedback.">
+
+<style>
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f5f7ff;
+    color: #202536;
+}
+
+/* HEADER */
+
+header {
+    background: white;
+    padding: 20px 7%;
+    border-bottom: 1px solid #e5e7eb;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    font-size: 25px;
+    font-weight: bold;
+    color: #4937e8;
+}
+
+nav a {
+    text-decoration: none;
+    color: #333;
+    margin-left: 25px;
+    font-weight: 600;
+}
+
+/* HERO */
+
+.hero {
+    text-align: center;
+    padding: 60px 20px 35px;
+}
+
+.hero h1 {
+    font-size: 42px;
+    margin-bottom: 12px;
+}
+
+.hero h1 span {
+    color: #4937e8;
+}
+
+.hero p {
+    color: #666;
+    font-size: 18px;
+}
+
+/* SEARCH */
+
+.search-area {
+    max-width: 700px;
+    margin: 25px auto 45px;
+    padding: 0 20px;
+}
+
+.search-box {
+    width: 100%;
+    padding: 17px 20px;
+    border: 1px solid #d1d5db;
+    border-radius: 12px;
+    font-size: 17px;
+    background: white;
+}
+
+/* CATEGORY BUTTONS */
+
+.categories {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 40px;
+}
+
+.category-btn {
+    border: none;
+    background: white;
+    border: 1px solid #ddd;
+    padding: 11px 20px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.category-btn:hover {
+    background: #eeeaff;
+}
+
+/* WORKSHEET GRID */
+
+.container {
+    max-width: 1150px;
+    margin: auto;
+    padding: 0 20px 60px;
+}
+
+.section-title {
+    font-size: 27px;
+    margin-bottom: 20px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns:
+        repeat(auto-fit, minmax(260px, 1fr));
+
+    gap: 22px;
+}
+
+/* CARDS */
+
+.card {
+    background: white;
+    border-radius: 16px;
+    padding: 25px;
+    border: 1px solid #e5e7eb;
+
+    box-shadow:
+        0 5px 20px rgba(0,0,0,0.04);
+
+    transition: 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+}
+
+.icon {
+    font-size: 38px;
+    margin-bottom: 10px;
+}
+
+.card h3 {
+    margin: 8px 0;
+    font-size: 21px;
+}
+
+.subject {
+    color: #4937e8;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.card p {
+    color: #666;
+    line-height: 1.5;
+}
+
+.start-btn {
+    display: inline-block;
+
+    margin-top: 12px;
+
+    padding: 12px 18px;
+
+    background: #4f46e5;
+
+    color: white;
+
+    text-decoration: none;
+
+    border-radius: 8px;
+
+    font-weight: bold;
+}
+
+.start-btn:hover {
+    background: #3730a3;
+}
+
+/* EMPTY MESSAGE */
+
+.no-results {
+    display: none;
+    text-align: center;
+    padding: 40px;
+    color: #666;
+}
+
+/* FOOTER */
+
+footer {
+    text-align: center;
+    background: white;
+    padding: 30px;
+    color: #666;
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<header>
+
+<div class="logo">
+MyTutBuddy
+</div>
+
+<nav>
+
+<a href="index.html">Home</a>
+
+<a href="worksheets.html">
+Worksheets
+</a>
+
+</nav>
+
+</header>
+
+
+
+<section class="hero">
+
+<h1>
+Find a <span>Worksheet</span>
+</h1>
+
+<p>
+Interactive practice for Maths, Science, English and more.
+</p>
+
+</section>
+
+
+
+<div class="search-area">
+
+<input
+type="text"
+id="search"
+class="search-box"
+placeholder="🔎 Search worksheets... e.g. sound, algebra, clauses"
+onkeyup="searchWorksheets()">
+
+</div>
+
+
+
+<div class="categories">
+
+<button
+class="category-btn"
+onclick="filterSubject('all')">
+All
+</button>
+
+<button
+class="category-btn"
+onclick="filterSubject('Physics')">
+⚡ GCSE Physics
+</button>
+
+<button
+class="category-btn"
+onclick="filterSubject('Maths')">
+📐 GCSE Maths
+</button>
+
+<button
+class="category-btn"
+onclick="filterSubject('English')">
+✍️ SAT English
+</button>
+
+<button
+class="category-btn"
+onclick="filterSubject('Grade 9')">
+📚 Grade 9 Maths
+</button>
+
+</div>
+
+
+
+<main class="container">
+
+<h2 class="section-title">
+Interactive Worksheets
+</h2>
+
+
+<div class="grid" id="worksheetGrid">
+
+
+
+<!-- PHYSICS -->
+
+<div class="card worksheet"
+data-subject="Physics"
+data-search="physics sound reflection echo">
+
+<div class="icon">
+🔊
+</div>
+
+<div class="subject">
+GCSE PHYSICS
+</div>
+
+<h3>
+Reflection of Sound
+</h3>
+
+<p>
+Practise reflection of sound, echoes and sound waves with instant feedback.
+</p>
+
+<a
+class="start-btn"
+href="gcse-physics-reflection-sound.html">
+
+Start Worksheet →
+
+</a>
+
+</div>
+
+
+
+<!-- MATHS -->
+
+<div class="card worksheet"
+data-subject="Maths"
+data-search="maths algebra equations">
+
+<div class="icon">
+📐
+</div>
+
+<div class="subject">
+GCSE MATHS
+</div>
+
+<h3>
+Algebra & Equations
+</h3>
+
+<p>
+Practise algebraic equations and build your confidence step by step.
+</p>
+
+<a
+class="start-btn"
+href="#">
+
+Coming Soon
+
+</a>
+
+</div>
+
+
+
+<!-- ENGLISH -->
+
+<div class="card worksheet"
+data-subject="English"
+data-search="sat english clauses grammar verbs">
+
+<div class="icon">
+✍️
+</div>
+
+<div class="subject">
+SAT ENGLISH
+</div>
+
+<h3>
+Clauses & Verbs
+</h3>
+
+<p>
+Practise clauses, verbs and grammar with SAT-style questions.
+</p>
+
+<a
+class="start-btn"
+href="#">
+
+Coming Soon
+
+</a>
+
+</div>
+
+
+
+<!-- GRADE 9 -->
+
+<div class="card worksheet"
+data-subject="Grade 9"
+data-search="grade 9 maths algebra school">
+
+<div class="icon">
+📚
+</div>
+
+<div class="subject">
+GRADE 9 MATHS
+</div>
+
+<h3>
+Algebra Practice
+</h3>
+
+<p>
+Grade 9 practice worksheets covering important school topics.
+</p>
+
+<a
+class="start-btn"
+href="#">
+
+Coming Soon
+
+</a>
+
+</div>
+
+
+
+</div>
+
+
+<div
+id="noResults"
+class="no-results">
+
+No worksheets found.
+Try another search.
+
+</div>
+
+
+</main>
+
+
+
+<footer>
+
+© 2026 MyTutBuddy • Interactive Learning
+
+</footer>
+
+
+
+<script>
+
+function searchWorksheets() {
+
+    const search =
+        document
+        .getElementById("search")
+        .value
+        .toLowerCase();
+
+    const cards =
+        document.querySelectorAll(".worksheet");
+
+    let found = 0;
+
+    cards.forEach(card => {
+
+        const text =
+            card.dataset.search
+            .toLowerCase();
+
+        if (text.includes(search)) {
+
+            card.style.display = "block";
+
+            found++;
+
+        } else {
+
+            card.style.display = "none";
+
+        }
+
+    });
+
+    document
+    .getElementById("noResults")
+    .style.display =
+        found === 0
+        ? "block"
+        : "none";
+}
+
+
+
+function filterSubject(subject) {
+
+    const cards =
+        document.querySelectorAll(".worksheet");
+
+    let found = 0;
+
+    cards.forEach(card => {
+
+        if (
+            subject === "all" ||
+            card.dataset.subject === subject
+        ) {
+
+            card.style.display = "block";
+
+            found++;
+
+        } else {
+
+            card.style.display = "none";
+
+        }
+
+    });
+
+    document
+    .getElementById("search")
+    .value = "";
+
+    document
+    .getElementById("noResults")
+    .style.display =
+        found === 0
+        ? "block"
+        : "none";
+}
+
+</script>
+
+
+</body>
+
+</html>
