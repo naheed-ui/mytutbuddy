@@ -1,290 +1,544 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>MyTutBuddy | Interactive Worksheets</title>
+<title>GCSE Physics – Reflection of Sound Worksheet | MyTutBuddy</title>
 
-  <meta name="description" content="Interactive worksheets for GCSE, A-Level, SAT and school students. Practice online and get instant results.">
+<meta name="description" content="Free interactive GCSE Physics worksheet on reflection of sound and echoes. Complete the worksheet online and get instant feedback.">
 
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+<style>
+* {
+    box-sizing: border-box;
+}
 
-    body {
-      font-family: Arial, sans-serif;
-      background: #f7f8fc;
-      color: #202938;
-      line-height: 1.6;
-    }
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f3f5fb;
+    color: #202536;
+}
 
-    header {
-      background: white;
-      border-bottom: 1px solid #e5e7eb;
-      padding: 18px 6%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: sticky;
-      top: 0;
-      z-index: 10;
-    }
+header {
+    background: white;
+    padding: 18px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #e5e7eb;
+}
 
-    .logo {
-      font-size: 26px;
-      font-weight: 800;
-      color: #4f46e5;
-    }
+.logo {
+    font-size: 25px;
+    font-weight: 800;
+    color: #4f46e5;
+}
 
-    nav a {
-      text-decoration: none;
-      color: #374151;
-      margin-left: 25px;
-      font-weight: 600;
-    }
+nav a {
+    margin-left: 25px;
+    text-decoration: none;
+    color: #333;
+    font-weight: 600;
+}
 
-    .hero {
-      text-align: center;
-      padding: 80px 20px 60px;
-      background: linear-gradient(135deg, #eef2ff, #ffffff);
+.hero {
+    background: linear-gradient(135deg, #eef2ff, #ffffff);
+    text-align: center;
+    padding: 45px 20px;
+}
+
+.hero h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+.hero p {
+    color: #60697a;
+}
+
+.container {
+    max-width: 900px;
+    margin: 35px auto;
+    padding: 0 20px;
+}
+
+.worksheet {
+    background: white;
+    padding: 45px;
+    border-radius: 16px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+}
+
+.worksheet-header {
+    border-bottom: 2px solid #e5e7eb;
+    padding-bottom: 20px;
+    margin-bottom: 30px;
+}
+
+.worksheet-header h2 {
+    margin-bottom: 8px;
+}
+
+.info {
+    color: #667085;
+    font-size: 14px;
+}
+
+.question {
+    margin: 30px 0;
+    padding: 22px;
+    background: #fafbff;
+    border-radius: 12px;
+    border: 1px solid #e5e7eb;
+}
+
+.question-number {
+    font-weight: 800;
+    margin-bottom: 12px;
+}
+
+input[type="text"],
+input[type="number"] {
+    width: 100%;
+    max-width: 500px;
+    padding: 12px;
+    border: 2px solid #d6d9e2;
+    border-radius: 8px;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+input:focus {
+    outline: none;
+    border-color: #4f46e5;
+}
+
+.options label {
+    display: block;
+    padding: 10px;
+    margin: 7px 0;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.options label:hover {
+    background: #f1f2ff;
+}
+
+button {
+    border: none;
+    background: #4f46e5;
+    color: white;
+    padding: 14px 28px;
+    border-radius: 9px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+button:hover {
+    opacity: 0.9;
+}
+
+#result {
+    display: none;
+    margin-top: 30px;
+    padding: 25px;
+    border-radius: 12px;
+    text-align: center;
+    background: #eef2ff;
+}
+
+#score {
+    font-size: 32px;
+    font-weight: 800;
+    color: #4f46e5;
+}
+
+.feedback {
+    margin-top: 10px;
+    font-weight: 600;
+}
+
+.correct {
+    border: 2px solid #22a06b !important;
+    background: #f0fff7 !important;
+}
+
+.incorrect {
+    border: 2px solid #dc3545 !important;
+    background: #fff5f5 !important;
+}
+
+footer {
+    text-align: center;
+    padding: 35px;
+    color: #667085;
+}
+
+@media(max-width:700px) {
+
+    .worksheet {
+        padding: 22px;
     }
 
     .hero h1 {
-      font-size: 48px;
-      margin-bottom: 18px;
-      color: #111827;
+        font-size: 28px;
     }
 
-    .hero h1 span {
-      color: #4f46e5;
-    }
-
-    .hero p {
-      max-width: 700px;
-      margin: 0 auto 30px;
-      font-size: 19px;
-      color: #5b6472;
-    }
-
-    .button {
-      display: inline-block;
-      background: #4f46e5;
-      color: white;
-      padding: 13px 25px;
-      border-radius: 10px;
-      text-decoration: none;
-      font-weight: 700;
-      border: none;
-      cursor: pointer;
-      font-size: 16px;
-    }
-
-    .section {
-      max-width: 1100px;
-      margin: auto;
-      padding: 60px 20px;
-    }
-
-    .section h2 {
-      text-align: center;
-      font-size: 32px;
-      margin-bottom: 35px;
-    }
-
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
-    }
-
-    .card {
-      background: white;
-      padding: 28px;
-      border-radius: 15px;
-      border: 1px solid #e5e7eb;
-      text-align: center;
-      transition: 0.2s;
-    }
-
-    .card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-    }
-
-    .card .icon {
-      font-size: 40px;
-      margin-bottom: 10px;
-    }
-
-    .card h3 {
-      margin-bottom: 8px;
-    }
-
-    .worksheet-demo {
-      max-width: 700px;
-      margin: auto;
-      background: white;
-      padding: 35px;
-      border-radius: 18px;
-      border: 1px solid #e5e7eb;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-    }
-
-    .question {
-      margin: 22px 0;
-    }
-
-    .question input {
-      margin-top: 8px;
-      padding: 10px;
-      width: 100%;
-      border: 1px solid #d1d5db;
-      border-radius: 8px;
-      font-size: 16px;
-    }
-
-    #result {
-      margin-top: 20px;
-      font-size: 20px;
-      font-weight: 700;
-      text-align: center;
-    }
-
-    footer {
-      background: #111827;
-      color: white;
-      text-align: center;
-      padding: 30px;
-      margin-top: 30px;
-    }
-
-    @media (max-width: 700px) {
-      .hero h1 {
-        font-size: 36px;
-      }
-
-      nav {
+    nav {
         display: none;
-      }
     }
-  </style>
+}
+</style>
 </head>
 
 <body>
 
 <header>
-  <div class="logo">MyTutBuddy</div>
 
-  <nav>
-    <a href="#worksheets">Worksheets</a>
-    <a href="#demo">Try It</a>
-  </nav>
+<div class="logo">
+MyTutBuddy
+</div>
+
+<nav>
+<a href="#">Worksheets</a>
+<a href="#">Subjects</a>
+<a href="#">About</a>
+</nav>
+
 </header>
 
+
 <section class="hero">
-  <h1>Learn. Practice. <span>Improve.</span></h1>
 
-  <p>
-    Interactive worksheets for Maths, Science, English and more.
-    Practice online and get instant feedback.
-  </p>
+<h1>GCSE Physics: Reflection of Sound</h1>
 
-  <a class="button" href="#worksheets">Explore Worksheets</a>
-</section>
-
-<section class="section" id="worksheets">
-  <h2>Find a Worksheet</h2>
-
-  <div class="cards">
-
-    <div class="card">
-      <div class="icon">📐</div>
-      <h3>GCSE Maths</h3>
-      <p>Algebra, equations, geometry and more.</p>
-    </div>
-
-    <div class="card">
-      <div class="icon">🔬</div>
-      <h3>GCSE Physics</h3>
-      <p>Waves, electricity, forces and more.</p>
-    </div>
-
-    <div class="card">
-      <div class="icon">📚</div>
-      <h3>SAT English</h3>
-      <p>Grammar, clauses, verbs and reading.</p>
-    </div>
-
-    <div class="card">
-      <div class="icon">🧮</div>
-      <h3>Grade 9 Maths</h3>
-      <p>Practice important school topics.</p>
-    </div>
-
-  </div>
-</section>
-
-<section class="section" id="demo">
-
-  <h2>Try an Interactive Worksheet</h2>
-
-  <div class="worksheet-demo">
-
-    <h3>Quick Algebra Practice</h3>
-
-    <div class="question">
-      <strong>1. Simplify: 3x + 5x</strong>
-      <input id="q1" type="text" placeholder="Your answer">
-    </div>
-
-    <div class="question">
-      <strong>2. Solve: x + 7 = 12</strong>
-      <input id="q2" type="text" placeholder="Your answer">
-    </div>
-
-    <button class="button" onclick="checkAnswers()">
-      Check Answers
-    </button>
-
-    <div id="result"></div>
-
-  </div>
+<p>
+Interactive worksheet • Instant checking • GCSE Physics
+</p>
 
 </section>
+
+
+<div class="container">
+
+<div class="worksheet">
+
+<div class="worksheet-header">
+
+<h2>Reflection of Sound</h2>
+
+<div class="info">
+Name: ____________________ &nbsp;&nbsp;&nbsp;
+Score: calculated automatically
+</div>
+
+</div>
+
+
+<!-- QUESTION 1 -->
+
+<div class="question" id="question1">
+
+<div class="question-number">
+1. What happens when a sound wave reaches a hard surface?
+</div>
+
+<input
+type="text"
+id="answer1"
+placeholder="Type your answer..."
+>
+
+<div class="feedback" id="feedback1"></div>
+
+</div>
+
+
+<!-- QUESTION 2 -->
+
+<div class="question" id="question2">
+
+<div class="question-number">
+2. Which phenomenon is produced when reflected sound is heard separately from the original sound?
+</div>
+
+<div class="options">
+
+<label>
+<input type="radio" name="q2" value="reflection">
+Reflection
+</label>
+
+<label>
+<input type="radio" name="q2" value="echo">
+Echo
+</label>
+
+<label>
+<input type="radio" name="q2" value="refraction">
+Refraction
+</label>
+
+<label>
+<input type="radio" name="q2" value="diffraction">
+Diffraction
+</label>
+
+</div>
+
+<div class="feedback" id="feedback2"></div>
+
+</div>
+
+
+<!-- QUESTION 3 -->
+
+<div class="question" id="question3">
+
+<div class="question-number">
+3. Complete the sentence:
+<br><br>
+An echo is caused by the __________ of sound.
+</div>
+
+<input
+type="text"
+id="answer3"
+placeholder="Type your answer..."
+>
+
+<div class="feedback" id="feedback3"></div>
+
+</div>
+
+
+<!-- QUESTION 4 -->
+
+<div class="question" id="question4">
+
+<div class="question-number">
+4. Sound travels at 340 m/s. If an echo returns after 2 seconds, what total distance has the sound travelled?
+</div>
+
+<input
+type="number"
+id="answer4"
+placeholder="Enter distance in metres"
+>
+
+<div class="feedback" id="feedback4"></div>
+
+</div>
+
+
+<br>
+
+<button onclick="checkAnswers()">
+CHECK MY ANSWERS
+</button>
+
+
+<div id="result">
+
+<div id="score"></div>
+
+<div id="message"></div>
+
+<br>
+
+<button onclick="resetWorksheet()">
+TRY AGAIN
+</button>
+
+</div>
+
+</div>
+
+</div>
+
 
 <footer>
-  <p>© 2026 MyTutBuddy</p>
-  <p>Interactive learning made simple.</p>
+
+© 2026 MyTutBuddy • Interactive Learning
+
 </footer>
 
+
 <script>
-  function checkAnswers() {
+
+function checkAnswers() {
 
     let score = 0;
 
-    const answer1 = document.getElementById("q1").value
-      .trim()
-      .toLowerCase();
+    // QUESTION 1
 
-    const answer2 = document.getElementById("q2").value
-      .trim()
-      .toLowerCase();
+    const q1 = document
+        .getElementById("answer1")
+        .value
+        .trim()
+        .toLowerCase();
 
-    if (answer1 === "8x") {
-      score++;
+    const question1 = document.getElementById("question1");
+    const feedback1 = document.getElementById("feedback1");
+
+    if (
+        q1.includes("reflect") ||
+        q1.includes("bounces")
+    ) {
+
+        score++;
+
+        question1.classList.add("correct");
+        question1.classList.remove("incorrect");
+
+        feedback1.innerHTML = "✅ Correct!";
+
+    } else {
+
+        question1.classList.add("incorrect");
+        question1.classList.remove("correct");
+
+        feedback1.innerHTML =
+            "❌ Not quite. Think about what happens when sound reaches a hard surface.";
+
     }
 
-    if (answer2 === "5") {
-      score++;
+
+    // QUESTION 2
+
+    const q2 = document.querySelector(
+        'input[name="q2"]:checked'
+    );
+
+    const question2 = document.getElementById("question2");
+    const feedback2 = document.getElementById("feedback2");
+
+    if (q2 && q2.value === "echo") {
+
+        score++;
+
+        question2.classList.add("correct");
+        question2.classList.remove("incorrect");
+
+        feedback2.innerHTML = "✅ Correct!";
+
+    } else {
+
+        question2.classList.add("incorrect");
+        question2.classList.remove("correct");
+
+        feedback2.innerHTML =
+            "❌ Incorrect. The correct answer is Echo.";
+
     }
 
-    document.getElementById("result").innerHTML =
-      "Your score: " + score + " / 2";
-  }
+
+    // QUESTION 3
+
+    const q3 = document
+        .getElementById("answer3")
+        .value
+        .trim()
+        .toLowerCase();
+
+    const question3 = document.getElementById("question3");
+    const feedback3 = document.getElementById("feedback3");
+
+    if (
+        q3.includes("reflection") ||
+        q3.includes("reflected")
+    ) {
+
+        score++;
+
+        question3.classList.add("correct");
+        question3.classList.remove("incorrect");
+
+        feedback3.innerHTML = "✅ Correct!";
+
+    } else {
+
+        question3.classList.add("incorrect");
+        question3.classList.remove("correct");
+
+        feedback3.innerHTML =
+            "❌ Incorrect. The answer is reflection.";
+
+    }
+
+
+    // QUESTION 4
+
+    const q4 = Number(
+        document.getElementById("answer4").value
+    );
+
+    const question4 = document.getElementById("question4");
+    const feedback4 = document.getElementById("feedback4");
+
+    if (q4 === 680) {
+
+        score++;
+
+        question4.classList.add("correct");
+        question4.classList.remove("incorrect");
+
+        feedback4.innerHTML =
+            "✅ Correct! 340 × 2 = 680 m.";
+
+    } else {
+
+        question4.classList.add("incorrect");
+        question4.classList.remove("correct");
+
+        feedback4.innerHTML =
+            "❌ Incorrect. Remember: distance = speed × time.";
+
+    }
+
+
+    // SHOW RESULT
+
+    const percentage = Math.round(
+        (score / 4) * 100
+    );
+
+    document.getElementById("result").style.display = "block";
+
+    document.getElementById("score").innerHTML =
+        score + " / 4 — " + percentage + "%";
+
+    if (score === 4) {
+
+        document.getElementById("message").innerHTML =
+            "🎉 Excellent work! You got everything correct.";
+
+    } else if (score >= 2) {
+
+        document.getElementById("message").innerHTML =
+            "👍 Good effort! Review the questions you missed.";
+
+    } else {
+
+        document.getElementById("message").innerHTML =
+            "📚 Keep practising. You can try again!";
+
+    }
+
+}
+
+
+function resetWorksheet() {
+
+    location.reload();
+
+}
+
 </script>
 
 </body>
