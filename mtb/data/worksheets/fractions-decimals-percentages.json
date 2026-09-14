@@ -1,0 +1,46 @@
+{
+  "slug": "fractions-decimals-percentages",
+  "title": "Fractions, Decimals & Percentages",
+  "shortDescription": "Practise converting between fractions, decimals and percentages with instant feedback.",
+  "intro": "Answer each question below. For matching questions, choose the matching value from the dropdown.",
+  "grade": "Grade 9",
+  "topic": "Fractions",
+  "subtopic": "Fractions, Decimals & Percentages",
+  "difficulty": "Easy",
+  "seoTitle": "Grade 9 Fractions Worksheet: Fractions, Decimals & Percentages | MyTutBuddy",
+  "seoDescription": "Free interactive Grade 9 Maths worksheet on fractions, decimals and percentages. Practise online and get instant feedback.",
+  "featured": true,
+  "questions": [
+    {
+      "type": "true-false",
+      "prompt": "True or false: $$\\frac{1}{2} + \\frac{1}{4} = \\frac{3}{4}$$",
+      "answer": true
+    },
+    {
+      "type": "true-false",
+      "prompt": "True or false: $$\\frac{2}{3} \\times \\frac{3}{4} = \\frac{1}{2}$$",
+      "answer": true
+    },
+    {
+      "type": "matching",
+      "prompt": "Match each fraction to its decimal equivalent.",
+      "pairs": [
+        { "left": "$\\frac{1}{2}$", "right": "0.5" },
+        { "left": "$\\frac{1}{4}$", "right": "0.25" },
+        { "left": "$\\frac{3}{4}$", "right": "0.75" },
+        { "left": "$\\frac{1}{5}$", "right": "0.2" }
+      ]
+    },
+    {
+      "type": "text",
+      "prompt": "Simplify fully: $$\\frac{8}{12}$$",
+      "answer": "2/3"
+    },
+    {
+      "type": "dropdown",
+      "prompt": "$\\frac{3}{5}$ written as a percentage is:",
+      "options": ["50%", "60%", "65%", "75%"],
+      "answer": "60%"
+    }
+  ]
+}

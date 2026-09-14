@@ -1,0 +1,40 @@
+{
+  "slug": "solving-linear-equations",
+  "title": "Solving Linear Equations",
+  "shortDescription": "Practise solving simple linear equations step by step, with instant feedback.",
+  "intro": "Solve each equation to find the value of x. Type your answer as a number only.",
+  "grade": "GCSE",
+  "topic": "Algebra",
+  "subtopic": "Linear Equations",
+  "difficulty": "Easy",
+  "seoTitle": "GCSE Algebra Worksheet: Solving Linear Equations | MyTutBuddy",
+  "seoDescription": "Free interactive GCSE Maths worksheet on solving linear equations. Practise online and get an instant score with MyTutBuddy.",
+  "featured": true,
+  "questions": [
+    {
+      "type": "text",
+      "prompt": "Solve for $x$: $$2x + 5 = 17$$",
+      "answer": "6"
+    },
+    {
+      "type": "text",
+      "prompt": "Solve for $x$: $$3x - 4 = 11$$",
+      "answer": "5"
+    },
+    {
+      "type": "text",
+      "prompt": "Solve for $x$: $$\\frac{x}{2} + 3 = 7$$",
+      "answer": "8"
+    },
+    {
+      "type": "text",
+      "prompt": "Solve for $x$: $$5(x - 2) = 20$$",
+      "answer": "6"
+    },
+    {
+      "type": "text",
+      "prompt": "Solve for $x$: $$2x + 3 = x + 9$$",
+      "answer": "6"
+    }
+  ]
+}
