@@ -14,3 +14,7 @@ export const SITE_URL = "https://naheed-ui.github.io/mytutbuddy";
 export const BASE_PATH = "/mytutbuddy";
 
 export const SITE_NAME = "MyTutBuddy";
+export const SOCIAL = {
+  instagram: "https://instagram.com/mytutbuddy",
+  youtube: "https://youtube.com/@mytutbuddy",
+};
