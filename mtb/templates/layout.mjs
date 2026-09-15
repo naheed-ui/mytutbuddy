@@ -7,6 +7,7 @@ export function renderHead({ title, description, path, jsonLd = null }) {
   const canonical = `${SITE_URL}${path}`;
   return `<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="google-site-verification" content="5XzwimhY9VH7x2WTl0aX3Vo0zrVIEz9d5c9GoO-LUUk" />
 <title>${escapeHtml(title)}</title>
 <meta name="description" content="${escapeHtml(description)}">
 <link rel="canonical" href="${canonical}">
