@@ -31,7 +31,12 @@ export function renderHeader() {
 export function renderFooter() {
   const year = new Date().getFullYear();
   return `<footer class="site-footer">
-  © ${year} ${SITE_NAME} • Interactive Maths Worksheets
+  <p>© ${year} ${SITE_NAME} • Interactive Maths Worksheets</p>
+  <p style="margin-top:8px;">
+    <a href="${BASE_PATH}/about/">About</a>
+    &nbsp;•&nbsp;
+    <a href="${BASE_PATH}/privacy/">Privacy Policy</a>
+  </p>
 </footer>`;
 }
 

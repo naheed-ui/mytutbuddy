@@ -337,7 +337,14 @@ footer.site-footer {
 }
 .result .score { font-size: 40px; font-weight: 800; color: var(--brand); }
 .result p { color: var(--ink); margin: 14px 0 20px; }
+/* ---------- static content pages (About, Privacy) ---------- */
 
+.section h1 { font-size: 32px; margin-bottom: 6px; }
+.section h2 { text-align: left; font-size: 21px; margin: 30px 0 10px; }
+.section p { color: var(--ink); font-size: 16px; margin: 0 0 14px; }
+
+.site-footer a { text-decoration: none; color: var(--muted); font-weight: 600; }
+.site-footer a:hover { color: var(--brand); }
 @media (max-width: 650px) {
   .hero h1 { font-size: 32px; }
   .site-header nav a { margin-left: 12px; font-size: 13.5px; }

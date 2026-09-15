@@ -6,10 +6,12 @@ import { slugify } from "../templates/layout.mjs";
 import { renderWorksheetPage } from "../templates/worksheet.mjs";
 import { renderLibraryPage } from "../templates/library.mjs";
 import { renderHomepage } from "../templates/homepage.mjs";
+import { renderStaticPage } from "../templates/static-page.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.join(__dirname, "..");
 const DATA_DIR = path.join(ROOT, "data", "worksheets");
+const PAGES_DIR = path.join(ROOT, "data", "pages");
 const STATIC_DIR = path.join(ROOT, "static");
 const OUT_DIR = path.join(ROOT, "dist");
 
@@ -81,7 +83,6 @@ function loadWorksheets() {
     worksheets.push(raw);
   }
 
-  // Sort for a stable, predictable build output
   worksheets.sort((a, b) => a.title.localeCompare(b.title));
   return worksheets;
 }
@@ -109,10 +110,44 @@ function copyStatic() {
   copyRecursive(STATIC_DIR, destDir);
 }
 
+const STATIC_PAGES = [
+  {
+    slug: "about",
+    file: "about.html",
+    title: "About MyTutBuddy",
+    description: "Learn about MyTutBuddy's mission to make Maths practice interactive.",
+  },
+  {
+    slug: "privacy",
+    file: "privacy.html",
+    title: "Privacy Policy | MyTutBuddy",
+    description: "MyTutBuddy's privacy policy — what information is and isn't collected.",
+  },
+];
+
+function buildStaticPages() {
+  for (const page of STATIC_PAGES) {
+    const filePath = path.join(PAGES_DIR, page.file);
+    if (!fs.existsSync(filePath)) {
+      fail(`Can't find "${page.file}" in ${PAGES_DIR}`);
+    }
+    const bodyHtml = fs.readFileSync(filePath, "utf8");
+    const relPath = `/${page.slug}/`;
+    const html = renderStaticPage({
+      title: page.title,
+      description: page.description,
+      path: relPath,
+      bodyHtml,
+    });
+    write(path.join(OUT_DIR, page.slug, "index.html"), html);
+  }
+}
+
 function buildSitemap(worksheets) {
   const urls = [
     `${SITE_URL}/`,
     `${SITE_URL}/worksheets/`,
+    ...STATIC_PAGES.map((p) => `${SITE_URL}/${p.slug}/`),
     ...worksheets.map((w) => `${SITE_URL}/worksheets/${w.gradeSlug}/${w.topicSlug}/${w.slug}/`),
   ];
   const body = urls.map((u) => `  <url><loc>${u}</loc></url>`).join("\n");
@@ -130,6 +165,7 @@ function main() {
 
   write(path.join(OUT_DIR, "index.html"), renderHomepage(worksheets, "/"));
   write(path.join(OUT_DIR, "worksheets", "index.html"), renderLibraryPage(worksheets, "/worksheets/"));
+  buildStaticPages();
 
   for (const w of worksheets) {
     const relPath = `/worksheets/${w.gradeSlug}/${w.topicSlug}/${w.slug}/`;
