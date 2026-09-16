@@ -1,0 +1,66 @@
+{
+  "slug": "slope-and-inclination",
+  "title": "Slope & Inclination of a Straight Line",
+  "shortDescription": "Practise finding the slope and inclination of straight lines with instant feedback.",
+  "intro": "Use these rules: slope through two points = (y₂ − y₁) ÷ (x₂ − x₁); slope = tan θ, where θ is the inclination.",
+  "grade": "GCSE",
+  "topic": "Geometry",
+  "subtopic": "Slope & Inclination",
+  "difficulty": "Medium",
+  "seoTitle": "GCSE Slope and Inclination Worksheet: Straight Line Graphs | MyTutBuddy",
+  "seoDescription": "Free interactive GCSE Maths worksheet on the slope and inclination of a straight line. Practise online and get instant feedback.",
+  "featured": true,
+  "questions": [
+    {
+      "type": "text",
+      "prompt": "Find the slope of the straight line passing through $A(1, 2)$ and $B(5, 10)$.",
+      "answer": "2"
+    },
+    {
+      "type": "text",
+      "prompt": "Find the slope of the straight line passing through $A(4, 6)$ and $B(3, 2)$.",
+      "answer": "4"
+    },
+    {
+      "type": "text",
+      "prompt": "Find the slope of the straight line passing through $A(2, -3)$ and $B(-4, -5)$. Give your answer as a fraction.",
+      "answer": "1/3"
+    },
+    {
+      "type": "multiple-choice",
+      "prompt": "The inclination of a straight line is $45°$. Find its slope.",
+      "options": ["$0$", "$1$", "$\\sqrt{2}$", "$45$"],
+      "answer": "$1$"
+    },
+    {
+      "type": "dropdown",
+      "prompt": "A straight line has slope $1$. Its inclination is:",
+      "options": ["0°", "30°", "45°", "60°"],
+      "answer": "45°"
+    },
+    {
+      "type": "text",
+      "prompt": "A straight line has inclination $60°$. Find its slope, correct to 3 significant figures.",
+      "answer": "1.73"
+    },
+    {
+      "type": "true-false",
+      "prompt": "True or false: a horizontal straight line has a slope of $0$.",
+      "answer": true
+    },
+    {
+      "type": "true-false",
+      "prompt": "True or false: if the inclination of a line is greater than $90°$, then its slope is negative.",
+      "answer": true
+    },
+    {
+      "type": "matching",
+      "prompt": "Match each inclination to the correct slope.",
+      "pairs": [
+        { "left": "$0°$", "right": "0" },
+        { "left": "$45°$", "right": "1" },
+        { "left": "$135°$", "right": "-1" }
+      ]
+    }
+  ]
+}

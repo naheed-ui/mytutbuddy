@@ -1,0 +1,64 @@
+{
+  "slug": "errors-in-measurement",
+  "title": "Errors in Measurement",
+  "shortDescription": "Practise finding maximum absolute error, relative error and percentage error with instant feedback.",
+  "intro": "Use these rules: maximum absolute error = half the scale interval; relative error = maximum absolute error ÷ measured value; percentage error = relative error × 100%.",
+  "grade": "GCSE",
+  "topic": "Number",
+  "subtopic": "Errors in Measurement",
+  "difficulty": "Medium",
+  "seoTitle": "GCSE Errors in Measurement Worksheet: Absolute & Percentage Error | MyTutBuddy",
+  "seoDescription": "Free interactive GCSE Maths worksheet on errors in measurement. Practise absolute error, relative error and percentage error online with instant feedback.",
+  "featured": true,
+  "questions": [
+    {
+      "type": "word-bank",
+      "prompt": "Choose words from the box and fill in the blanks.",
+      "wordBank": ["absolute", "relative", "percentage", "interval", "accurate"],
+      "blanks": [
+        { "text": "The maximum _____ error is half of the scale interval.", "answer": "absolute" },
+        { "text": "The smallest division marked on a measuring instrument is called the scale _____.", "answer": "interval" },
+        { "text": "Dividing the maximum absolute error by the measured value gives the _____ error.", "answer": "relative" },
+        { "text": "Multiplying the relative error by 100% gives the _____ error.", "answer": "percentage" }
+      ]
+    },
+    {
+      "type": "text",
+      "prompt": "A rod is measured as $36$ cm, correct to the nearest cm. Find the maximum absolute error, in cm.",
+      "answer": "0.5"
+    },
+    {
+      "type": "text",
+      "prompt": "A mass is measured as $4.2$ kg, correct to the nearest $0.1$ kg. Find the maximum absolute error, in kg.",
+      "answer": "0.05"
+    },
+    {
+      "type": "multiple-choice",
+      "prompt": "A length is measured as $20$ cm with a maximum absolute error of $0.5$ cm. Find the relative error.",
+      "options": ["$0.025$", "$0.05$", "$0.25$", "$2.5$"],
+      "answer": "$0.025$"
+    },
+    {
+      "type": "text",
+      "prompt": "A volume is measured as $50$ mL with a maximum absolute error of $0.5$ mL. Find the percentage error. Give your answer as a number followed by %, e.g. 4%.",
+      "answer": "1%",
+      "acceptableAnswers": ["1%", "1 %", "1percent"]
+    },
+    {
+      "type": "text",
+      "prompt": "A ruler has a scale interval of $0.2$ cm. Find the maximum absolute error of a measurement taken with this ruler, in cm.",
+      "answer": "0.1"
+    },
+    {
+      "type": "true-false",
+      "prompt": "True or false: for the same maximum absolute error, a larger measured value gives a smaller percentage error.",
+      "answer": true
+    },
+    {
+      "type": "dropdown",
+      "prompt": "A temperature is measured as $25.0$ °C, correct to the nearest $0.1$ °C. The maximum absolute error is:",
+      "options": ["0.01 °C", "0.05 °C", "0.1 °C", "0.5 °C"],
+      "answer": "0.05 °C"
+    }
+  ]
+}
