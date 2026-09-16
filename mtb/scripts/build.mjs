@@ -16,7 +16,7 @@ const STATIC_DIR = path.join(ROOT, "static");
 const OUT_DIR = path.join(ROOT, "dist");
 
 const REQUIRED_FIELDS = ["slug", "title", "grade", "topic", "difficulty", "questions"];
-const VALID_TYPES = ["text", "multiple-choice", "dropdown", "true-false", "matching"];
+const VALID_TYPES = ["text", "multiple-choice", "dropdown", "true-false", "matching", "join-lines", "word-bank"];
 
 function fail(msg) {
   console.error(`\n❌ BUILD FAILED\n${msg}\n`);
@@ -55,10 +55,30 @@ function loadWorksheets() {
       if (!VALID_TYPES.includes(q.type)) {
         fail(`"${file}" question ${i + 1} has an unknown type "${q.type}". Valid types: ${VALID_TYPES.join(", ")}`);
       }
-      if (q.type === "matching") {
+      if (q.type === "matching" || q.type === "join-lines") {
         if (!Array.isArray(q.pairs) || q.pairs.length === 0) {
-          fail(`"${file}" question ${i + 1} (matching) needs a "pairs" list.`);
+          fail(`"${file}" question ${i + 1} (${q.type}) needs a "pairs" list.`);
         }
+      } else if (q.type === "word-bank") {
+        if (!Array.isArray(q.wordBank) || q.wordBank.length === 0) {
+          fail(`"${file}" question ${i + 1} (word-bank) needs a "wordBank" list of words.`);
+        }
+        if (!Array.isArray(q.blanks) || q.blanks.length === 0) {
+          fail(`"${file}" question ${i + 1} (word-bank) needs a "blanks" list.`);
+        }
+        q.blanks.forEach((b, bi) => {
+          if (!b.answer) {
+            fail(`"${file}" question ${i + 1}, blank ${bi + 1} is missing an "answer".`);
+          }
+          if (!q.wordBank.includes(b.answer)) {
+            fail(
+              `"${file}" question ${i + 1}, blank ${bi + 1}: the answer "${b.answer}" must also appear in the "wordBank" list.`
+            );
+          }
+          if (!b.image && !b.text) {
+            fail(`"${file}" question ${i + 1}, blank ${bi + 1} needs either "text" (with _____) or an "image".`);
+          }
+        });
       } else if (q.type === "true-false") {
         if (typeof q.answer !== "boolean") {
           fail(`"${file}" question ${i + 1} (true-false) needs "answer" to be true or false (no quotes).`);
@@ -83,6 +103,7 @@ function loadWorksheets() {
     worksheets.push(raw);
   }
 
+  // Sort for a stable, predictable build output
   worksheets.sort((a, b) => a.title.localeCompare(b.title));
   return worksheets;
 }
