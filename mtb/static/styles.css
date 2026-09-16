@@ -337,7 +337,8 @@ footer.site-footer {
 .match-row:last-child { border-bottom: none; }
 .match-left { font-size: 17px; }
 
-.joinlines-wrap { position: relative; }.joinlines-svg {
+.joinlines-wrap { position: relative; }
+.joinlines-svg {
   position: absolute;
   top: 0; left: 0;
   width: 100%; height: 100%;

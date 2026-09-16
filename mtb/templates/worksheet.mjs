@@ -64,6 +64,68 @@ function renderQuestion(q, index) {
         )
         .join("\n")}
     </div>`;
+  } else if (q.type === "join-lines") {
+    const rightOptions = shuffle(q.pairs.map((p) => p.right));
+    dataAnswer = escapeHtml(JSON.stringify(q.pairs.map((p) => p.right)));
+    body = `<div class="joinlines-wrap" data-connections="{}">
+      <svg class="joinlines-svg"></svg>
+      <div class="joinlines-columns">
+        <div class="joinlines-left">
+          ${q.pairs
+            .map(
+              (p, i) => `<div class="jl-node">
+              <span class="jl-label">${escapeHtml(p.left)}</span>
+              <span class="jl-dot" data-side="left" data-index="${i}"></span>
+            </div>`
+            )
+            .join("\n")}
+        </div>
+        <div class="joinlines-right">
+          ${rightOptions
+            .map(
+              (r) => `<div class="jl-node">
+              <span class="jl-dot" data-side="right" data-value="${escapeHtml(r)}"></span>
+              <span class="jl-label">${escapeHtml(r)}</span>
+            </div>`
+            )
+            .join("\n")}
+        </div>
+      </div>
+    </div>`;
+  } else if (q.type === "word-bank") {
+    dataAnswer = escapeHtml(JSON.stringify(q.blanks.map((b) => b.answer)));
+    const pool = shuffle(q.wordBank);
+    const poolHtml = `<div class="wordbank-pool">
+        ${pool.map((w) => `<span class="wb-chip" data-word="${escapeHtml(w)}">${escapeHtml(w)}</span>`).join("\n")}
+      </div>`;
+
+    // Two layouts: image grid (each blank has an "image"), or sentences with _____
+    const isImageGrid = q.blanks.every((b) => b.image);
+    const blanksHtml = isImageGrid
+      ? `<div class="wordbank-images">
+        ${q.blanks
+          .map(
+            (b, i) => `<div class="wb-image-cell">
+            <img src="${escapeHtml(b.image)}" alt="${escapeHtml(b.alt || "Image " + (i + 1))}">
+            <span class="wb-blank" data-index="${i}" data-answer="${escapeHtml(b.answer)}"></span>
+          </div>`
+          )
+          .join("\n")}
+      </div>`
+      : `<div class="wordbank-blanks">
+        ${q.blanks
+          .map((b, i) => {
+            const parts = b.text.split("_____");
+            const before = parts[0] !== undefined ? parts[0] : "";
+            const after = parts[1] !== undefined ? parts[1] : "";
+            return `<p class="wb-sentence">${i + 1}. ${escapeHtml(before)}<span class="wb-blank" data-index="${i}" data-answer="${escapeHtml(
+              b.answer
+            )}"></span>${escapeHtml(after)}</p>`;
+          })
+          .join("\n")}
+      </div>`;
+
+    body = `<div class="wordbank-wrap">${poolHtml}${blanksHtml}</div>`;
   }
 
   return `<div class="question" data-type="${dataType}" data-answer='${dataAnswer}'>
@@ -154,7 +216,190 @@ ${renderFooter()}
       el.addEventListener("input", updateProgress);
       el.addEventListener("change", updateProgress);
     });
+    initJoinLines();
+    initWordBanks();
   });
+
+  // ---------- word-bank (shared pool, tap-to-place) ----------
+
+  function initWordBanks() {
+    document.querySelectorAll(".wordbank-wrap").forEach(function (wrap) {
+      let selectedChip = null;
+      const chipForBlank = {}; // blankIndex -> chip element
+
+      function selectChip(chip) {
+        if (selectedChip) selectedChip.classList.remove("wb-selected");
+        if (selectedChip === chip) { selectedChip = null; return; }
+        selectedChip = chip;
+        chip.classList.add("wb-selected");
+      }
+
+      function returnChip(blankIndex) {
+        const chip = chipForBlank[blankIndex];
+        if (chip) {
+          chip.classList.remove("wb-used");
+          delete chipForBlank[blankIndex];
+        }
+      }
+
+      wrap.querySelectorAll(".wb-chip").forEach(function (chip) {
+        chip.addEventListener("click", function () {
+          if (chip.classList.contains("wb-used")) return;
+          selectChip(chip);
+        });
+      });
+
+      wrap.querySelectorAll(".wb-blank").forEach(function (blank) {
+        blank.addEventListener("click", function () {
+          const idx = blank.dataset.index;
+          if (selectedChip) {
+            if (chipForBlank[idx]) returnChip(idx);
+            blank.textContent = selectedChip.dataset.word;
+            blank.classList.add("wb-filled");
+            selectedChip.classList.add("wb-used");
+            chipForBlank[idx] = selectedChip;
+            selectChip(selectedChip); // deselect
+            updateProgress();
+          } else if (blank.classList.contains("wb-filled")) {
+            returnChip(idx);
+            blank.textContent = "";
+            blank.classList.remove("wb-filled");
+            updateProgress();
+          }
+        });
+      });
+
+      wrap._resetWordBank = function () {
+        wrap.querySelectorAll(".wb-blank").forEach(function (blank) {
+          blank.textContent = "";
+          blank.classList.remove("wb-filled");
+        });
+        wrap.querySelectorAll(".wb-chip").forEach(function (chip) {
+          chip.classList.remove("wb-used", "wb-selected");
+        });
+        selectedChip = null;
+        for (const k in chipForBlank) delete chipForBlank[k];
+      };
+    });
+  }
+
+  // ---------- join-lines (draw-a-line matching) ----------
+
+  function initJoinLines() {
+    document.querySelectorAll(".joinlines-wrap").forEach(function (wrap) {
+      const svg = wrap.querySelector(".joinlines-svg");
+      let dragging = null;
+      let connections = {};
+
+      function dotCenter(dot) {
+        const dotRect = dot.getBoundingClientRect();
+        const wrapRect = wrap.getBoundingClientRect();
+        return {
+          x: dotRect.left + dotRect.width / 2 - wrapRect.left,
+          y: dotRect.top + dotRect.height / 2 - wrapRect.top,
+        };
+      }
+
+      function redraw(tempEnd) {
+        svg.innerHTML = "";
+        Object.keys(connections).forEach(function (leftIndex) {
+          const rightValue = connections[leftIndex];
+          const leftDot = wrap.querySelector('.jl-dot[data-side="left"][data-index="' + leftIndex + '"]');
+          const rightDot = wrap.querySelector('.jl-dot[data-side="right"][data-value="' + CSS.escape(rightValue) + '"]');
+          if (!leftDot || !rightDot) return;
+          drawLine(dotCenter(leftDot), dotCenter(rightDot), false);
+        });
+        if (dragging && tempEnd) {
+          const startDot = wrap.querySelector(
+            '.jl-dot[data-side="' + dragging.side + '"]' +
+              (dragging.side === "left" ? '[data-index="' + dragging.index + '"]' : '[data-value="' + CSS.escape(dragging.value) + '"]')
+          );
+          if (startDot) drawLine(dotCenter(startDot), tempEnd, true);
+        }
+      }
+
+      function drawLine(a, b, temp) {
+        const line = document.createElementNS("http://www.w3.org/2000/svg", "line");
+        line.setAttribute("x1", a.x);
+        line.setAttribute("y1", a.y);
+        line.setAttribute("x2", b.x);
+        line.setAttribute("y2", b.y);
+        line.setAttribute("class", temp ? "jl-line-temp" : "jl-line");
+        svg.appendChild(line);
+      }
+
+      function pointFromEvent(e) {
+        const wrapRect = wrap.getBoundingClientRect();
+        const pt = e.touches && e.touches[0] ? e.touches[0] : e;
+        return { x: pt.clientX - wrapRect.left, y: pt.clientY - wrapRect.top, clientX: pt.clientX, clientY: pt.clientY };
+      }
+
+      function updateConnectionsAttr() {
+        wrap.dataset.connections = JSON.stringify(connections);
+        updateProgress();
+      }
+
+      function onDown(e) {
+        const dot = e.target.closest(".jl-dot");
+        if (!dot) return;
+        e.preventDefault();
+        const side = dot.dataset.side;
+        dragging = side === "left" ? { side: "left", index: dot.dataset.index } : { side: "right", value: dot.dataset.value };
+        const p = pointFromEvent(e);
+        redraw(p);
+        document.addEventListener("mousemove", onMove);
+        document.addEventListener("touchmove", onMove, { passive: false });
+        document.addEventListener("mouseup", onUp);
+        document.addEventListener("touchend", onUp);
+      }
+
+      function onMove(e) {
+        if (!dragging) return;
+        e.preventDefault();
+        redraw(pointFromEvent(e));
+      }
+
+      function onUp(e) {
+        if (!dragging) return;
+        const p = pointFromEvent(e);
+        const el = document.elementFromPoint(p.clientX, p.clientY);
+        const targetDot = el ? el.closest(".jl-dot") : null;
+
+        if (targetDot && targetDot.dataset.side !== dragging.side) {
+          let leftIndex, rightValue;
+          if (dragging.side === "left") {
+            leftIndex = dragging.index;
+            rightValue = targetDot.dataset.value;
+          } else {
+            leftIndex = targetDot.dataset.index;
+            rightValue = dragging.value;
+          }
+          connections[leftIndex] = rightValue;
+        }
+
+        dragging = null;
+        redraw(null);
+        updateConnectionsAttr();
+        document.removeEventListener("mousemove", onMove);
+        document.removeEventListener("touchmove", onMove);
+        document.removeEventListener("mouseup", onUp);
+        document.removeEventListener("touchend", onUp);
+      }
+
+      wrap.querySelectorAll(".jl-dot").forEach(function (dot) {
+        dot.addEventListener("mousedown", onDown);
+        dot.addEventListener("touchstart", onDown, { passive: false });
+      });
+
+      window.addEventListener("resize", function () { redraw(null); });
+
+      wrap._resetJoinLines = function () {
+        connections = {};
+        updateConnectionsAttr();
+        redraw(null);
+      };
+    });
+  }
 
   function selectTF(el) {
     el.parentElement.querySelectorAll(".tf-btn").forEach(function (b) { b.classList.remove("selected"); });
@@ -172,6 +417,16 @@ ${renderFooter()}
       const selects = q.querySelectorAll("select");
       return Array.from(selects).every(function (s) { return s.value !== ""; });
     }
+    if (type === "join-lines") {
+      const wrap = q.querySelector(".joinlines-wrap");
+      const total = q.querySelectorAll(".jl-dot[data-side='left']").length;
+      const connections = JSON.parse(wrap.dataset.connections || "{}");
+      return Object.keys(connections).length === total;
+    }
+    if (type === "word-bank") {
+      const blanks = q.querySelectorAll(".wb-blank");
+      return Array.from(blanks).every(function (b) { return b.classList.contains("wb-filled"); });
+    }
     return false;
   }
 
@@ -184,7 +439,7 @@ ${renderFooter()}
   }
 
   function normalize(str) {
-    return String(str).toLowerCase().replace(/\\s+/g, "");
+    return String(str).toLowerCase().replace(/\s+/g, "");
   }
 
   function checkAnswers() {
@@ -211,6 +466,16 @@ ${renderFooter()}
       } else if (type === "matching") {
         const selects = q.querySelectorAll("select");
         isCorrect = Array.from(selects).every(function (s) { return s.value !== "" && s.value === s.dataset.correct; });
+      } else if (type === "join-lines") {
+        const wrap = q.querySelector(".joinlines-wrap");
+        const expected = JSON.parse(q.dataset.answer);
+        const connections = JSON.parse(wrap.dataset.connections || "{}");
+        isCorrect = expected.every(function (rightValue, i) { return connections[i] === rightValue; });
+      } else if (type === "word-bank") {
+        const blanks = q.querySelectorAll(".wb-blank");
+        isCorrect = Array.from(blanks).every(function (b) {
+          return b.classList.contains("wb-filled") && normalize(b.textContent) === normalize(b.dataset.answer);
+        });
       }
 
       q.classList.remove("correct", "incorrect");
@@ -252,6 +517,14 @@ ${renderFooter()}
       if (type === "dropdown") q.querySelector("select").value = "";
       if (type === "true-false") q.querySelectorAll(".tf-btn").forEach(function (b) { b.classList.remove("selected"); });
       if (type === "matching") q.querySelectorAll("select").forEach(function (s) { s.value = ""; });
+      if (type === "join-lines") {
+        const wrap = q.querySelector(".joinlines-wrap");
+        if (wrap && wrap._resetJoinLines) wrap._resetJoinLines();
+      }
+      if (type === "word-bank") {
+        const wrap = q.querySelector(".wordbank-wrap");
+        if (wrap && wrap._resetWordBank) wrap._resetWordBank();
+      }
     });
     document.getElementById("result").style.display = "none";
     updateProgress();
