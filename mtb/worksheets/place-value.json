@@ -1,0 +1,26 @@
+{
+  "slug": "place-value",
+  "title": "Place Value",
+  "shortDescription": "Practise identifying place value by drawing a line to match each number to its place value.",
+  "intro": "Drag from the dot next to each number to the dot next to its matching place value to draw a line.",
+  "grade": "Grade 6",
+  "topic": "Number",
+  "subtopic": "Place Value",
+  "difficulty": "Easy",
+  "seoTitle": "Grade 6 Place Value Worksheet | MyTutBuddy",
+  "seoDescription": "Free interactive Grade 6 Maths worksheet on place value. Draw lines to match numbers to their place value and get an instant score.",
+  "featured": true,
+  "questions": [
+    {
+      "type": "join-lines",
+      "prompt": "Join each number to the place value of its red digit.",
+      "pairs": [
+        { "left": "460", "right": "Ones" },
+        { "left": "5,029", "right": "Tens" },
+        { "left": "28", "right": "Ten Thousands" },
+        { "left": "122,560", "right": "Hundreds" },
+        { "left": "3,540,283", "right": "Hundred Thousands" }
+      ]
+    }
+  ]
+}
