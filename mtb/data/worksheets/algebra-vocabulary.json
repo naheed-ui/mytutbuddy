@@ -1,0 +1,27 @@
+{
+  "slug": "algebra-vocabulary",
+  "title": "Algebra Vocabulary",
+  "shortDescription": "Fill in the blanks using the word bank to practise key algebra vocabulary.",
+  "intro": "Tap a word from the box, then tap the blank where it belongs. Tap a filled blank to clear it.",
+  "grade": "Grade 8",
+  "topic": "Algebra",
+  "subtopic": "Vocabulary",
+  "difficulty": "Easy",
+  "seoTitle": "Grade 8 Algebra Vocabulary Worksheet | MyTutBuddy",
+  "seoDescription": "Free interactive Grade 8 Maths worksheet on algebra vocabulary. Fill in the blanks from a word bank and get an instant score.",
+  "featured": false,
+  "questions": [
+    {
+      "type": "word-bank",
+      "prompt": "Choose words from the box and fill in the blanks.",
+      "wordBank": ["coefficient", "variable", "constant", "term", "expression", "equation"],
+      "blanks": [
+        { "text": "A letter such as x that represents an unknown number is called a _____.", "answer": "variable" },
+        { "text": "In 7x, the number 7 is called the _____.", "answer": "coefficient" },
+        { "text": "A number on its own, with no variable attached, is a _____.", "answer": "constant" },
+        { "text": "A statement that two expressions are equal, using an equals sign, is an _____.", "answer": "equation" },
+        { "text": "Each separate part of an expression, separated by + or -, is a _____.", "answer": "term" }
+      ]
+    }
+  ]
+}
