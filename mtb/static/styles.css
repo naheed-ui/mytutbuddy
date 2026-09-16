@@ -117,6 +117,20 @@ footer.site-footer {
   font-size: 16px;
 }
 
+.hero-banner-wrap {
+  max-width: 1000px;
+  margin: 10px auto 10px;
+  padding: 0 20px;
+}
+
+.hero-banner {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 20px;
+  box-shadow: 0 12px 34px rgba(31, 41, 99, 0.14);
+}
+
 /* ---------- generic section / grid / cards ---------- */
 
 .section { max-width: 1120px; margin: auto; padding: 30px 20px 70px; }
@@ -323,6 +337,55 @@ footer.site-footer {
 .match-row:last-child { border-bottom: none; }
 .match-left { font-size: 17px; }
 
+.joinlines-wrap { position: relative; }.joinlines-svg {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  pointer-events: none;
+}
+.jl-line { stroke: var(--brand); stroke-width: 3; }
+.jl-line-temp { stroke: var(--brand); stroke-width: 3; stroke-dasharray: 6 5; opacity: 0.6; }
+
+.joinlines-columns {
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  padding: 6px 0;
+}
+.joinlines-left, .joinlines-right { display: flex; flex-direction: column; gap: 18px; flex: 1; }
+.joinlines-right { align-items: flex-end; }
+
+.jl-node {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #fafbff;
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-weight: 600;
+  font-size: 15.5px;
+  max-width: 260px;
+}
+.joinlines-right .jl-node { flex-direction: row-reverse; }
+
+.jl-dot {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: white;
+  border: 3px solid var(--brand);
+  cursor: grab;
+  flex-shrink: 0;
+  touch-action: none;
+}
+.jl-dot:active { cursor: grabbing; }
+
+@media (max-width: 520px) {
+  .joinlines-columns { gap: 16px; }
+  .jl-node { font-size: 13.5px; padding: 8px 10px; max-width: 140px; }
+}
+
 .feedback { margin-top: 14px; font-weight: 700; font-size: 15px; }
 
 .check-btn-wrap { text-align: center; margin: 30px 0; }
@@ -337,6 +400,7 @@ footer.site-footer {
 }
 .result .score { font-size: 40px; font-weight: 800; color: var(--brand); }
 .result p { color: var(--ink); margin: 14px 0 20px; }
+
 /* ---------- static content pages (About, Privacy) ---------- */
 
 .section h1 { font-size: 32px; margin-bottom: 6px; }
@@ -345,6 +409,7 @@ footer.site-footer {
 
 .site-footer a { text-decoration: none; color: var(--muted); font-weight: 600; }
 .site-footer a:hover { color: var(--brand); }
+
 .social-icons {
   display: flex;
   justify-content: center;
@@ -369,9 +434,91 @@ footer.site-footer {
   color: white;
   transform: translateY(-2px);
 }
+
 @media (max-width: 650px) {
   .hero h1 { font-size: 32px; }
   .site-header nav a { margin-left: 12px; font-size: 13.5px; }
   .worksheet-wrap h1 { font-size: 26px; }
   .hero-search { flex-direction: column; }
+}
+
+/* ---------- word bank (shared pool, tap-to-place) ---------- */
+
+.wordbank-pool {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  padding: 14px;
+  background: #f8faff;
+  border: 2px dashed #c7d2fe;
+  border-radius: 12px;
+  margin-bottom: 20px;
+}
+
+.wb-chip {
+  background: white;
+  border: 1px solid #c7d2fe;
+  color: var(--ink);
+  border-radius: 8px;
+  padding: 8px 14px;
+  font-weight: 700;
+  font-size: 15px;
+  cursor: pointer;
+  user-select: none;
+  transition: 0.12s;
+}
+.wb-chip:hover { border-color: var(--brand); background: #eef2ff; }
+.wb-chip.wb-selected {
+  background: var(--brand);
+  color: white;
+  border-color: var(--brand);
+  transform: translateY(-2px);
+}
+.wb-chip.wb-used { opacity: 0.32; cursor: default; text-decoration: line-through; }
+.wb-chip.wb-used:hover { border-color: #c7d2fe; background: white; }
+
+.wb-sentence { font-size: 17px; margin: 0 0 14px; line-height: 2.1; }
+
+.wb-blank {
+  display: inline-block;
+  min-width: 118px;
+  min-height: 34px;
+  padding: 4px 10px;
+  margin: 0 3px;
+  border-bottom: 2px solid var(--brand);
+  background: #f8faff;
+  border-radius: 5px 5px 0 0;
+  cursor: pointer;
+  text-align: center;
+  font-weight: 700;
+  color: var(--brand);
+  vertical-align: middle;
+}
+.wb-blank:hover { background: #eef2ff; }
+.wb-blank.wb-filled { background: #eef2ff; }
+
+/* image-grid variant */
+.wordbank-images {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 16px;
+}
+.wb-image-cell { text-align: center; }
+.wb-image-cell img {
+  width: 100%;
+  height: 130px;
+  object-fit: contain;
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 6px;
+  margin-bottom: 8px;
+  display: block;
+}
+.wb-image-cell .wb-blank { display: block; min-width: 0; width: 100%; }
+
+@media (max-width: 520px) {
+  .wb-chip { font-size: 13.5px; padding: 7px 11px; }
+  .wb-sentence { font-size: 15.5px; }
+  .wb-blank { min-width: 90px; }
 }
