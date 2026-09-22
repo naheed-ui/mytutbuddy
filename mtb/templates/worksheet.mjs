@@ -10,6 +10,16 @@ function shuffle(arr) {
   return a;
 }
 
+// Renders a string, turning **x** into a red-highlighted digit/portion.
+// Used so worksheet data can mark exactly one digit as "the red digit".
+function highlightDigit(str) {
+  const parts = String(str).split("**");
+  if (parts.length === 3) {
+    return escapeHtml(parts[0]) + `<span class="red-digit">${escapeHtml(parts[1])}</span>` + escapeHtml(parts[2]);
+  }
+  return escapeHtml(str);
+}
+
 function renderQuestion(q, index) {
   const num = index + 1;
   const promptHtml = `<div class="prompt"><p>${num}. ${escapeHtml(q.prompt)}</p></div>`;
@@ -74,7 +84,7 @@ function renderQuestion(q, index) {
           ${q.pairs
             .map(
               (p, i) => `<div class="jl-node">
-              <span class="jl-label">${escapeHtml(p.left)}</span>
+              <span class="jl-label">${highlightDigit(p.left)}</span>
               <span class="jl-dot" data-side="left" data-index="${i}"></span>
             </div>`
             )
@@ -126,6 +136,29 @@ function renderQuestion(q, index) {
       </div>`;
 
     body = `<div class="wordbank-wrap">${poolHtml}${blanksHtml}</div>`;
+  } else if (q.type === "expanded-form") {
+    const partsAnswers = {};
+    q.parts.forEach((p, i) => { if (!p.given) partsAnswers[i] = String(p.value); });
+    dataAnswer = escapeHtml(JSON.stringify({ parts: partsAnswers, words: q.words }));
+    const boxesHtml = q.parts
+      .map((p, i) => {
+        const box = p.given
+          ? `<span class="ef-box ef-given">${escapeHtml(String(p.value))}</span>`
+          : `<input type="text" class="ef-box ef-input" data-index="${i}" inputmode="numeric" placeholder="?">`;
+        return (i === 0 ? "" : `<span class="ef-plus">+</span>`) + box;
+      })
+      .join("");
+    body = `<div class="ef-wrap">
+      <div class="ef-row">
+        <span class="ef-number">${escapeHtml(q.number)}</span>
+        <span class="ef-equals">=</span>
+        <span class="ef-parts">${boxesHtml}</span>
+      </div>
+      <div class="ef-words-row">
+        <label class="ef-words-label">In words:</label>
+        <input type="text" class="ef-words-input" placeholder="Write the number in words">
+      </div>
+    </div>`;
   }
 
   return `<div class="question" data-type="${dataType}" data-answer='${dataAnswer}'>
@@ -288,8 +321,8 @@ ${renderFooter()}
   function initJoinLines() {
     document.querySelectorAll(".joinlines-wrap").forEach(function (wrap) {
       const svg = wrap.querySelector(".joinlines-svg");
-      let dragging = null;
-      let connections = {};
+      let dragging = null; // { side, index or value, startX, startY }
+      let connections = {}; // leftIndex -> rightValue
 
       function dotCenter(dot) {
         const dotRect = dot.getBoundingClientRect();
@@ -345,6 +378,7 @@ ${renderFooter()}
         e.preventDefault();
         const side = dot.dataset.side;
         dragging = side === "left" ? { side: "left", index: dot.dataset.index } : { side: "right", value: dot.dataset.value };
+        document.body.classList.add("jl-dragging");
         const p = pointFromEvent(e);
         redraw(p);
         document.addEventListener("mousemove", onMove);
@@ -374,10 +408,15 @@ ${renderFooter()}
             leftIndex = targetDot.dataset.index;
             rightValue = dragging.value;
           }
+          // Enforce one-to-one: if another left item already uses this right value, free it up.
+          Object.keys(connections).forEach(function (k) {
+            if (k !== leftIndex && connections[k] === rightValue) delete connections[k];
+          });
           connections[leftIndex] = rightValue;
         }
 
         dragging = null;
+        document.body.classList.remove("jl-dragging");
         redraw(null);
         updateConnectionsAttr();
         document.removeEventListener("mousemove", onMove);
@@ -397,6 +436,22 @@ ${renderFooter()}
         connections = {};
         updateConnectionsAttr();
         redraw(null);
+      };
+
+      wrap._showResults = function (correctness) {
+        svg.innerHTML = "";
+        Object.keys(connections).forEach(function (leftIndex) {
+          const rightValue = connections[leftIndex];
+          const leftDot = wrap.querySelector('.jl-dot[data-side="left"][data-index="' + leftIndex + '"]');
+          const rightDot = wrap.querySelector('.jl-dot[data-side="right"][data-value="' + CSS.escape(rightValue) + '"]');
+          if (!leftDot || !rightDot) return;
+          const line = document.createElementNS("http://www.w3.org/2000/svg", "line");
+          const a = dotCenter(leftDot), b = dotCenter(rightDot);
+          line.setAttribute("x1", a.x); line.setAttribute("y1", a.y);
+          line.setAttribute("x2", b.x); line.setAttribute("y2", b.y);
+          line.setAttribute("class", correctness[leftIndex] ? "jl-line-correct" : "jl-line-incorrect");
+          svg.appendChild(line);
+        });
       };
     });
   }
@@ -427,6 +482,10 @@ ${renderFooter()}
       const blanks = q.querySelectorAll(".wb-blank");
       return Array.from(blanks).every(function (b) { return b.classList.contains("wb-filled"); });
     }
+    if (type === "expanded-form") {
+      const inputs = q.querySelectorAll(".ef-input, .ef-words-input");
+      return Array.from(inputs).every(function (inp) { return inp.value.trim() !== ""; });
+    }
     return false;
   }
 
@@ -439,57 +498,94 @@ ${renderFooter()}
   }
 
   function normalize(str) {
-    return String(str).toLowerCase().replace(/\s+/g, "");
+    return String(str).toLowerCase().replace(/\s+/g, "").replace(/,/g, "");
   }
 
   function checkAnswers() {
     const questions = document.querySelectorAll("#questions .question");
     let correct = 0;
+    let total = 0;
 
     questions.forEach(function (q) {
       const type = q.dataset.type;
       const feedback = q.querySelector(".feedback");
-      let isCorrect = false;
+      let qCorrect = 0;
+      let qTotal = 1;
 
       if (type === "text") {
         const accepted = JSON.parse(q.dataset.answer);
         const val = q.querySelector("input").value;
-        isCorrect = accepted.some(function (a) { return normalize(a) === normalize(val); });
+        qCorrect = accepted.some(function (a) { return normalize(a) === normalize(val); }) ? 1 : 0;
       } else if (type === "multiple-choice") {
         const checked = q.querySelector("input:checked");
-        isCorrect = !!checked && checked.value === q.dataset.answer;
+        qCorrect = (!!checked && checked.value === q.dataset.answer) ? 1 : 0;
       } else if (type === "dropdown") {
-        isCorrect = q.querySelector("select").value === q.dataset.answer;
+        qCorrect = (q.querySelector("select").value === q.dataset.answer) ? 1 : 0;
       } else if (type === "true-false") {
         const sel = q.querySelector(".tf-btn.selected");
-        isCorrect = !!sel && sel.dataset.value === q.dataset.answer;
+        qCorrect = (!!sel && sel.dataset.value === q.dataset.answer) ? 1 : 0;
       } else if (type === "matching") {
         const selects = q.querySelectorAll("select");
-        isCorrect = Array.from(selects).every(function (s) { return s.value !== "" && s.value === s.dataset.correct; });
+        qTotal = selects.length;
+        selects.forEach(function (s) {
+          const ok = s.value !== "" && s.value === s.dataset.correct;
+          if (ok) qCorrect++;
+          s.closest(".match-row").classList.toggle("row-correct", ok);
+          s.closest(".match-row").classList.toggle("row-incorrect", !ok);
+        });
       } else if (type === "join-lines") {
         const wrap = q.querySelector(".joinlines-wrap");
         const expected = JSON.parse(q.dataset.answer);
         const connections = JSON.parse(wrap.dataset.connections || "{}");
-        isCorrect = expected.every(function (rightValue, i) { return connections[i] === rightValue; });
+        qTotal = expected.length;
+        const correctness = {};
+        expected.forEach(function (rightValue, i) {
+          const ok = connections[i] === rightValue;
+          if (ok) qCorrect++;
+          correctness[i] = ok;
+        });
+        if (wrap._showResults) wrap._showResults(correctness);
       } else if (type === "word-bank") {
         const blanks = q.querySelectorAll(".wb-blank");
-        isCorrect = Array.from(blanks).every(function (b) {
-          return b.classList.contains("wb-filled") && normalize(b.textContent) === normalize(b.dataset.answer);
+        qTotal = blanks.length;
+        blanks.forEach(function (b) {
+          const ok = b.classList.contains("wb-filled") && normalize(b.textContent) === normalize(b.dataset.answer);
+          if (ok) qCorrect++;
+          b.classList.toggle("wb-correct", ok);
+          b.classList.toggle("wb-incorrect", !ok);
         });
+      } else if (type === "expanded-form") {
+        const data = JSON.parse(q.dataset.answer);
+        const idxs = Object.keys(data.parts);
+        qTotal = idxs.length + 1;
+        idxs.forEach(function (idx) {
+          const inp = q.querySelector('.ef-input[data-index="' + idx + '"]');
+          const ok = inp && normalize(inp.value) === normalize(data.parts[idx]);
+          if (ok) qCorrect++;
+          if (inp) inp.classList.toggle("ef-correct", ok), inp.classList.toggle("ef-incorrect", !ok);
+        });
+        const wordsInput = q.querySelector(".ef-words-input");
+        const wordsOk = wordsInput && normalize(wordsInput.value) === normalize(data.words);
+        if (wordsOk) qCorrect++;
+        if (wordsInput) wordsInput.classList.toggle("ef-correct", wordsOk), wordsInput.classList.toggle("ef-incorrect", !wordsOk);
       }
 
-      q.classList.remove("correct", "incorrect");
-      if (isCorrect) {
-        correct++;
+      correct += qCorrect;
+      total += qTotal;
+
+      q.classList.remove("correct", "incorrect", "partial");
+      if (qCorrect === qTotal) {
         q.classList.add("correct");
         feedback.innerHTML = "✅ Correct!";
-      } else {
+      } else if (qCorrect === 0) {
         q.classList.add("incorrect");
         feedback.innerHTML = "❌ Not quite. Review this one and try again.";
+      } else {
+        q.classList.add("partial");
+        feedback.innerHTML = "🟡 " + qCorrect + " / " + qTotal + " correct. Review the rest.";
       }
     });
 
-    const total = questions.length;
     const percentage = Math.round((correct / total) * 100);
 
     document.getElementById("score").innerHTML = correct + " / " + total + " — " + percentage + "%";
@@ -509,14 +605,17 @@ ${renderFooter()}
 
   function tryAgain() {
     document.querySelectorAll("#questions .question").forEach(function (q) {
-      q.classList.remove("correct", "incorrect");
+      q.classList.remove("correct", "incorrect", "partial");
       q.querySelector(".feedback").innerHTML = "";
       const type = q.dataset.type;
       if (type === "text") q.querySelector("input").value = "";
       if (type === "multiple-choice") q.querySelectorAll("input").forEach(function (r) { r.checked = false; });
       if (type === "dropdown") q.querySelector("select").value = "";
       if (type === "true-false") q.querySelectorAll(".tf-btn").forEach(function (b) { b.classList.remove("selected"); });
-      if (type === "matching") q.querySelectorAll("select").forEach(function (s) { s.value = ""; });
+      if (type === "matching") {
+        q.querySelectorAll("select").forEach(function (s) { s.value = ""; });
+        q.querySelectorAll(".match-row").forEach(function (r) { r.classList.remove("row-correct", "row-incorrect"); });
+      }
       if (type === "join-lines") {
         const wrap = q.querySelector(".joinlines-wrap");
         if (wrap && wrap._resetJoinLines) wrap._resetJoinLines();
@@ -524,6 +623,12 @@ ${renderFooter()}
       if (type === "word-bank") {
         const wrap = q.querySelector(".wordbank-wrap");
         if (wrap && wrap._resetWordBank) wrap._resetWordBank();
+      }
+      if (type === "expanded-form") {
+        q.querySelectorAll(".ef-input, .ef-words-input").forEach(function (inp) {
+          inp.value = "";
+          inp.classList.remove("ef-correct", "ef-incorrect");
+        });
       }
     });
     document.getElementById("result").style.display = "none";
