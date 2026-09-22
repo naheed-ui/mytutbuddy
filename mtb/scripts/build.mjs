@@ -16,7 +16,7 @@ const STATIC_DIR = path.join(ROOT, "static");
 const OUT_DIR = path.join(ROOT, "dist");
 
 const REQUIRED_FIELDS = ["slug", "title", "grade", "topic", "difficulty", "questions"];
-const VALID_TYPES = ["text", "multiple-choice", "dropdown", "true-false", "matching", "join-lines", "word-bank"];
+const VALID_TYPES = ["text", "multiple-choice", "dropdown", "true-false", "matching", "join-lines", "word-bank", "expanded-form"];
 
 function fail(msg) {
   console.error(`\n❌ BUILD FAILED\n${msg}\n`);
@@ -79,6 +79,20 @@ function loadWorksheets() {
             fail(`"${file}" question ${i + 1}, blank ${bi + 1} needs either "text" (with _____) or an "image".`);
           }
         });
+      } else if (q.type === "expanded-form") {
+        if (!q.number) fail(`"${file}" question ${i + 1} (expanded-form) needs a "number".`);
+        if (!Array.isArray(q.parts) || q.parts.length < 2) {
+          fail(`"${file}" question ${i + 1} (expanded-form) needs a "parts" list with at least 2 entries.`);
+        }
+        if (!q.parts.some((p) => !p.given)) {
+          fail(`"${file}" question ${i + 1} (expanded-form) needs at least one non-given part for the student to fill in.`);
+        }
+        q.parts.forEach((p, pi) => {
+          if (p.value === undefined || p.value === "") {
+            fail(`"${file}" question ${i + 1}, part ${pi + 1} is missing a "value".`);
+          }
+        });
+        if (!q.words) fail(`"${file}" question ${i + 1} (expanded-form) needs "words" (the number written out).`);
       } else if (q.type === "true-false") {
         if (typeof q.answer !== "boolean") {
           fail(`"${file}" question ${i + 1} (true-false) needs "answer" to be true or false (no quotes).`);
