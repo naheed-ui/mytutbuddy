@@ -1,0 +1,114 @@
+{
+  "slug": "writing-out-place-value",
+  "title": "Writing Out Place Value",
+  "shortDescription": "Fill in the missing numbers in expanded form, then write each number in words.",
+  "intro": "Fill in the missing numbers. Then write the number in words. Example: 732 = 700 + 30 + 2 → Seven hundred and thirty-two.",
+  "grade": "Grade 6",
+  "topic": "Number",
+  "subtopic": "Place Value",
+  "difficulty": "Easy",
+  "seoTitle": "Place Value Worksheet: Writing Numbers in Expanded Form | MyTutBuddy",
+  "seoDescription": "Free interactive Maths worksheet on place value. Fill in expanded form and write numbers in words, with instant feedback.",
+  "featured": true,
+  "questions": [
+    {
+      "type": "expanded-form",
+      "number": "4,215",
+      "parts": [
+        { "value": 4000, "given": false },
+        { "value": 200, "given": true },
+        { "value": 10, "given": false },
+        { "value": 5, "given": false }
+      ],
+      "words": "Four thousand, two hundred and fifteen"
+    },
+    {
+      "type": "expanded-form",
+      "number": "3,067",
+      "parts": [
+        { "value": 3000, "given": false },
+        { "value": 0, "given": false },
+        { "value": 60, "given": true },
+        { "value": 7, "given": false }
+      ],
+      "words": "Three thousand and sixty-seven"
+    },
+    {
+      "type": "expanded-form",
+      "number": "5,904",
+      "parts": [
+        { "value": 5000, "given": false },
+        { "value": 900, "given": true },
+        { "value": 0, "given": false },
+        { "value": 4, "given": false }
+      ],
+      "words": "Five thousand, nine hundred and four"
+    },
+    {
+      "type": "expanded-form",
+      "number": "2,438",
+      "parts": [
+        { "value": 2000, "given": false },
+        { "value": 400, "given": true },
+        { "value": 30, "given": false },
+        { "value": 8, "given": false }
+      ],
+      "words": "Two thousand, four hundred and thirty-eight"
+    },
+    {
+      "type": "expanded-form",
+      "number": "7,001",
+      "parts": [
+        { "value": 7000, "given": false },
+        { "value": 0, "given": false },
+        { "value": 0, "given": false },
+        { "value": 1, "given": true }
+      ],
+      "words": "Seven thousand and one"
+    },
+    {
+      "type": "expanded-form",
+      "number": "6,320",
+      "parts": [
+        { "value": 6000, "given": false },
+        { "value": 300, "given": true },
+        { "value": 20, "given": false },
+        { "value": 0, "given": false }
+      ],
+      "words": "Six thousand, three hundred and twenty"
+    },
+    {
+      "type": "expanded-form",
+      "number": "9,876",
+      "parts": [
+        { "value": 9000, "given": false },
+        { "value": 800, "given": false },
+        { "value": 70, "given": true },
+        { "value": 6, "given": false }
+      ],
+      "words": "Nine thousand, eight hundred and seventy-six"
+    },
+    {
+      "type": "expanded-form",
+      "number": "1,509",
+      "parts": [
+        { "value": 1000, "given": false },
+        { "value": 500, "given": false },
+        { "value": 0, "given": false },
+        { "value": 9, "given": false }
+      ],
+      "words": "One thousand, five hundred and nine"
+    },
+    {
+      "type": "expanded-form",
+      "number": "8,040",
+      "parts": [
+        { "value": 8000, "given": false },
+        { "value": 0, "given": false },
+        { "value": 40, "given": true },
+        { "value": 0, "given": false }
+      ],
+      "words": "Eight thousand and forty"
+    }
+  ]
+}
