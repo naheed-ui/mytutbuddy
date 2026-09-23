@@ -553,8 +553,16 @@ ${renderFooter()}
   }
 
   function normalize(str) {
-    return String(str).toLowerCase().replace(/\s+/g, "").replace(/,/g, "");
-  }
+  return String(str)
+    .toLowerCase()
+    .normalize("NFKC")
+    .replace(/[’']/g, "")
+    .replace(/[^a-z0-9]/g, "");
+}
+
+function normalizeWords(str) {
+  return normalize(str).replace(/and/g, "");
+}
 
   function checkAnswers() {
     const questions = document.querySelectorAll("#questions .question");
