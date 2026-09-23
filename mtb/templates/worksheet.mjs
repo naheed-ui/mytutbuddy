@@ -643,7 +643,10 @@ function normalizeWords(str) {
           if (inp) inp.classList.toggle("ef-correct", ok), inp.classList.toggle("ef-incorrect", !ok);
         });
         const wordsInput = q.querySelector(".ef-words-input");
-        const wordsOk = wordsInput && normalize(wordsInput.value) === normalize(data.words);
+        const wordsOk = wordsInput && (
+  normalize(wordsInput.value) === normalize(data.words) ||
+  normalizeWords(wordsInput.value) === normalizeWords(data.words)
+);
         if (wordsOk) qCorrect++;
         if (wordsInput) wordsInput.classList.toggle("ef-correct", wordsOk), wordsInput.classList.toggle("ef-incorrect", !wordsOk);
       }
