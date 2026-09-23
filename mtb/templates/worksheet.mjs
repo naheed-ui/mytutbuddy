@@ -593,17 +593,16 @@ ${renderFooter()}
         for (let i = 0; i < qTotal; i++) {
   const rightIndex = connections[i];
 
-  const leftCategory = q.pairs[i]
-    ? q.pairs[i].right
-    : "";
+  const categories = JSON.parse(q.dataset.answer || "[]");
+
+  const leftCategory = categories[i] || "";
 
   const rightCategory =
-    rightIndex !== undefined &&
-    q.pairs[Number(rightIndex)]
-      ? q.pairs[Number(rightIndex)].right
+    rightIndex !== undefined
+      ? categories[Number(rightIndex)] || ""
       : "";
 
-  // Any right-hand box with the same category is correct.
+  // Any box with the same place-value category is correct.
   const ok =
     rightIndex !== undefined &&
     leftCategory !== "" &&
