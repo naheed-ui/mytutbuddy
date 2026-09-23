@@ -1,0 +1,36 @@
+{
+  "slug": "place-value-match-up",
+  "title": "Place Value Match-Up",
+  "shortDescription": "Draw a line from each number to the place value of its red digit — 15 numbers to match.",
+  "intro": "Look at the red digit in each number. Drag from its dot to the dot next to the matching place value to draw a line.",
+  "grade": "Grade 6",
+  "topic": "Number",
+  "subtopic": "Place Value",
+  "difficulty": "Medium",
+  "seoTitle": "Place Value Matching Worksheet (15 Questions) | MyTutBuddy",
+  "seoDescription": "Free interactive Maths worksheet on place value. Draw lines to match 15 numbers to the place value of their red digit, with instant feedback.",
+  "featured": true,
+  "questions": [
+    {
+      "type": "join-lines",
+      "prompt": "Join each number to the place value of its red digit.",
+      "pairs": [
+        { "left": "35**7**", "right": "Ones" },
+        { "left": "8**4**2", "right": "Tens" },
+        { "left": "**6**91", "right": "Hundreds" },
+        { "left": "**4**,205", "right": "Thousands" },
+        { "left": "1,7**3**0", "right": "Tens" },
+        { "left": "9,**2**54", "right": "Hundreds" },
+        { "left": "**5**2,340", "right": "Ten Thousands" },
+        { "left": "7**6**,821", "right": "Thousands" },
+        { "left": "**3**41,006", "right": "Hundred Thousands" },
+        { "left": "6**8**5,214", "right": "Ten Thousands" },
+        { "left": "1,**4**32,678", "right": "Hundred Thousands" },
+        { "left": "**2**,109,455", "right": "Millions" },
+        { "left": "5,67**8**,213", "right": "Thousands" },
+        { "left": "30,52**7**", "right": "Ones" },
+        { "left": "9**1**6", "right": "Tens" }
+      ]
+    }
+  ]
+}
