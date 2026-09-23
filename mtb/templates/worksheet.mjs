@@ -75,6 +75,9 @@ function renderQuestion(q, index) {
         .join("\n")}
     </div>`;
   } else if (q.type === "join-lines") {
+    dataAnswer = escapeHtml(JSON.stringify(q.pairs.map(function (p) {
+  return p.right;
+})));
     const rightOrder = shuffle(q.pairs.map((_, i) => i));
     body = `<div class="joinlines-wrap" data-connections="{}">
       <svg class="joinlines-svg"></svg>
