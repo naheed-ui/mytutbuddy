@@ -371,21 +371,27 @@ footer.site-footer {
   font-weight: 600;
   font-size: 15.5px;
   max-width: 260px;
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28"><text x="0" y="22" font-size="22">✏️</text></svg>') 2 24, pointer;
+  touch-action: none;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+.jl-node:active {
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28"><text x="0" y="22" font-size="22">✏️</text></svg>') 2 24, grabbing;
 }
 .joinlines-right .jl-node { flex-direction: row-reverse; }
 .red-digit { color: var(--red); font-weight: 800; }
 
 .jl-dot {
-  width: 16px;
-  height: 16px;
+  width: 20px;
+  height: 20px;
   border-radius: 50%;
   background: white;
   border: 3px solid var(--brand);
-  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28"><text x="0" y="22" font-size="22">✏️</text></svg>') 2 24, pointer;
   flex-shrink: 0;
-  touch-action: none;
+  pointer-events: none;
 }
-.jl-dot:active { cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28"><text x="0" y="22" font-size="22">✏️</text></svg>') 2 24, grabbing; }
 body.jl-dragging, body.jl-dragging * {
   cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28"><text x="0" y="22" font-size="22">✏️</text></svg>') 2 24, grabbing !important;
 }
