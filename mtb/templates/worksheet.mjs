@@ -82,7 +82,7 @@ function renderQuestion(q, index) {
         <div class="joinlines-left">
           ${q.pairs
             .map(
-              (p, i) => `<div class="jl-node">
+              (p, i) => `<div class="jl-node" data-side="left" data-index="${i}">
               <span class="jl-label">${highlightDigit(p.left)}</span>
               <span class="jl-dot" data-side="left" data-index="${i}"></span>
             </div>`
@@ -92,7 +92,7 @@ function renderQuestion(q, index) {
         <div class="joinlines-right">
           ${rightOrder
             .map(
-              (origIndex) => `<div class="jl-node">
+              (origIndex) => `<div class="jl-node" data-side="right" data-index="${origIndex}">
               <span class="jl-dot" data-side="right" data-index="${origIndex}"></span>
               <span class="jl-label">${escapeHtml(q.pairs[origIndex].right)}</span>
             </div>`
@@ -391,11 +391,11 @@ ${renderFooter()}
       }
 
       function onDown(e) {
-        const dot = e.target.closest(".jl-dot");
-        if (!dot) return;
+        const node = e.target.closest(".jl-node");
+        if (!node) return;
         e.preventDefault();
-        const side = dot.dataset.side;
-        dragging = { side: side, index: dot.dataset.index };
+        const side = node.dataset.side;
+        dragging = { side: side, index: node.dataset.index };
         document.body.classList.add("jl-dragging");
         const p = pointFromEvent(e);
         redraw(p);
@@ -418,13 +418,44 @@ ${renderFooter()}
       function onUp(e) {
         if (!dragging) return;
         const p = pointFromEvent(e);
-        const el = document.elementFromPoint(p.clientX, p.clientY);
-        const targetDot = el ? el.closest(".jl-dot") : null;
 
-        if (targetDot && targetDot.dataset.side !== dragging.side) {
-          const leftIndex = dragging.side === "left" ? dragging.index : targetDot.dataset.index;
-          const rightIndex = dragging.side === "left" ? targetDot.dataset.index : dragging.index;
-          // Enforce one-to-one: if another left item already uses this right dot, free it up.
+        // Primary: is the touch/click point inside any opposite-side box at all?
+        // This lets you release anywhere in the box, not just on the small dot.
+        const oppositeSide = dragging.side === "left" ? "right" : "left";
+        const candidates = wrap.querySelectorAll('.jl-node[data-side="' + oppositeSide + '"]');
+        let target = null;
+        candidates.forEach(function (node) {
+          if (target) return;
+          const r = node.getBoundingClientRect();
+          const wrapRect = wrap.getBoundingClientRect();
+          const left = r.left - wrapRect.left;
+          const top = r.top - wrapRect.top;
+          if (p.x >= left && p.x <= left + r.width && p.y >= top && p.y <= top + r.height) {
+            target = node;
+          }
+        });
+
+        // Fallback: nearest box center within a generous radius, in case the
+        // finger lifted just outside an edge.
+        if (!target) {
+          let nearestDist = Infinity;
+          candidates.forEach(function (node) {
+            const r = node.getBoundingClientRect();
+            const wrapRect = wrap.getBoundingClientRect();
+            const cx = r.left - wrapRect.left + r.width / 2;
+            const cy = r.top - wrapRect.top + r.height / 2;
+            const dist = Math.sqrt((cx - p.x) * (cx - p.x) + (cy - p.y) * (cy - p.y));
+            if (dist < nearestDist) {
+              nearestDist = dist;
+              if (dist <= 60) target = node;
+            }
+          });
+        }
+
+        if (target) {
+          const leftIndex = dragging.side === "left" ? dragging.index : target.dataset.index;
+          const rightIndex = dragging.side === "left" ? target.dataset.index : dragging.index;
+          // Enforce one-to-one: if another left item already uses this right box, free it up.
           Object.keys(connections).forEach(function (k) {
             if (k !== leftIndex && connections[k] === rightIndex) delete connections[k];
           });
@@ -434,18 +465,21 @@ ${renderFooter()}
         dragging = null;
         document.body.classList.remove("jl-dragging");
         pointerIndicator(0, 0, false);
-        redraw(null);
         updateConnectionsAttr();
         document.removeEventListener("mousemove", onMove);
         document.removeEventListener("touchmove", onMove);
         document.removeEventListener("mouseup", onUp);
         document.removeEventListener("touchend", onUp);
         document.removeEventListener("touchcancel", onUp);
+        // Deferred to the next frame: iOS Safari can still be settling the
+        // viewport/toolbar right after a touch ends, which briefly makes
+        // getBoundingClientRect() coordinates stale.
+        requestAnimationFrame(function () { redraw(null); });
       }
 
-      wrap.querySelectorAll(".jl-dot").forEach(function (dot) {
-        dot.addEventListener("mousedown", onDown);
-        dot.addEventListener("touchstart", onDown, { passive: false });
+      wrap.querySelectorAll(".jl-node").forEach(function (node) {
+        node.addEventListener("mousedown", onDown);
+        node.addEventListener("touchstart", onDown, { passive: false });
       });
 
       window.addEventListener("resize", function () { redraw(null); });
