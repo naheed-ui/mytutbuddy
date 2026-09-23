@@ -75,8 +75,7 @@ function renderQuestion(q, index) {
         .join("\n")}
     </div>`;
   } else if (q.type === "join-lines") {
-    const rightOptions = shuffle(q.pairs.map((p) => p.right));
-    dataAnswer = escapeHtml(JSON.stringify(q.pairs.map((p) => p.right)));
+    const rightOrder = shuffle(q.pairs.map((_, i) => i));
     body = `<div class="joinlines-wrap" data-connections="{}">
       <svg class="joinlines-svg"></svg>
       <div class="joinlines-columns">
@@ -91,11 +90,11 @@ function renderQuestion(q, index) {
             .join("\n")}
         </div>
         <div class="joinlines-right">
-          ${rightOptions
+          ${rightOrder
             .map(
-              (r) => `<div class="jl-node">
-              <span class="jl-dot" data-side="right" data-value="${escapeHtml(r)}"></span>
-              <span class="jl-label">${escapeHtml(r)}</span>
+              (origIndex) => `<div class="jl-node">
+              <span class="jl-dot" data-side="right" data-index="${origIndex}"></span>
+              <span class="jl-label">${escapeHtml(q.pairs[origIndex].right)}</span>
             </div>`
             )
             .join("\n")}
@@ -336,16 +335,15 @@ ${renderFooter()}
       function redraw(tempEnd) {
         svg.innerHTML = "";
         Object.keys(connections).forEach(function (leftIndex) {
-          const rightValue = connections[leftIndex];
+          const rightIndex = connections[leftIndex];
           const leftDot = wrap.querySelector('.jl-dot[data-side="left"][data-index="' + leftIndex + '"]');
-          const rightDot = wrap.querySelector('.jl-dot[data-side="right"][data-value="' + CSS.escape(rightValue) + '"]');
+          const rightDot = wrap.querySelector('.jl-dot[data-side="right"][data-index="' + rightIndex + '"]');
           if (!leftDot || !rightDot) return;
           drawLine(dotCenter(leftDot), dotCenter(rightDot), false);
         });
         if (dragging && tempEnd) {
           const startDot = wrap.querySelector(
-            '.jl-dot[data-side="' + dragging.side + '"]' +
-              (dragging.side === "left" ? '[data-index="' + dragging.index + '"]' : '[data-value="' + CSS.escape(dragging.value) + '"]')
+            '.jl-dot[data-side="' + dragging.side + '"][data-index="' + dragging.index + '"]'
           );
           if (startDot) drawLine(dotCenter(startDot), tempEnd, true);
         }
@@ -363,8 +361,28 @@ ${renderFooter()}
 
       function pointFromEvent(e) {
         const wrapRect = wrap.getBoundingClientRect();
-        const pt = e.touches && e.touches[0] ? e.touches[0] : e;
+        let pt = e;
+        if (e.touches && e.touches.length) pt = e.touches[0];
+        else if (e.changedTouches && e.changedTouches.length) pt = e.changedTouches[0];
         return { x: pt.clientX - wrapRect.left, y: pt.clientY - wrapRect.top, clientX: pt.clientX, clientY: pt.clientY };
+      }
+
+      function pointerIndicator(clientX, clientY, show) {
+        let ind = wrap._penIndicator;
+        if (!show) {
+          if (ind) ind.style.display = "none";
+          return;
+        }
+        if (!ind) {
+          ind = document.createElement("div");
+          ind.className = "jl-pen-indicator";
+          ind.textContent = "✏️";
+          document.body.appendChild(ind);
+          wrap._penIndicator = ind;
+        }
+        ind.style.display = "block";
+        ind.style.left = clientX + "px";
+        ind.style.top = clientY + "px";
       }
 
       function updateConnectionsAttr() {
@@ -377,20 +395,24 @@ ${renderFooter()}
         if (!dot) return;
         e.preventDefault();
         const side = dot.dataset.side;
-        dragging = side === "left" ? { side: "left", index: dot.dataset.index } : { side: "right", value: dot.dataset.value };
+        dragging = { side: side, index: dot.dataset.index };
         document.body.classList.add("jl-dragging");
         const p = pointFromEvent(e);
         redraw(p);
+        pointerIndicator(p.clientX, p.clientY, true);
         document.addEventListener("mousemove", onMove);
         document.addEventListener("touchmove", onMove, { passive: false });
         document.addEventListener("mouseup", onUp);
         document.addEventListener("touchend", onUp);
+        document.addEventListener("touchcancel", onUp);
       }
 
       function onMove(e) {
         if (!dragging) return;
         e.preventDefault();
-        redraw(pointFromEvent(e));
+        const p = pointFromEvent(e);
+        redraw(p);
+        pointerIndicator(p.clientX, p.clientY, true);
       }
 
       function onUp(e) {
@@ -400,29 +422,25 @@ ${renderFooter()}
         const targetDot = el ? el.closest(".jl-dot") : null;
 
         if (targetDot && targetDot.dataset.side !== dragging.side) {
-          let leftIndex, rightValue;
-          if (dragging.side === "left") {
-            leftIndex = dragging.index;
-            rightValue = targetDot.dataset.value;
-          } else {
-            leftIndex = targetDot.dataset.index;
-            rightValue = dragging.value;
-          }
-          // Enforce one-to-one: if another left item already uses this right value, free it up.
+          const leftIndex = dragging.side === "left" ? dragging.index : targetDot.dataset.index;
+          const rightIndex = dragging.side === "left" ? targetDot.dataset.index : dragging.index;
+          // Enforce one-to-one: if another left item already uses this right dot, free it up.
           Object.keys(connections).forEach(function (k) {
-            if (k !== leftIndex && connections[k] === rightValue) delete connections[k];
+            if (k !== leftIndex && connections[k] === rightIndex) delete connections[k];
           });
-          connections[leftIndex] = rightValue;
+          connections[leftIndex] = rightIndex;
         }
 
         dragging = null;
         document.body.classList.remove("jl-dragging");
+        pointerIndicator(0, 0, false);
         redraw(null);
         updateConnectionsAttr();
         document.removeEventListener("mousemove", onMove);
         document.removeEventListener("touchmove", onMove);
         document.removeEventListener("mouseup", onUp);
         document.removeEventListener("touchend", onUp);
+        document.removeEventListener("touchcancel", onUp);
       }
 
       wrap.querySelectorAll(".jl-dot").forEach(function (dot) {
@@ -441,9 +459,9 @@ ${renderFooter()}
       wrap._showResults = function (correctness) {
         svg.innerHTML = "";
         Object.keys(connections).forEach(function (leftIndex) {
-          const rightValue = connections[leftIndex];
+          const rightIndex = connections[leftIndex];
           const leftDot = wrap.querySelector('.jl-dot[data-side="left"][data-index="' + leftIndex + '"]');
-          const rightDot = wrap.querySelector('.jl-dot[data-side="right"][data-value="' + CSS.escape(rightValue) + '"]');
+          const rightDot = wrap.querySelector('.jl-dot[data-side="right"][data-index="' + rightIndex + '"]');
           if (!leftDot || !rightDot) return;
           const line = document.createElementNS("http://www.w3.org/2000/svg", "line");
           const a = dotCenter(leftDot), b = dotCenter(rightDot);
@@ -535,15 +553,14 @@ ${renderFooter()}
         });
       } else if (type === "join-lines") {
         const wrap = q.querySelector(".joinlines-wrap");
-        const expected = JSON.parse(q.dataset.answer);
         const connections = JSON.parse(wrap.dataset.connections || "{}");
-        qTotal = expected.length;
+        qTotal = q.querySelectorAll(".jl-dot[data-side='left']").length;
         const correctness = {};
-        expected.forEach(function (rightValue, i) {
-          const ok = connections[i] === rightValue;
+        for (let i = 0; i < qTotal; i++) {
+          const ok = connections[i] === String(i);
           if (ok) qCorrect++;
           correctness[i] = ok;
-        });
+        }
         if (wrap._showResults) wrap._showResults(correctness);
       } else if (type === "word-bank") {
         const blanks = q.querySelectorAll(".wb-blank");
