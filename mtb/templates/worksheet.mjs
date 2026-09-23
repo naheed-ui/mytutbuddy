@@ -591,10 +591,27 @@ ${renderFooter()}
         qTotal = q.querySelectorAll(".jl-dot[data-side='left']").length;
         const correctness = {};
         for (let i = 0; i < qTotal; i++) {
-          const ok = connections[i] === String(i);
-          if (ok) qCorrect++;
-          correctness[i] = ok;
-        }
+  const rightIndex = connections[i];
+
+  const leftCategory = q.pairs[i]
+    ? q.pairs[i].right
+    : "";
+
+  const rightCategory =
+    rightIndex !== undefined &&
+    q.pairs[Number(rightIndex)]
+      ? q.pairs[Number(rightIndex)].right
+      : "";
+
+  // Any right-hand box with the same category is correct.
+  const ok =
+    rightIndex !== undefined &&
+    leftCategory !== "" &&
+    leftCategory === rightCategory;
+
+  if (ok) qCorrect++;
+  correctness[i] = ok;
+}
         if (wrap._showResults) wrap._showResults(correctness);
       } else if (type === "word-bank") {
         const blanks = q.querySelectorAll(".wb-blank");
