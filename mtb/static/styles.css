@@ -633,3 +633,220 @@ input.ef-box.ef-input.ef-incorrect { border-color: var(--red); background: var(-
   .ef-number, .ef-equals { font-size: 18px; }
   .ef-box { min-width: 52px; height: 40px; font-size: 15px; }
 }
+/* =========================================================
+   MULTIPLYING FRACTIONS
+   MyTutBuddy / Live Worksheet style
+   ========================================================= */
+
+.fm-wrap {
+  background: #fffcf6;
+  border: 2px solid #e6dfd2;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+}
+
+.fm-expression {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  flex-wrap: wrap;
+  font-size: 25px;
+  font-weight: 700;
+  color: #1c1917;
+}
+
+.fm-times,
+.fm-equals {
+  font-size: 27px;
+  color: #6b645c;
+  font-weight: 700;
+}
+
+.fm-fraction {
+  width: 58px;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 1.1;
+  font-weight: 800;
+}
+
+.fm-fraction > span:first-child {
+  width: 100%;
+  padding: 4px 5px 7px;
+  text-align: center;
+  border-bottom: 2px solid #1c1917;
+}
+
+.fm-fraction > span:last-child {
+  width: 100%;
+  padding: 7px 5px 4px;
+  text-align: center;
+}
+
+.fm-input-fraction {
+  width: 64px;
+}
+
+.fm-input {
+  width: 58px !important;
+  height: 43px;
+  padding: 5px !important;
+  margin: 0 !important;
+  border: 2px solid #c9c0b2 !important;
+  border-radius: 7px !important;
+  background: white !important;
+  color: #1c1917;
+  font-size: 20px !important;
+  font-weight: 800;
+  text-align: center;
+  box-shadow: none !important;
+}
+
+.fm-input:first-child {
+  border-radius: 7px 7px 0 0 !important;
+  border-bottom: 0 !important;
+}
+
+.fm-input:last-child {
+  border-radius: 0 0 7px 7px !important;
+}
+
+.fm-input:focus {
+  outline: 3px solid rgba(79, 70, 229, 0.18);
+  border-color: var(--brand) !important;
+}
+
+.fm-input.fm-correct {
+  border-color: var(--green) !important;
+  background: var(--green-bg) !important;
+  color: var(--green);
+}
+
+.fm-input.fm-incorrect {
+  border-color: var(--red) !important;
+  background: var(--red-bg) !important;
+  color: var(--red);
+}
+
+.fm-hint {
+  margin-top: 20px;
+  text-align: center;
+  color: #6b645c;
+  font-size: 14px;
+}
+
+.question[data-type="fraction-multiplication"] {
+  padding: 20px;
+}
+
+.question[data-type="fraction-multiplication"] .prompt {
+  display: none;
+}
+
+.question[data-type="fraction-multiplication"] .q-number {
+  margin-bottom: 15px;
+}
+
+/* Two-column fraction worksheet layout */
+
+#questions {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+#questions .question {
+  margin-bottom: 0;
+}
+
+/* Make the fraction worksheet feel more like a paper worksheet */
+
+.question[data-type="fraction-multiplication"] {
+  background: #fffcf6;
+  border: 1px solid #e6dfd2;
+  border-radius: 10px;
+}
+
+.question[data-type="fraction-multiplication"].correct {
+  border: 2px solid var(--green);
+  background: var(--green-bg);
+}
+
+.question[data-type="fraction-multiplication"].incorrect {
+  border: 2px solid var(--red);
+  background: var(--red-bg);
+}
+
+.question[data-type="fraction-multiplication"].partial {
+  border: 2px solid #d97706;
+  background: #fffbeb;
+}
+
+@media (max-width: 800px) {
+  #questions {
+    grid-template-columns: 1fr;
+  }
+
+  .fm-expression {
+    gap: 12px;
+    font-size: 22px;
+  }
+
+  .fm-times,
+  .fm-equals {
+    font-size: 23px;
+  }
+}
+
+@media (max-width: 520px) {
+  .fm-wrap {
+    padding: 16px 10px;
+  }
+
+  .fm-expression {
+    gap: 8px;
+    font-size: 19px;
+  }
+
+  .fm-times,
+  .fm-equals {
+    font-size: 20px;
+  }
+
+  .fm-fraction {
+    width: 48px;
+  }
+
+  .fm-input-fraction {
+    width: 55px;
+  }
+
+  .fm-input {
+    width: 48px !important;
+    height: 39px;
+    font-size: 17px !important;
+  }
+
+  .fm-hint {
+    font-size: 12px;
+  }
+}
+
+/* iPad / touch input improvements */
+
+.fm-input {
+  -webkit-appearance: none;
+  appearance: none;
+  touch-action: manipulation;
+  -webkit-user-select: text;
+  user-select: text;
+}
+
+@supports (-webkit-touch-callout: none) {
+  .fm-input {
+    font-size: 20px !important;
+  }
+}
