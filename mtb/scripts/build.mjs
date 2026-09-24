@@ -103,6 +103,38 @@ function loadWorksheets() {
           }
         });
         if (!q.words) fail(`"${file}" question ${i + 1} (expanded-form) needs "words" (the number written out).`);
+           } else if (q.type === "fraction-multiplication") {
+        if (q.leftNumerator === undefined || q.leftNumerator === "") {
+          fail(`"${file}" question ${i + 1} (fraction-multiplication) is missing "leftNumerator".`);
+        }
+
+        if (q.leftDenominator === undefined || q.leftDenominator === "") {
+          fail(`"${file}" question ${i + 1} (fraction-multiplication) is missing "leftDenominator".`);
+        }
+
+        if (q.rightNumerator === undefined || q.rightNumerator === "") {
+          fail(`"${file}" question ${i + 1} (fraction-multiplication) is missing "rightNumerator".`);
+        }
+
+        if (q.rightDenominator === undefined || q.rightDenominator === "") {
+          fail(`"${file}" question ${i + 1} (fraction-multiplication) is missing "rightDenominator".`);
+        }
+
+        if (q.rawNumerator === undefined || q.rawNumerator === "") {
+          fail(`"${file}" question ${i + 1} (fraction-multiplication) is missing "rawNumerator".`);
+        }
+
+        if (q.rawDenominator === undefined || q.rawDenominator === "") {
+          fail(`"${file}" question ${i + 1} (fraction-multiplication) is missing "rawDenominator".`);
+        }
+
+        if (q.simplifiedNumerator === undefined || q.simplifiedNumerator === "") {
+          fail(`"${file}" question ${i + 1} (fraction-multiplication) is missing "simplifiedNumerator".`);
+        }
+
+        if (q.simplifiedDenominator === undefined || q.simplifiedDenominator === "") {
+          fail(`"${file}" question ${i + 1} (fraction-multiplication) is missing "simplifiedDenominator".`);
+        }
       } else if (q.type === "true-false") {
         if (typeof q.answer !== "boolean") {
           fail(`"${file}" question ${i + 1} (true-false) needs "answer" to be true or false (no quotes).`);
