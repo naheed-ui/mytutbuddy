@@ -925,13 +925,22 @@ function normalizeWords(str) {
     document.getElementById("score").innerHTML = correct + " / " + total + " — " + percentage + "%";
 
     const msg = document.getElementById("message");
-    if (percentage === 100) {
-      msg.innerHTML = "🎉 Excellent work! You got everything correct.";
-    } else if (percentage >= 50) {
-      msg.innerHTML = "👍 Good effort! Review the questions you missed.";
-    } else {
-      msg.innerHTML = "📚 Keep practising! Review the topic and try again.";
-    }
+   if (percentage === 100) {
+  msg.innerHTML =
+    "🏆 Perfect! You mastered multiplying fractions!";
+} else if (percentage >= 80) {
+  msg.innerHTML =
+    "🌟 Great work! You have a strong understanding of multiplying fractions.";
+} else if (percentage >= 60) {
+  msg.innerHTML =
+    "👏 Good job! Review the questions you missed and try again.";
+} else if (percentage >= 40) {
+  msg.innerHTML =
+    "💪 Nice effort! A little more practice will help.";
+} else {
+  msg.innerHTML =
+    "📚 Keep practising! Review the multiplication and simplification steps.";
+}
 
     document.getElementById("result").style.display = "block";
     window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
