@@ -752,13 +752,13 @@ input.ef-box.ef-input.ef-incorrect { border-color: var(--red); background: var(-
 
 /* Two-column fraction worksheet layout */
 
-#questions {
+body:has(.question[data-type="fraction-multiplication"]) #questions {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 18px;
 }
 
-#questions .question {
+body:has(.question[data-type="fraction-multiplication"]) #questions .question {
   margin-bottom: 0;
 }
 
@@ -786,7 +786,7 @@ input.ef-box.ef-input.ef-incorrect { border-color: var(--red); background: var(-
 }
 
 @media (max-width: 800px) {
-  #questions {
+  body:has(.question[data-type="fraction-multiplication"]) #questions {
     grid-template-columns: 1fr;
   }
 
