@@ -414,6 +414,7 @@ ${renderFooter()}
       ]
     });
     updateProgress();
+        initWorksheetDateTime();
     document.querySelectorAll("#questions input, #questions select").forEach(function (el) {
       el.addEventListener("input", updateProgress);
       el.addEventListener("change", updateProgress);
