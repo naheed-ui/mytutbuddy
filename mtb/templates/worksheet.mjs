@@ -614,6 +614,12 @@ ${renderFooter()}
       const blanks = q.querySelectorAll(".wb-blank");
       return Array.from(blanks).every(function (b) { return b.classList.contains("wb-filled"); });
     }
+       if (type === "fraction-multiplication") {
+      const inputs = q.querySelectorAll(".fm-input");
+      return Array.from(inputs).every(function (inp) {
+        return inp.value.trim() !== "";
+      });
+    } 
     if (type === "expanded-form") {
       const inputs = q.querySelectorAll(".ef-input, .ef-words-input");
       return Array.from(inputs).every(function (inp) { return inp.value.trim() !== ""; });
