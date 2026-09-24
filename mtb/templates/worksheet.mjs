@@ -332,7 +332,7 @@ ${renderHeader()}
       </div>
 
       <div class="fm-info-row">
-        <span class="fm-info-pill">🎓 Grade 7</span>
+        <span class="fm-info-pill">🎓 Grade 6</span>
         <span class="fm-info-pill">🔢 Number</span>
         <span class="fm-info-pill">🍕 Fractions</span>
         <span class="fm-info-pill">⭐ Medium</span>
