@@ -741,12 +741,35 @@ function initWorksheetDateTime() {
   }
 }
   function updateProgress() {
-    const questions = document.querySelectorAll("#questions .question");
-    let answered = 0;
-    questions.forEach(function (q) { if (isAnswered(q)) answered++; });
-    const pct = Math.round((answered / questions.length) * 100);
-    document.getElementById("progressFill").style.width = pct + "%";
+  const questions = document.querySelectorAll("#questions .question");
+  let answered = 0;
+
+  questions.forEach(function (q) {
+    if (isAnswered(q)) answered++;
+  });
+
+  const pct = questions.length
+    ? Math.round((answered / questions.length) * 100)
+    : 0;
+
+  const oldProgress = document.getElementById("progressFill");
+
+  if (oldProgress) {
+    oldProgress.style.width = pct + "%";
   }
+
+  const fmProgress = document.getElementById("fmProgressFill");
+  const fmCount = document.getElementById("fmProgressCount");
+
+  if (fmProgress) {
+    fmProgress.style.width = pct + "%";
+  }
+
+  if (fmCount) {
+    fmCount.textContent =
+      answered + " / " + questions.length + " completed";
+  }
+}
 
   function normalize(str) {
   return String(str)
