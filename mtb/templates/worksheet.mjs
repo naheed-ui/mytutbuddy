@@ -820,6 +820,12 @@ function normalizeWords(str) {
         const wrap = q.querySelector(".wordbank-wrap");
         if (wrap && wrap._resetWordBank) wrap._resetWordBank();
       }
+         if (type === "fraction-multiplication") {
+        q.querySelectorAll(".fm-input").forEach(function (inp) {
+          inp.value = "";
+          inp.classList.remove("fm-correct", "fm-incorrect");
+        });
+      }  
       if (type === "expanded-form") {
         q.querySelectorAll(".ef-input, .ef-words-input").forEach(function (inp) {
           inp.value = "";
