@@ -709,6 +709,38 @@ function normalizeWords(str) {
           b.classList.toggle("wb-correct", ok);
           b.classList.toggle("wb-incorrect", !ok);
         });
+              } else if (type === "fraction-multiplication") {
+        const data = JSON.parse(q.dataset.answer);
+
+        const fields = [
+          "rawNumerator",
+          "rawDenominator",
+          "simplifiedNumerator",
+          "simplifiedDenominator"
+        ];
+
+        qTotal = fields.length;
+
+        fields.forEach(function (field) {
+          const input = q.querySelector(
+            '.fm-input[data-field="' + field + '"]'
+          );
+
+          const expected = String(data[field]);
+          const actual = input ? input.value.trim() : "";
+
+          const ok =
+            actual !== "" &&
+            actual.replace(/^0+(?=\d)/, "") ===
+            expected.replace(/^0+(?=\d)/, "");
+
+          if (ok) qCorrect++;
+
+          if (input) {
+            input.classList.toggle("fm-correct", ok);
+            input.classList.toggle("fm-incorrect", !ok);
+          }
+        });
       } else if (type === "expanded-form") {
         const data = JSON.parse(q.dataset.answer);
         const idxs = Object.keys(data.parts);
