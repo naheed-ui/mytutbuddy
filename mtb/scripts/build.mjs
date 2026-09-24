@@ -16,7 +16,17 @@ const STATIC_DIR = path.join(ROOT, "static");
 const OUT_DIR = path.join(ROOT, "dist");
 
 const REQUIRED_FIELDS = ["slug", "title", "grade", "topic", "difficulty", "questions"];
-const VALID_TYPES = ["text", "multiple-choice", "dropdown", "true-false", "matching", "join-lines", "word-bank", "expanded-form"];
+const VALID_TYPES = [
+  "text",
+  "multiple-choice",
+  "dropdown",
+  "true-false",
+  "matching",
+  "join-lines",
+  "word-bank",
+  "expanded-form",
+  "fraction-multiplication"
+];
 
 function fail(msg) {
   console.error(`\n❌ BUILD FAILED\n${msg}\n`);
