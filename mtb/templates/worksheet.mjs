@@ -284,16 +284,106 @@ ${renderHeader()}
 
 <main class="worksheet-wrap">
 
-  <p class="worksheet-meta">${escapeHtml(ws.grade)} • ${escapeHtml(ws.topic)}${
-    ws.subtopic ? " • " + escapeHtml(ws.subtopic) : ""
-  } • ${escapeHtml(ws.difficulty)}</p>
+  ${
+    ws.slug === "multiplying-fractions-a"
+      ? `
+    <section class="fm-page-header">
 
-  <h1>${escapeHtml(ws.title)}</h1>
-  ${ws.intro ? `<p class="worksheet-intro">${escapeHtml(ws.intro)}</p>` : ""}
+      <div class="fm-brand">
+        ✨ MyTutBuddy Maths
+      </div>
 
-  <div class="progress-bar-track">
-    <div class="progress-bar-fill" id="progressFill"></div>
-  </div>
+      <h1 class="fm-page-title">
+        ${escapeHtml(ws.title)}
+      </h1>
+
+      <p class="fm-page-subtitle">
+        Multiply • Simplify • Master Fractions
+      </p>
+
+      <div class="fm-student-panel">
+
+        <div class="fm-student-field">
+          <label for="studentName">Student Name</label>
+          <input
+            id="studentName"
+            type="text"
+            placeholder="Enter your name"
+            autocomplete="name"
+          >
+        </div>
+
+        <div class="fm-student-field">
+          <label for="worksheetDate">Date</label>
+          <input
+            id="worksheetDate"
+            type="date"
+          >
+        </div>
+
+        <div class="fm-student-field">
+          <label for="worksheetTime">Time</label>
+          <input
+            id="worksheetTime"
+            type="time"
+          >
+        </div>
+
+      </div>
+
+      <div class="fm-info-row">
+        <span class="fm-info-pill">🎓 Grade 7</span>
+        <span class="fm-info-pill">🔢 Number</span>
+        <span class="fm-info-pill">🍕 Fractions</span>
+        <span class="fm-info-pill">⭐ Medium</span>
+        <span class="fm-info-pill">📝 20 Questions</span>
+      </div>
+
+    </section>
+
+    <div class="fm-instructions">
+      <strong>💡 Your task:</strong>
+      Multiply the numerators and denominators first.
+      Write your product, then simplify your fraction to its lowest terms.
+    </div>
+
+    <div class="fm-progress-card">
+
+      <div class="fm-progress-top">
+        <span class="fm-progress-title">
+          📚 Your Progress
+        </span>
+
+        <span
+          class="fm-progress-count"
+          id="fmProgressCount"
+        >
+          0 / ${total} completed
+        </span>
+      </div>
+
+      <div class="fm-progress-track">
+        <div
+          class="fm-progress-fill"
+          id="fmProgressFill"
+        ></div>
+      </div>
+
+    </div>
+    `
+      : `
+    <p class="worksheet-meta">${escapeHtml(ws.grade)} • ${escapeHtml(ws.topic)}${
+      ws.subtopic ? " • " + escapeHtml(ws.subtopic) : ""
+    } • ${escapeHtml(ws.difficulty)}</p>
+
+    <h1>${escapeHtml(ws.title)}</h1>
+    ${ws.intro ? `<p class="worksheet-intro">${escapeHtml(ws.intro)}</p>` : ""}
+
+    <div class="progress-bar-track">
+      <div class="progress-bar-fill" id="progressFill"></div>
+    </div>
+    `
+  }
 
   <div id="questions">
   ${questionsHtml}
