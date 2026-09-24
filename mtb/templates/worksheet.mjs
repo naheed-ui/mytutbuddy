@@ -138,6 +138,83 @@ function renderQuestion(q, index) {
       </div>`;
 
     body = `<div class="wordbank-wrap">${poolHtml}${blanksHtml}</div>`;
+    } else if (q.type === "fraction-multiplication") {
+    dataAnswer = escapeHtml(
+      JSON.stringify({
+        rawNumerator: q.rawNumerator,
+        rawDenominator: q.rawDenominator,
+        simplifiedNumerator: q.simplifiedNumerator,
+        simplifiedDenominator: q.simplifiedDenominator
+      })
+    );
+
+    body = `
+      <div class="fm-wrap">
+
+        <div class="fm-expression">
+
+          <div class="fm-fraction">
+            <span>${escapeHtml(String(q.leftNumerator))}</span>
+            <span>${escapeHtml(String(q.leftDenominator))}</span>
+          </div>
+
+          <span class="fm-times">×</span>
+
+          <div class="fm-fraction">
+            <span>${escapeHtml(String(q.rightNumerator))}</span>
+            <span>${escapeHtml(String(q.rightDenominator))}</span>
+          </div>
+
+          <span class="fm-equals">=</span>
+
+          <div class="fm-fraction fm-input-fraction">
+            <input
+              class="fm-input"
+              data-field="rawNumerator"
+              inputmode="numeric"
+              pattern="[0-9]*"
+              autocomplete="off"
+              aria-label="Product numerator"
+            >
+            <input
+              class="fm-input"
+              data-field="rawDenominator"
+              inputmode="numeric"
+              pattern="[0-9]*"
+              autocomplete="off"
+              aria-label="Product denominator"
+            >
+          </div>
+
+          <span class="fm-equals">=</span>
+
+          <div class="fm-fraction fm-input-fraction">
+            <input
+              class="fm-input"
+              data-field="simplifiedNumerator"
+              inputmode="numeric"
+              pattern="[0-9]*"
+              autocomplete="off"
+              aria-label="Simplified numerator"
+            >
+            <input
+              class="fm-input"
+              data-field="simplifiedDenominator"
+              inputmode="numeric"
+              pattern="[0-9]*"
+              autocomplete="off"
+              aria-label="Simplified denominator"
+            >
+          </div>
+
+        </div>
+
+        <div class="fm-hint">
+          Multiply the numerators and denominators first, then simplify.
+        </div>
+
+      </div>
+    `;
   } else if (q.type === "expanded-form") {
     const partsAnswers = {};
     q.parts.forEach((p, i) => { if (!p.given) partsAnswers[i] = String(p.value); });
