@@ -390,7 +390,9 @@ ${renderHeader()}
   </div>
 
   <div class="check-btn-wrap">
-    <button class="button" onclick="checkAnswers()">CHECK MY ANSWERS</button>
+   <button class="button" onclick="checkAnswers()">
+  ✨ FINISH & CHECK ANSWERS
+</button>
   </div>
 
   <div class="result" id="result">
