@@ -989,5 +989,4 @@ function normalizeWords(str) {
 </html>
 `;
 }
-- <span class="fm-info-pill">🎓 Grade 7</span>
-+ <span class="fm-info-pill">🎓 Grade 6</span>
+
