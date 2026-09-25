@@ -289,7 +289,8 @@ ${renderHeader()}
 <main class="worksheet-wrap">
 
   ${
-    ws.slug === "multiplying-fractions-a"
+   ws.slug === "multiplying-fractions-a" ||
+ws.slug === "dividing-fractions-a"
       ? `
     <section class="fm-page-header">
 
