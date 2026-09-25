@@ -210,8 +210,12 @@ function renderQuestion(q, index) {
         </div>
 
         <div class="fm-hint">
-          Multiply the numerators and denominators first, then simplify.
-        </div>
+  ${
+    q.operator === "÷"
+      ? "Keep the first fraction, flip the second fraction, multiply, then simplify."
+      : "Multiply the numerators and denominators first, then simplify."
+  }
+</div>
 
       </div>
     `;
