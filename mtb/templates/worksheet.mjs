@@ -158,7 +158,7 @@ function renderQuestion(q, index) {
             <span>${escapeHtml(String(q.leftDenominator))}</span>
           </div>
 
-          <span class="fm-times">×</span>
+          <span class="fm-times">${escapeHtml(q.operator || "×")}</span>
 
           <div class="fm-fraction">
             <span>${escapeHtml(String(q.rightNumerator))}</span>
