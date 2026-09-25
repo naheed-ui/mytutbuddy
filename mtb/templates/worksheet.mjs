@@ -303,8 +303,12 @@ ws.slug === "dividing-fractions-a"
       </h1>
 
       <p class="fm-page-subtitle">
-        Multiply • Simplify • Master Fractions
-      </p>
+  ${
+    ws.slug === "dividing-fractions-a"
+      ? "Divide • Simplify • Master Fractions"
+      : "Multiply • Simplify • Master Fractions"
+  }
+</p>
 
       <div class="fm-student-panel">
 
