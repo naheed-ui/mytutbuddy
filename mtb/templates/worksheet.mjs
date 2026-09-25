@@ -352,8 +352,11 @@ ws.slug === "dividing-fractions-a"
 
     <div class="fm-instructions">
       <strong>💡 Your task:</strong>
-      Multiply the numerators and denominators first.
-      Write your product, then simplify your fraction to its lowest terms.
+${
+  ws.slug === "dividing-fractions-a"
+    ? "Keep the first fraction, flip the second fraction, multiply, then simplify your answer."
+    : "Multiply the numerators and denominators first. Write your product, then simplify your fraction to its lowest terms."
+}
     </div>
 
     <div class="fm-progress-card">
