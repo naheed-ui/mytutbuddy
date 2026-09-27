@@ -759,6 +759,10 @@ ${renderFooter()}
         return inp.value.trim() !== "";
       });
     } 
+       if (type === "show-working") {
+      const input = q.querySelector(".working-answer-input");
+      return !!input && input.value.trim() !== "";
+    }
     if (type === "expanded-form") {
       const inputs = q.querySelectorAll(".ef-input, .ef-words-input");
       return Array.from(inputs).every(function (inp) { return inp.value.trim() !== ""; });
