@@ -25,7 +25,8 @@ const VALID_TYPES = [
   "join-lines",
   "word-bank",
   "expanded-form",
-  "fraction-multiplication"
+  "fraction-multiplication",
+  "show-working"
 ];
 
 function fail(msg) {
