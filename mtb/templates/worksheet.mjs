@@ -219,6 +219,40 @@ function renderQuestion(q, index) {
 
       </div>
     `;
+   } else if (q.type === "show-working") {
+    const alt =
+      q.acceptableAnswers && q.acceptableAnswers.length
+        ? q.acceptableAnswers
+        : [q.answer];
+
+    dataAnswer = escapeHtml(JSON.stringify(alt));
+
+    body = `
+      <div class="working-wrap">
+
+        <textarea
+          class="working-textarea"
+          rows="3"
+          placeholder="Show your working here (not marked)"
+        ></textarea>
+
+        <div class="working-answer-row">
+          <label class="working-answer-label">
+            Final answer:
+          </label>
+
+          <input
+            type="text"
+            class="working-answer-input"
+            placeholder="Type your final answer"
+            autocomplete="off"
+            autocorrect="off"
+            spellcheck="false"
+          >
+        </div>
+
+      </div>
+    `;
   } else if (q.type === "expanded-form") {
     const partsAnswers = {};
     q.parts.forEach((p, i) => { if (!p.given) partsAnswers[i] = String(p.value); });
