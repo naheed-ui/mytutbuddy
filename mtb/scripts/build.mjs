@@ -136,6 +136,14 @@ function loadWorksheets() {
         if (q.simplifiedDenominator === undefined || q.simplifiedDenominator === "") {
           fail(`"${file}" question ${i + 1} (fraction-multiplication) is missing "simplifiedDenominator".`);
         }
+           } else if (q.type === "show-working") {
+        if (!q.prompt) {
+          fail(`"${file}" question ${i + 1} (show-working) needs a "prompt".`);
+        }
+
+        if (!q.answer) {
+          fail(`"${file}" question ${i + 1} (show-working) needs an "answer".`);
+        }
       } else if (q.type === "true-false") {
         if (typeof q.answer !== "boolean") {
           fail(`"${file}" question ${i + 1} (true-false) needs "answer" to be true or false (no quotes).`);
