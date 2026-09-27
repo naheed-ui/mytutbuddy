@@ -1,0 +1,59 @@
+{
+  "slug": "quadratics-and-algebraic-fractions",
+  "title": "Quadratics & Algebraic Fractions",
+  "shortDescription": "Solve equations involving algebraic fractions, then simplify fraction division expressions, with space to show your working.",
+  "intro": "Use the working box to show your steps (this isn't marked), then type your final answer in the box below it.",
+  "grade": "GCSE",
+  "topic": "Algebra",
+  "subtopic": "Quadratics & Algebraic Fractions",
+  "difficulty": "Hard",
+  "seoTitle": "GCSE Quadratics & Algebraic Fractions Worksheet | MyTutBuddy",
+  "seoDescription": "Free interactive GCSE Higher Maths worksheet on solving equations with algebraic fractions and simplifying algebraic fraction division, with space to show working.",
+  "featured": true,
+  "questions": [
+    {
+      "type": "show-working",
+      "prompt": "Solve: $$x = \\dfrac{7x - 9}{x + 1}$$",
+      "answer": "3"
+    },
+    {
+      "type": "show-working",
+      "prompt": "Solve: $$x = \\dfrac{9x - 16}{x + 1}$$",
+      "answer": "4"
+    },
+    {
+      "type": "show-working",
+      "prompt": "Solve: $$x = \\dfrac{x - 4}{x + 5}$$",
+      "answer": "-2"
+    },
+    {
+      "type": "show-working",
+      "prompt": "Solve: $$x = \\dfrac{12x - 25}{x + 2}$$",
+      "answer": "5"
+    },
+    {
+      "type": "show-working",
+      "prompt": "Simplify fully: $$\\dfrac{x^2 - 9}{x^2 + 2x} \\div \\dfrac{x - 3}{x + 2}$$",
+      "answer": "(x+3)/x",
+      "acceptableAnswers": ["(x+3)/x", "(3+x)/x"]
+    },
+    {
+      "type": "show-working",
+      "prompt": "Simplify fully: $$\\dfrac{x^2 - 16}{x^2 + 3x} \\div \\dfrac{x - 4}{x + 3}$$",
+      "answer": "(x+4)/x",
+      "acceptableAnswers": ["(x+4)/x", "(4+x)/x"]
+    },
+    {
+      "type": "show-working",
+      "prompt": "Simplify fully: $$\\dfrac{x^2 - 25}{x^2 + 6x} \\div \\dfrac{x - 5}{x + 6}$$",
+      "answer": "(x+5)/x",
+      "acceptableAnswers": ["(x+5)/x", "(5+x)/x"]
+    },
+    {
+      "type": "show-working",
+      "prompt": "Simplify fully: $$\\dfrac{x^2 - 4}{x^2 + 5x} \\div \\dfrac{x - 2}{x + 5}$$",
+      "answer": "(x+2)/x",
+      "acceptableAnswers": ["(x+2)/x", "(2+x)/x"]
+    }
+  ]
+}
