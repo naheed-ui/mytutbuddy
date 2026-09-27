@@ -935,6 +935,22 @@ function normalizeWords(str) {
             input.classList.toggle("fm-incorrect", !ok);
           }
         });
+           } else if (type === "show-working") {
+        const accepted = JSON.parse(q.dataset.answer);
+        const input = q.querySelector(".working-answer-input");
+
+        const ok =
+          !!input &&
+          accepted.some(function (answer) {
+            return normalize(answer) === normalize(input.value);
+          });
+
+        qCorrect = ok ? 1 : 0;
+
+        if (input) {
+          input.classList.toggle("working-correct", ok);
+          input.classList.toggle("working-incorrect", !ok);
+        }
       } else if (type === "expanded-form") {
         const data = JSON.parse(q.dataset.answer);
         const idxs = Object.keys(data.parts);
@@ -1023,6 +1039,19 @@ function normalizeWords(str) {
           inp.classList.remove("fm-correct", "fm-incorrect");
         });
       }  
+          if (type === "show-working") {
+        const input = q.querySelector(".working-answer-input");
+        const textarea = q.querySelector(".working-textarea");
+
+        if (input) {
+          input.value = "";
+          input.classList.remove("working-correct", "working-incorrect");
+        }
+
+        if (textarea) {
+          textarea.value = "";
+        }
+      } 
       if (type === "expanded-form") {
         q.querySelectorAll(".ef-input, .ef-words-input").forEach(function (inp) {
           inp.value = "";
