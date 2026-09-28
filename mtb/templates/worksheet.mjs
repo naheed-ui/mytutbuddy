@@ -909,6 +909,15 @@ ${renderFooter()}
 
       return answerDone && (carryInputs.length === 0 || carryDone);
     } 
+            if (type === "vertical-addition") {
+        q.querySelectorAll(".va-input").forEach(function (input) {
+          input.value = "";
+          input.classList.remove(
+            "va-correct",
+            "va-incorrect"
+          );
+        });
+      }
        if (type === "show-working") {
       const input = q.querySelector(".working-answer-input");
       return !!input && input.value.trim() !== "";
