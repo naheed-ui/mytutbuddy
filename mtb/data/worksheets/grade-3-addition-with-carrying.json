@@ -16,7 +16,7 @@
       "instruction": "Write the carry in the small box.",
       "addends": ["27", "18"],
       "answer": "45",
-      "carries": ["1", "1"],
+      "carries": ["1", ""],
       "showCarries": true,
       "marks": 2
     },
@@ -26,7 +26,7 @@
       "instruction": "Write the carry in the small box.",
       "addends": ["46", "27"],
       "answer": "73",
-      "carries": ["1", "1"],
+      "carries": ["1", ""],
       "showCarries": true,
       "marks": 2
     },
@@ -36,7 +36,7 @@
       "instruction": "Write the carry in the small box.",
       "addends": ["58", "36"],
       "answer": "94",
-      "carries": ["1", "1"],
+      "carries": ["1", ""],
       "showCarries": true,
       "marks": 2
     },
@@ -46,7 +46,7 @@
       "instruction": "Write the carry in the small box.",
       "addends": ["67", "28"],
       "answer": "95",
-      "carries": ["1", "1"],
+      "carries": ["1", ""],
       "showCarries": true,
       "marks": 2
     },
@@ -56,7 +56,7 @@
       "instruction": "Record each carry carefully.",
       "addends": ["75", "49"],
       "answer": "124",
-      "carries": ["1", "1", "1"],
+      "carries": ["1", "1", ""],
       "showCarries": true,
       "marks": 2
     },
@@ -66,7 +66,7 @@
       "instruction": "Record the carry above the correct column.",
       "addends": ["138", "247"],
       "answer": "385",
-      "carries": ["", "1", "1"],
+      "carries": ["", "1", ""],
       "showCarries": true,
       "marks": 2
     },
@@ -76,7 +76,7 @@
       "instruction": "Record each carry above the correct column.",
       "addends": ["267", "158"],
       "answer": "425",
-      "carries": ["1", "1", "1"],
+      "carries": ["1", "1", ""],
       "showCarries": true,
       "marks": 2
     },
@@ -86,7 +86,7 @@
       "instruction": "Record each carry carefully.",
       "addends": ["346", "279"],
       "answer": "625",
-      "carries": ["1", "1", "1"],
+      "carries": ["1", "1", ""],
       "showCarries": true,
       "marks": 2
     },
@@ -96,7 +96,7 @@
       "instruction": "Record the carry above the correct column.",
       "addends": ["458", "176"],
       "answer": "634",
-      "carries": ["", "1", "1"],
+      "carries": ["", "1", ""],
       "showCarries": true,
       "marks": 2
     },
@@ -106,7 +106,7 @@
       "instruction": "Record each carry carefully.",
       "addends": ["589", "276"],
       "answer": "865",
-      "carries": ["1", "1", "1"],
+      "carries": ["1", "1", ""],
       "showCarries": true,
       "marks": 2
     }
