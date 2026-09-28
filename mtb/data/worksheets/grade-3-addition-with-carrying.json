@@ -9,6 +9,13 @@
   "seoTitle": "Grade 3 Addition With Carrying | MyTutBuddy",
   "seoDescription": "Interactive Grade 3 addition worksheet with carrying boxes and vertical answer boxes.",
   "intro": "Add each pair of numbers. Remember to record your carries in the small boxes.",
+"resultMessages": {
+  "perfect": "🏆 Perfect! You got every question correct!",
+  "great": "🌟 Great work! Keep practising your addition.",
+  "good": "👏 Good job! Review the questions you missed.",
+  "effort": "💪 Good effort! Practise your addition carefully.",
+  "keepPractising": "📚 Keep practising! You will improve with practice."
+},
   "questions": [
     {
       "type": "vertical-addition",
