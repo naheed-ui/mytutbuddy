@@ -796,7 +796,7 @@ function initWorksheetDateTime() {
   const questions = document.querySelectorAll("#questions .question");
   let answered = 0;
 
-  questions.forEach(function (q) {
+  questions.forEach(function (q, index) {
     if (isAnswered(q)) answered++;
   });
 
@@ -840,7 +840,7 @@ function normalizeWords(str) {
     let correct = 0;
     let total = 0;
 
-    questions.forEach(function (q) {
+   questions.forEach(function (q, index) {
       const type = q.dataset.type;
       const feedback = q.querySelector(".feedback");
       let qCorrect = 0;
