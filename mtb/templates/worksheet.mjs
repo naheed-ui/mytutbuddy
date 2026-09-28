@@ -1219,22 +1219,30 @@ function normalizeWords(str) {
 
     document.getElementById("score").innerHTML = correct + " / " + total + " — " + percentage + "%";
 
-    const msg = document.getElementById("message");
-  if (percentage === 100) {
+    const resultMessages = ${JSON.stringify(ws.resultMessages || {})};
+
+const msg = document.getElementById("message");
+
+if (percentage === 100) {
   msg.innerHTML =
-    "🏆 Perfect! You mastered quadratics and algebraic fractions!";
+    resultMessages.perfect ||
+    "🏆 Perfect! You got every question correct!";
 } else if (percentage >= 80) {
   msg.innerHTML =
-    "🌟 Great work! You have a strong understanding of the algebraic steps.";
+    resultMessages.great ||
+    "🌟 Great work! Keep practising.";
 } else if (percentage >= 60) {
   msg.innerHTML =
-    "👏 Good job! Review the questions you missed and try again.";
+    resultMessages.good ||
+    "👏 Good job! Review the questions you missed.";
 } else if (percentage >= 40) {
   msg.innerHTML =
-    "💪 Nice effort! Keep practising your algebraic manipulation.";
+    resultMessages.effort ||
+    "💪 Good effort! Keep practising.";
 } else {
   msg.innerHTML =
-    "📚 Keep practising! Review your algebraic fraction and quadratic steps.";
+    resultMessages.keepPractising ||
+    "📚 Keep practising! You will improve with practice.";
 }
 
     document.getElementById("result").style.display = "block";
