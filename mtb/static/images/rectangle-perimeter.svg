@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 360">
+<rect width="700" height="360" fill="white"/>
+<style>.l{stroke:#5146d8;stroke-width:6;fill:#a78bfa}.t{font:28px Arial;fill:#111827}.d{stroke:#374151;stroke-width:2;fill:none}</style>
+<rect x="150" y="100" width="400" height="160" class="l"/>
+<text x="285" y="85" class="t">3x + 1 cm</text>
+<text x="570" y="185" class="t">2x − 3 cm</text>
+<text x="170" y="315" class="t">Perimeter = 46 cm</text>
+</svg>

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 420">
+<rect width="700" height="420" fill="white"/>
+<style>.p{stroke:#5146d8;stroke-width:7;fill:#a78bfa}.t{font:28px Arial;fill:#111827}</style>
+<polygon points="350,55 150,340 550,340" class="p"/>
+<text x="325" y="105" class="t">2x + 10°</text>
+<text x="135" y="335" class="t">3x − 5°</text>
+<text x="445" y="335" class="t">x + 25°</text>
+</svg>
