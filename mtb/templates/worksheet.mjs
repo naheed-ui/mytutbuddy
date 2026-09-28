@@ -935,7 +935,7 @@ function normalizeWords(str) {
             input.classList.toggle("fm-incorrect", !ok);
           }
         });
-           } else if (type === "show-working") {
+                } else if (type === "show-working") {
         const accepted = JSON.parse(q.dataset.answer);
         const input = q.querySelector(".working-answer-input");
 
@@ -945,7 +945,11 @@ function normalizeWords(str) {
             return normalize(answer) === normalize(input.value);
           });
 
-        qCorrect = ok ? 1 : 0;
+        // Q1 and Q2 = 2 marks each
+        // Q3 onwards = 3 marks each
+        qTotal = index < 2 ? 2 : 3;
+
+        qCorrect = ok ? qTotal : 0;
 
         if (input) {
           input.classList.toggle("working-correct", ok);
