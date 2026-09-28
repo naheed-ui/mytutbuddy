@@ -219,7 +219,143 @@ function renderQuestion(q, index) {
 
       </div>
     `;
-   } else if (q.type === "show-working") {
+    } else if (q.type === "vertical-addition") {
+    const addends = q.addends.map(String);
+    const answer = String(q.answer);
+
+    const digitColumns = Math.max(
+      answer.length,
+      ...addends.map((n) => n.length)
+    );
+
+    const paddedAddends = addends.map((n) =>
+      n.padStart(digitColumns, " ")
+    );
+
+    const paddedAnswer = answer.padStart(digitColumns, " ");
+
+    const carries = Array.isArray(q.carries)
+      ? q.carries
+      : Array(digitColumns).fill("");
+
+    const hasCarryBoxes = q.showCarries === true;
+
+    dataAnswer = escapeHtml(
+      JSON.stringify({
+        answer: answer,
+        carries: carries,
+        marks: q.marks || 2,
+        hasCarryBoxes: hasCarryBoxes
+      })
+    );
+
+    const makeCells = (value, className) => {
+      return value
+        .split("")
+        .map((digit) => {
+          const display = digit === " " ? "" : escapeHtml(digit);
+          return `<span class="${className}">${display}</span>`;
+        })
+        .join("");
+    };
+
+    const answerCells = paddedAnswer
+      .split("")
+      .map(
+        (digit, i) =>
+          `<input
+            class="va-input va-answer-input"
+            data-index="${i}"
+            inputmode="numeric"
+            maxlength="1"
+            autocomplete="off"
+            aria-label="Answer digit ${i + 1}"
+            value=""
+          >`
+      )
+      .join("");
+
+    let carryRow = "";
+
+    if (hasCarryBoxes) {
+      const carryCells = carries
+        .slice(0, digitColumns)
+        .map((expected, i) => {
+          // No carry is needed above the units column.
+          const isUnitsColumn = i === digitColumns - 1;
+
+          if (isUnitsColumn) {
+            return `<span class="va-carry-spacer"></span>`;
+          }
+
+          return `
+            <input
+              class="va-input va-carry-input"
+              data-index="${i}"
+              inputmode="numeric"
+              maxlength="1"
+              autocomplete="off"
+              aria-label="Carry digit ${i + 1}"
+            >
+          `;
+        })
+        .join("");
+
+      carryRow = `
+        <div class="va-row va-carry-row">
+          <span class="va-operator"></span>
+          ${carryCells}
+        </div>
+      `;
+    }
+
+    const addendRows = paddedAddends
+      .map((value, rowIndex) => {
+        const operator =
+          rowIndex === paddedAddends.length - 1 ? "+" : "";
+
+        return `
+          <div class="va-row">
+            <span class="va-operator">${operator}</span>
+            ${makeCells(value, "va-digit")}
+          </div>
+        `;
+      })
+      .join("");
+
+    body = `
+      <div class="va-wrap">
+
+        <div class="va-instruction">
+          ${escapeHtml(q.instruction || "Add the numbers.")}
+        </div>
+
+        <div
+          class="va-column-grid"
+          style="--va-cols:${digitColumns}"
+        >
+
+          ${carryRow}
+
+          ${addendRows}
+
+          <div class="va-row va-answer-row">
+            <span class="va-operator"></span>
+            ${answerCells}
+          </div>
+
+        </div>
+
+        <div class="va-note">
+          ${hasCarryBoxes
+            ? "Enter each carry digit in the small boxes above the calculation."
+            : "Enter the answer one digit at a time."
+          }
+        </div>
+
+      </div>
+    `;
+  } else if (q.type === "show-working") {
     const alt =
       q.acceptableAnswers && q.acceptableAnswers.length
         ? q.acceptableAnswers
@@ -759,6 +895,20 @@ ${renderFooter()}
         return inp.value.trim() !== "";
       });
     } 
+        if (type === "vertical-addition") {
+      const answerInputs = q.querySelectorAll(".va-answer-input");
+      const carryInputs = q.querySelectorAll(".va-carry-input");
+
+      const answerDone = Array.from(answerInputs).every(function (input) {
+        return input.value.trim() !== "";
+      });
+
+      const carryDone = Array.from(carryInputs).every(function (input) {
+        return input.value.trim() !== "";
+      });
+
+      return answerDone && (carryInputs.length === 0 || carryDone);
+    } 
        if (type === "show-working") {
       const input = q.querySelector(".working-answer-input");
       return !!input && input.value.trim() !== "";
@@ -935,6 +1085,72 @@ function normalizeWords(str) {
             input.classList.toggle("fm-incorrect", !ok);
           }
         });
+               } else if (type === "vertical-addition") {
+        const data = JSON.parse(q.dataset.answer);
+
+        const answerInputs = q.querySelectorAll(".va-answer-input");
+        const carryInputs = q.querySelectorAll(".va-carry-input");
+
+        const actualAnswer = Array.from(answerInputs)
+          .map(function (input) {
+            return input.value.trim();
+          })
+          .join("");
+
+        const answerOk =
+          actualAnswer === String(data.answer);
+
+        let carryOk = true;
+
+        if (data.hasCarryBoxes) {
+          carryOk = Array.from(carryInputs).every(function (input) {
+            const index = Number(input.dataset.index);
+            const expected = String(data.carries[index] || "");
+            const actual = input.value.trim();
+
+            return actual === expected;
+          });
+        }
+
+        qTotal = Number(data.marks || 2);
+
+        if (data.hasCarryBoxes) {
+          // 1 mark for carries + 1 mark for final answer
+          qCorrect =
+            (carryOk ? 1 : 0) +
+            (answerOk ? 1 : 0);
+        } else {
+          // Without carrying: 2 marks for the final answer
+          qCorrect = answerOk ? 2 : 0;
+        }
+
+        answerInputs.forEach(function (input) {
+          input.classList.remove("va-correct", "va-incorrect");
+        });
+
+        carryInputs.forEach(function (input) {
+          input.classList.remove("va-correct", "va-incorrect");
+        });
+
+        answerInputs.forEach(function (input) {
+          input.classList.add(
+            answerOk ? "va-correct" : "va-incorrect"
+          );
+        });
+
+        if (data.hasCarryBoxes) {
+          carryInputs.forEach(function (input) {
+            const index = Number(input.dataset.index);
+            const expected = String(data.carries[index] || "");
+            const actual = input.value.trim();
+
+            input.classList.add(
+              actual === expected
+                ? "va-correct"
+                : "va-incorrect"
+            );
+          });
+        }    
                 } else if (type === "show-working") {
         const accepted = JSON.parse(q.dataset.answer);
         const input = q.querySelector(".working-answer-input");
