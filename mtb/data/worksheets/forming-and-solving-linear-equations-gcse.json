@@ -1,0 +1,93 @@
+{
+  "slug": "forming-and-solving-linear-equations-gcse",
+  "title": "Forming & Solving Linear Equations",
+  "shortDescription": "GCSE medium-level interactive worksheet on forming and solving linear equations.",
+  "intro": "Show your working, then enter your final answer. Each question is worth 3 marks.",
+  "grade": "GCSE",
+  "topic": "Algebra",
+  "subtopic": "Forming & Solving Linear Equations",
+  "difficulty": "Medium",
+  "seoTitle": "GCSE Forming and Solving Linear Equations Worksheet | MyTutBuddy",
+  "seoDescription": "Interactive GCSE Maths worksheet on forming and solving linear equations with working space and instant marking.",
+  "featured": true,
+  "questions": [
+    {
+      "type": "show-working",
+      "marks": 3,
+      "prompt": "Solve: 3x + 7 = 28",
+      "answer": "7"
+    },
+    {
+      "type": "show-working",
+      "marks": 3,
+      "prompt": "Solve: 4(x − 2) = 2x + 10",
+      "answer": "9"
+    },
+    {
+      "type": "show-working",
+      "marks": 3,
+      "prompt": "Solve: 5x − 7 = 3x + 13",
+      "answer": "10"
+    },
+    {
+      "type": "show-working",
+      "marks": 3,
+      "prompt": "Abi is x years old. Bob is twice as old as Abi. Cam is 3 years older than Bob. The total of their ages is 58. Form an equation and solve to find x.",
+      "answer": "11"
+    },
+    {
+      "type": "show-working",
+      "marks": 3,
+      "prompt": "A rectangle has the dimensions shown. Its perimeter is 46 cm. Form an equation and solve to find x.",
+      "answer": "5",
+      "image": "/mytutbuddy/static/images/rectangle-perimeter.svg"
+    },
+    {
+      "type": "show-working",
+      "marks": 3,
+      "prompt": "The diagram shows a regular pentagon. Each side is 3x − 4 cm and the perimeter is 70 cm. Form an equation and solve to find x.",
+      "answer": "6",
+      "image": "/mytutbuddy/static/images/pentagon-perimeter.svg"
+    },
+    {
+      "type": "show-working",
+      "marks": 3,
+      "prompt": "The two lines are parallel. Form an equation using the angles shown and solve to find x.",
+      "answer": "17.5",
+      "image": "/mytutbuddy/static/images/parallel-angles.svg"
+    },
+    {
+      "type": "show-working",
+      "marks": 3,
+      "prompt": "The angles in the triangle add to 180°. Form an equation and solve to find x.",
+      "answer": "25",
+      "image": "/mytutbuddy/static/images/triangle-angles.svg"
+    },
+    {
+      "type": "show-working",
+      "marks": 3,
+      "prompt": "The two angles form a straight line. Form an equation and solve to find x.",
+      "answer": "30",
+      "image": "/mytutbuddy/static/images/straight-line-angles.svg"
+    },
+    {
+      "type": "show-working",
+      "marks": 3,
+      "prompt": "The diagram is a parallelogram. Adjacent angles are supplementary. Form an equation and solve to find x.",
+      "answer": "20",
+      "image": "/mytutbuddy/static/images/parallelogram.svg"
+    },
+    {
+      "type": "show-working",
+      "marks": 3,
+      "prompt": "Three consecutive integers have a total of 72. Let the smallest integer be x. Form an equation and solve to find x.",
+      "answer": "23"
+    },
+    {
+      "type": "show-working",
+      "marks": 3,
+      "prompt": "A cinema charges a fixed booking fee of £4 plus £2.50 for each ticket. The total cost is £24. Form an equation and solve to find the number of tickets.",
+      "answer": "8"
+    }
+  ]
+}
