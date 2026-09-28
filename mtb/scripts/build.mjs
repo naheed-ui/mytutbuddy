@@ -26,7 +26,7 @@ const VALID_TYPES = [
   "word-bank",
   "expanded-form",
   "fraction-multiplication",
-  "show-working"
+  "show-working",
   "vertical-addition"
 ];
 
