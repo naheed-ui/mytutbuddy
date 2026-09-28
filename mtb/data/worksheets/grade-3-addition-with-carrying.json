@@ -1,0 +1,114 @@
+{
+  "slug": "grade-3-addition-with-carrying",
+  "title": "Grade 3 Addition — With Carrying",
+  "grade": "Grade 3",
+  "topic": "Number",
+  "subtopic": "Addition with Carrying",
+  "difficulty": "Medium",
+  "shortDescription": "Practise vertical addition with carrying using two- and three-digit numbers.",
+  "seoTitle": "Grade 3 Addition With Carrying | MyTutBuddy",
+  "seoDescription": "Interactive Grade 3 addition worksheet with carrying boxes and vertical answer boxes.",
+  "intro": "Add each pair of numbers. Remember to record your carries in the small boxes.",
+  "questions": [
+    {
+      "type": "vertical-addition",
+      "prompt": "Add and show the carry.",
+      "instruction": "Write the carry in the small box.",
+      "addends": ["27", "18"],
+      "answer": "45",
+      "carries": ["1", "1"],
+      "showCarries": true,
+      "marks": 2
+    },
+    {
+      "type": "vertical-addition",
+      "prompt": "Add and show the carry.",
+      "instruction": "Write the carry in the small box.",
+      "addends": ["46", "27"],
+      "answer": "73",
+      "carries": ["1", "1"],
+      "showCarries": true,
+      "marks": 2
+    },
+    {
+      "type": "vertical-addition",
+      "prompt": "Add and show the carry.",
+      "instruction": "Write the carry in the small box.",
+      "addends": ["58", "36"],
+      "answer": "94",
+      "carries": ["1", "1"],
+      "showCarries": true,
+      "marks": 2
+    },
+    {
+      "type": "vertical-addition",
+      "prompt": "Add and show the carry.",
+      "instruction": "Write the carry in the small box.",
+      "addends": ["67", "28"],
+      "answer": "95",
+      "carries": ["1", "1"],
+      "showCarries": true,
+      "marks": 2
+    },
+    {
+      "type": "vertical-addition",
+      "prompt": "Add and show the carries.",
+      "instruction": "Record each carry carefully.",
+      "addends": ["75", "49"],
+      "answer": "124",
+      "carries": ["1", "1", "1"],
+      "showCarries": true,
+      "marks": 2
+    },
+    {
+      "type": "vertical-addition",
+      "prompt": "Add and show the carry.",
+      "instruction": "Record the carry above the correct column.",
+      "addends": ["138", "247"],
+      "answer": "385",
+      "carries": ["", "1", "1"],
+      "showCarries": true,
+      "marks": 2
+    },
+    {
+      "type": "vertical-addition",
+      "prompt": "Add and show the carries.",
+      "instruction": "Record each carry above the correct column.",
+      "addends": ["267", "158"],
+      "answer": "425",
+      "carries": ["1", "1", "1"],
+      "showCarries": true,
+      "marks": 2
+    },
+    {
+      "type": "vertical-addition",
+      "prompt": "Add and show the carries.",
+      "instruction": "Record each carry carefully.",
+      "addends": ["346", "279"],
+      "answer": "625",
+      "carries": ["1", "1", "1"],
+      "showCarries": true,
+      "marks": 2
+    },
+    {
+      "type": "vertical-addition",
+      "prompt": "Add and show the carry.",
+      "instruction": "Record the carry above the correct column.",
+      "addends": ["458", "176"],
+      "answer": "634",
+      "carries": ["", "1", "1"],
+      "showCarries": true,
+      "marks": 2
+    },
+    {
+      "type": "vertical-addition",
+      "prompt": "Add and show the carries.",
+      "instruction": "Record each carry carefully.",
+      "addends": ["589", "276"],
+      "answer": "865",
+      "carries": ["1", "1", "1"],
+      "showCarries": true,
+      "marks": 2
+    }
+  ]
+}
