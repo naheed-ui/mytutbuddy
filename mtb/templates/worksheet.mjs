@@ -995,21 +995,21 @@ function normalizeWords(str) {
     document.getElementById("score").innerHTML = correct + " / " + total + " — " + percentage + "%";
 
     const msg = document.getElementById("message");
-   if (percentage === 100) {
+  if (percentage === 100) {
   msg.innerHTML =
-    "🏆 Perfect! You mastered multiplying fractions!";
+    "🏆 Perfect! You mastered quadratics and algebraic fractions!";
 } else if (percentage >= 80) {
   msg.innerHTML =
-    "🌟 Great work! You have a strong understanding of multiplying fractions.";
+    "🌟 Great work! You have a strong understanding of the algebraic steps.";
 } else if (percentage >= 60) {
   msg.innerHTML =
     "👏 Good job! Review the questions you missed and try again.";
 } else if (percentage >= 40) {
   msg.innerHTML =
-    "💪 Nice effort! A little more practice will help.";
+    "💪 Nice effort! Keep practising your algebraic manipulation.";
 } else {
   msg.innerHTML =
-    "📚 Keep practising! Review the multiplication and simplification steps.";
+    "📚 Keep practising! Review your algebraic fraction and quadratic steps.";
 }
 
     document.getElementById("result").style.display = "block";
