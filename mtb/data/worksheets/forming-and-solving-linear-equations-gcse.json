@@ -40,42 +40,42 @@
       "marks": 3,
       "prompt": "A rectangle has the dimensions shown. Its perimeter is 46 cm. Form an equation and solve to find x.",
       "answer": "5",
-      "image": "/mytutbuddy/static/images/rectangle-perimeter.svg"
+      "image": "/mytutbuddy/assets/images/rectangle-perimeter.svg"
     },
     {
       "type": "show-working",
       "marks": 3,
       "prompt": "The diagram shows a regular pentagon. Each side is 3x − 4 cm and the perimeter is 70 cm. Form an equation and solve to find x.",
       "answer": "6",
-      "image": "/mytutbuddy/static/images/pentagon-perimeter.svg"
+ "image": "/mytutbuddy/assets/images/pentagon-perimeter.svg"
     },
     {
       "type": "show-working",
       "marks": 3,
       "prompt": "The two lines are parallel. Form an equation using the angles shown and solve to find x.",
       "answer": "17.5",
-      "image": "/mytutbuddy/static/images/parallel-angles.svg"
+  "image": "/mytutbuddy/assets/images/parallel-angles.svg"
     },
     {
       "type": "show-working",
       "marks": 3,
       "prompt": "The angles in the triangle add to 180°. Form an equation and solve to find x.",
       "answer": "25",
-      "image": "/mytutbuddy/static/images/triangle-angles.svg"
+      "image": "/mytutbuddy/assets/images/triangle-angles.svg"
     },
     {
       "type": "show-working",
       "marks": 3,
       "prompt": "The two angles form a straight line. Form an equation and solve to find x.",
       "answer": "30",
-      "image": "/mytutbuddy/static/images/straight-line-angles.svg"
+    "image": "/mytutbuddy/assets/images/straight-line-angles.svg"
     },
     {
       "type": "show-working",
       "marks": 3,
       "prompt": "The diagram is a parallelogram. Adjacent angles are supplementary. Form an equation and solve to find x.",
       "answer": "20",
-      "image": "/mytutbuddy/static/images/parallelogram.svg"
+    "image": "/mytutbuddy/assets/images/parallelogram.svg"
     },
     {
       "type": "show-working",
