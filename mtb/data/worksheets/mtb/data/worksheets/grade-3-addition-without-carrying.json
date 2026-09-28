@@ -1,0 +1,115 @@
+{
+  "slug": "grade-3-addition-without-carrying",
+  "title": "Grade 3 Addition — No Carrying",
+  "shortDescription": "Practise adding two-digit numbers without carrying.",
+  "intro": "Add the two numbers. No carrying is needed.",
+  "grade": "Grade 3",
+  "topic": "Number",
+  "subtopic": "Addition",
+  "difficulty": "Easy",
+  "seoTitle": "Grade 3 Addition Without Carrying Worksheet | MyTutBuddy",
+  "seoDescription": "Interactive Grade 3 Maths worksheet practising two-digit addition without carrying.",
+  "featured": false,
+  "questions": [
+    {
+      "type": "text",
+      "prompt": "24 + 13 = ____ (1 mark)",
+      "answer": "37"
+    },
+    {
+      "type": "text",
+      "prompt": "35 + 22 = ____ (1 mark)",
+      "answer": "57"
+    },
+    {
+      "type": "text",
+      "prompt": "41 + 27 = ____ (1 mark)",
+      "answer": "68"
+    },
+    {
+      "type": "text",
+      "prompt": "52 + 16 = ____ (1 mark)",
+      "answer": "68"
+    },
+    {
+      "type": "text",
+      "prompt": "63 + 25 = ____ (1 mark)",
+      "answer": "88"
+    },
+    {
+      "type": "text",
+      "prompt": "31 + 48 = ____ (1 mark)",
+      "answer": "79"
+    },
+    {
+      "type": "text",
+      "prompt": "72 + 17 = ____ (1 mark)",
+      "answer": "89"
+    },
+    {
+      "type": "text",
+      "prompt": "46 + 23 = ____ (1 mark)",
+      "answer": "69"
+    },
+    {
+      "type": "text",
+      "prompt": "54 + 35 = ____ (1 mark)",
+      "answer": "89"
+    },
+    {
+      "type": "text",
+      "prompt": "62 + 26 = ____ (1 mark)",
+      "answer": "88"
+    },
+    {
+      "type": "text",
+      "prompt": "15 + 42 = ____ (1 mark)",
+      "answer": "57"
+    },
+    {
+      "type": "text",
+      "prompt": "23 + 54 = ____ (1 mark)",
+      "answer": "77"
+    },
+    {
+      "type": "text",
+      "prompt": "34 + 45 = ____ (1 mark)",
+      "answer": "79"
+    },
+    {
+      "type": "text",
+      "prompt": "51 + 38 = ____ (1 mark)",
+      "answer": "89"
+    },
+    {
+      "type": "text",
+      "prompt": "43 + 26 = ____ (1 mark)",
+      "answer": "69"
+    },
+    {
+      "type": "text",
+      "prompt": "64 + 15 = ____ (1 mark)",
+      "answer": "79"
+    },
+    {
+      "type": "text",
+      "prompt": "22 + 67 = ____ (1 mark)",
+      "answer": "89"
+    },
+    {
+      "type": "text",
+      "prompt": "36 + 42 = ____ (1 mark)",
+      "answer": "78"
+    },
+    {
+      "type": "text",
+      "prompt": "53 + 24 = ____ (1 mark)",
+      "answer": "77"
+    },
+    {
+      "type": "text",
+      "prompt": "71 + 18 = ____ (1 mark)",
+      "answer": "89"
+    }
+  ]
+}
