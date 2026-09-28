@@ -1,0 +1,114 @@
+{
+  "slug": "grade-3-addition-without-carrying",
+  "title": "Grade 3 Addition — Without Carrying",
+  "grade": "Grade 3",
+  "topic": "Number",
+  "subtopic": "Addition",
+  "difficulty": "Easy",
+  "shortDescription": "Practise adding two- and three-digit numbers without carrying.",
+  "seoTitle": "Grade 3 Addition Without Carrying | MyTutBuddy",
+  "seoDescription": "Interactive Grade 3 addition worksheet with vertical addition questions and answer boxes.",
+  "intro": "Add each pair of numbers. Enter your answer one digit at a time.",
+  "questions": [
+    {
+      "type": "vertical-addition",
+      "prompt": "Add.",
+      "instruction": "Add the numbers.",
+      "addends": ["22", "16"],
+      "answer": "38",
+      "carries": [],
+      "showCarries": false,
+      "marks": 2
+    },
+    {
+      "type": "vertical-addition",
+      "prompt": "Add.",
+      "instruction": "Add the numbers.",
+      "addends": ["31", "27"],
+      "answer": "58",
+      "carries": [],
+      "showCarries": false,
+      "marks": 2
+    },
+    {
+      "type": "vertical-addition",
+      "prompt": "Add.",
+      "instruction": "Add the numbers.",
+      "addends": ["43", "25"],
+      "answer": "68",
+      "carries": [],
+      "showCarries": false,
+      "marks": 2
+    },
+    {
+      "type": "vertical-addition",
+      "prompt": "Add.",
+      "instruction": "Add the numbers.",
+      "addends": ["54", "23"],
+      "answer": "77",
+      "carries": [],
+      "showCarries": false,
+      "marks": 2
+    },
+    {
+      "type": "vertical-addition",
+      "prompt": "Add.",
+      "instruction": "Add the numbers.",
+      "addends": ["62", "17"],
+      "answer": "79",
+      "carries": [],
+      "showCarries": false,
+      "marks": 2
+    },
+    {
+      "type": "vertical-addition",
+      "prompt": "Add.",
+      "instruction": "Add the numbers.",
+      "addends": ["123", "245"],
+      "answer": "368",
+      "carries": [],
+      "showCarries": false,
+      "marks": 2
+    },
+    {
+      "type": "vertical-addition",
+      "prompt": "Add.",
+      "instruction": "Add the numbers.",
+      "addends": ["214", "135"],
+      "answer": "349",
+      "carries": [],
+      "showCarries": false,
+      "marks": 2
+    },
+    {
+      "type": "vertical-addition",
+      "prompt": "Add.",
+      "instruction": "Add the numbers.",
+      "addends": ["302", "146"],
+      "answer": "448",
+      "carries": [],
+      "showCarries": false,
+      "marks": 2
+    },
+    {
+      "type": "vertical-addition",
+      "prompt": "Add.",
+      "instruction": "Add the numbers.",
+      "addends": ["421", "153"],
+      "answer": "574",
+      "carries": [],
+      "showCarries": false,
+      "marks": 2
+    },
+    {
+      "type": "vertical-addition",
+      "prompt": "Add.",
+      "instruction": "Add the numbers.",
+      "addends": ["512", "276"],
+      "answer": "788",
+      "carries": [],
+      "showCarries": false,
+      "marks": 2
+    }
+  ]
+}
