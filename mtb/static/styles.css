@@ -1302,3 +1302,176 @@ body:has(.question[data-type="fraction-multiplication"]) .result p {
     min-width: 0;
   }
 }
+/* =========================================================
+   Grade 3 Vertical Addition
+   ========================================================= */
+
+.va-wrap {
+  margin-top: 18px;
+  text-align: center;
+}
+
+.va-instruction {
+  color: var(--muted);
+  font-size: 15px;
+  margin-bottom: 18px;
+}
+
+.va-column-grid {
+  --va-cols: 2;
+
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-end;
+
+  background: #fafbff;
+  border: 2px solid #e0e7ff;
+  border-radius: 16px;
+  padding: 20px 24px;
+  box-shadow: 0 6px 18px rgba(79, 70, 229, 0.08);
+}
+
+.va-row {
+  display: grid;
+  grid-template-columns:
+    28px repeat(var(--va-cols), 48px);
+
+  column-gap: 5px;
+  align-items: center;
+  min-height: 48px;
+}
+
+.va-operator {
+  font-size: 27px;
+  font-weight: 700;
+  text-align: center;
+  color: var(--brand);
+}
+
+.va-digit {
+  width: 48px;
+  height: 48px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 28px;
+  font-weight: 700;
+  color: #202536;
+}
+
+.va-carry-row {
+  min-height: 40px;
+  margin-bottom: 2px;
+}
+
+.va-carry-input {
+  width: 32px;
+  height: 32px;
+
+  justify-self: center;
+
+  border: 2px solid #f59e0b;
+  border-radius: 7px;
+
+  background: #fff7ed;
+
+  text-align: center;
+  font-size: 18px;
+  font-weight: 700;
+
+  outline: none;
+}
+
+.va-carry-input:focus {
+  border-color: #d97706;
+  box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.15);
+}
+
+.va-carry-spacer {
+  width: 32px;
+  height: 32px;
+  display: block;
+}
+
+.va-answer-row {
+  border-top: 3px solid #202536;
+  padding-top: 8px;
+  margin-top: 4px;
+}
+
+.va-input {
+  width: 48px;
+  height: 48px;
+
+  border: 2px solid #cbd5e1;
+  border-radius: 9px;
+
+  background: white;
+
+  text-align: center;
+  font-size: 25px;
+  font-weight: 700;
+
+  outline: none;
+
+  transition:
+    border-color 0.15s ease,
+    box-shadow 0.15s ease,
+    background 0.15s ease;
+}
+
+.va-answer-input:focus {
+  border-color: var(--brand);
+  box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.12);
+}
+
+.va-input.va-correct {
+  border-color: var(--green);
+  background: var(--green-bg);
+  color: #15803d;
+}
+
+.va-input.va-incorrect {
+  border-color: var(--red);
+  background: var(--red-bg);
+  color: #dc2626;
+}
+
+.va-note {
+  margin-top: 15px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+@media (max-width: 520px) {
+
+  .va-column-grid {
+    padding: 16px 14px;
+  }
+
+  .va-row {
+    grid-template-columns:
+      24px repeat(var(--va-cols), 42px);
+
+    column-gap: 4px;
+  }
+
+  .va-digit {
+    width: 42px;
+    height: 42px;
+    font-size: 24px;
+  }
+
+  .va-input {
+    width: 42px;
+    height: 42px;
+    font-size: 22px;
+  }
+
+  .va-carry-input {
+    width: 29px;
+    height: 29px;
+  }
+}
