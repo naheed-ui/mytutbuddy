@@ -190,17 +190,6 @@ ${videoSection}
   </div>
 </section>
 
-<!-- ============ WAYS TO ANSWER ============ -->
-<section class="home-section tight">
-  <div class="chip-row" aria-label="Ways to answer">
-    <span class="chip">✏️ Draw-a-line matching</span>
-    <span class="chip">🔢 Fill-in-the-boxes</span>
-    <span class="chip">🧩 Word banks</span>
-    <span class="chip">📝 Show your working</span>
-    <span class="chip">✅ Multiple choice</span>
-    <span class="chip">↔️ True / false</span>
-  </div>
-</section>
 
 <!-- ============ GRADES ============ -->
 <section class="home-section">
@@ -255,7 +244,7 @@ ${videoSection}
       </div>
       <div class="cta-card teacher">
         <h3> Tutors</h3>
-        <p>Passionate about teaching Maths? Share your experience and upload your CV to apply.</p>
+        <p>Passionate about teaching? Share your experience and upload your CV to apply.</p>
         <a class="btn-ghost" href="${BASE_PATH}/teach-with-us/">Teach with us</a>
       </div>
     </div>
