@@ -2554,3 +2554,797 @@ form .asterisk {
     width: 100%;
   }
 }
+/* =========================================================
+   MYTUTBUDDY — PINTEREST STUDY SPACE AESTHETIC
+   Warm paper • lavender • sage • handwritten accents
+   ========================================================= */
+
+:root {
+  --brand: #7467c8 !important;
+  --brand-dark: #5649a8 !important;
+
+  --ink: #25243a !important;
+  --muted: #737286 !important;
+
+  --bg: #fbf8f3 !important;
+  --surface: #ffffff !important;
+
+  --border: #e8e1dc !important;
+
+  --soft-purple: #f1edff;
+  --soft-blue: #edf4f3;
+
+  --sage: #91a894;
+  --sage-light: #edf4ee;
+
+  --rose: #d99ca2;
+  --rose-light: #fbefef;
+
+  --yellow: #e8c979;
+  --yellow-light: #fff7df;
+
+  --green: #4f9173 !important;
+  --green-bg: #edf8f1 !important;
+
+  --red: #c96d78 !important;
+  --red-bg: #fff1f2 !important;
+}
+
+
+/* ---------- overall page ---------- */
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background:
+    radial-gradient(circle at 8% 12%, rgba(196, 183, 232, .20), transparent 24%),
+    radial-gradient(circle at 92% 22%, rgba(183, 208, 190, .17), transparent 24%),
+    var(--bg) !important;
+
+  color: var(--ink) !important;
+
+  font-family:
+    "DM Sans",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Arial,
+    sans-serif !important;
+}
+
+
+/* ---------- elegant header ---------- */
+
+header.site-header {
+  background: rgba(255,255,255,.88) !important;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+
+  padding: 17px clamp(22px, 6vw, 90px) !important;
+
+  border-bottom: 1px solid rgba(232,225,220,.8) !important;
+
+  box-shadow:
+    0 4px 20px rgba(48,42,70,.035);
+
+  transition: all .25s ease;
+}
+
+.logo {
+  color: var(--ink) !important;
+  font-size: 25px !important;
+  font-weight: 900 !important;
+  letter-spacing: -1px;
+}
+
+.logo::after {
+  content: "✦";
+  display: inline-block;
+  margin-left: 3px;
+  color: var(--brand);
+  font-size: 12px;
+  transform: translateY(-8px) rotate(12deg);
+}
+
+.site-header nav {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.site-header nav a {
+  margin-left: 0 !important;
+  padding: 9px 13px;
+
+  color: #4c4a5d !important;
+
+  border-radius: 999px;
+
+  font-size: 14px !important;
+  font-weight: 700 !important;
+
+  transition:
+    background .2s ease,
+    color .2s ease,
+    transform .2s ease;
+}
+
+.site-header nav a:hover {
+  background: #f0ecff;
+  color: var(--brand) !important;
+  transform: translateY(-1px);
+}
+
+
+/* ---------- buttons ---------- */
+
+.button,
+.start-btn {
+  background: linear-gradient(
+    135deg,
+    #8174d5,
+    #6658bd
+  ) !important;
+
+  border: none !important;
+
+  border-radius: 15px !important;
+
+  padding: 13px 22px !important;
+
+  box-shadow:
+    0 8px 20px rgba(103,89,190,.18);
+
+  transition:
+    transform .2s ease,
+    box-shadow .2s ease,
+    background .2s ease !important;
+}
+
+.button:hover,
+.start-btn:hover {
+  background: linear-gradient(
+    135deg,
+    #7568ca,
+    #574aa7
+  ) !important;
+
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 12px 26px rgba(103,89,190,.25);
+}
+
+.button.secondary {
+  background: rgba(255,255,255,.8) !important;
+  color: var(--brand) !important;
+
+  border: 1.5px solid #dcd5f1 !important;
+
+  box-shadow: none !important;
+}
+
+.button.secondary:hover {
+  background: #f5f1ff !important;
+}
+
+
+/* ---------- HOMEPAGE HERO ---------- */
+
+.hero {
+  position: relative;
+
+  max-width: 1180px;
+
+  margin: 0 auto;
+
+  padding:
+    95px 30px
+    75px !important;
+
+  text-align: left !important;
+}
+
+
+/* decorative floating circles */
+
+.hero::before {
+  content: "✦";
+
+  position: absolute;
+
+  top: 70px;
+  left: 2%;
+
+  color: #d9ccef;
+
+  font-size: 25px;
+
+  transform: rotate(-15deg);
+
+  animation: floatNote 4s ease-in-out infinite;
+}
+
+.hero::after {
+  content: "♡";
+
+  position: absolute;
+
+  right: 4%;
+  bottom: 70px;
+
+  color: #d7aaaF;
+
+  font-size: 28px;
+
+  transform: rotate(12deg);
+
+  animation: floatNote 5s ease-in-out infinite;
+}
+
+@keyframes floatNote {
+  0%,100% {
+    transform: translateY(0) rotate(-8deg);
+  }
+
+  50% {
+    transform: translateY(-8px) rotate(5deg);
+  }
+}
+
+
+/* Hero heading */
+
+.hero h1 {
+  font-size: clamp(44px, 5vw, 68px) !important;
+
+  line-height: .98 !important;
+
+  letter-spacing: -3px;
+
+  max-width: 680px;
+
+  margin-bottom: 22px !important;
+}
+
+.hero h1 span {
+  color: var(--brand) !important;
+
+  font-family:
+    "Caveat",
+    "Segoe Print",
+    "Bradley Hand",
+    cursive !important;
+
+  font-size: 1.18em;
+
+  font-weight: 700;
+
+  letter-spacing: -1px;
+
+  position: relative;
+}
+
+.hero h1 span::after {
+  content: "";
+
+  position: absolute;
+
+  left: 3px;
+  right: 3px;
+
+  bottom: -7px;
+
+  height: 8px;
+
+  background: #eee7ff;
+
+  border-radius: 50%;
+
+  transform: rotate(-2deg);
+
+  z-index: -1;
+}
+
+
+.hero p {
+  max-width: 610px !important;
+
+  font-size: 18px !important;
+
+  line-height: 1.75 !important;
+
+  color: var(--muted) !important;
+
+  margin-bottom: 28px !important;
+}
+
+
+/* ---------- hero badge ---------- */
+
+.hero > div:first-child {
+  display: inline-block;
+
+  background: #fff7df;
+
+  border: 1px solid #f0dfae;
+
+  border-radius: 999px;
+
+  padding: 8px 15px;
+
+  color: #79653a;
+
+  font-size: 13px;
+
+  font-weight: 700;
+
+  transform: rotate(-1deg);
+
+  box-shadow:
+    0 4px 12px rgba(80,60,30,.04);
+}
+
+
+/* ---------- HERO SEARCH ---------- */
+
+.hero-search {
+  max-width: 560px !important;
+
+  margin: 22px 0 14px !important;
+
+  padding: 5px;
+
+  background: white;
+
+  border: 1px solid #e5dfda;
+
+  border-radius: 18px;
+
+  box-shadow:
+    0 12px 30px rgba(53,45,70,.08);
+}
+
+.hero-search input {
+  border: none !important;
+
+  background: transparent !important;
+
+  border-radius: 14px !important;
+
+  padding: 15px 17px !important;
+
+  outline: none;
+}
+
+.hero-search input:focus {
+  box-shadow: inset 0 0 0 2px #eee9ff;
+}
+
+.hero-search button {
+  border-radius: 14px !important;
+}
+
+
+/* ---------- HERO BADGES ---------- */
+
+.hero-banner-wrap {
+  border-radius: 28px;
+}
+
+
+/* ---------- general sections ---------- */
+
+.section {
+  max-width: 1180px !important;
+
+  padding:
+    70px 25px
+    90px !important;
+}
+
+.section h2 {
+  font-size: 34px !important;
+
+  letter-spacing: -1px;
+
+  color: var(--ink);
+
+  position: relative;
+}
+
+.section h2::after {
+  content: "✎";
+
+  display: inline-block;
+
+  margin-left: 8px;
+
+  color: var(--brand);
+
+  font-family:
+    "Caveat",
+    cursive;
+
+  font-size: 30px;
+
+  transform: rotate(-10deg);
+}
+
+
+/* ---------- CARDS ---------- */
+
+.card {
+  position: relative;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255,255,255,.98),
+      rgba(255,253,250,.96)
+    ) !important;
+
+  border: 1px solid #e8e1dc !important;
+
+  border-radius: 24px !important;
+
+  padding: 28px !important;
+
+  box-shadow:
+    0 8px 30px rgba(55,48,75,.055) !important;
+
+  transition:
+    transform .25s ease,
+    box-shadow .25s ease,
+    border-color .25s ease !important;
+}
+
+.card:nth-child(3n+1) {
+  transform: rotate(-.4deg);
+}
+
+.card:nth-child(3n+2) {
+  transform: rotate(.35deg);
+}
+
+.card:nth-child(3n) {
+  transform: rotate(-.2deg);
+}
+
+.card:hover {
+  transform:
+    translateY(-8px)
+    rotate(0deg) !important;
+
+  box-shadow:
+    0 18px 38px rgba(55,48,75,.11) !important;
+
+  border-color: #d8d0ee !important;
+}
+
+.card .icon {
+  display: inline-flex;
+
+  width: 54px;
+  height: 54px;
+
+  align-items: center;
+  justify-content: center;
+
+  background: #f1edff;
+
+  border-radius: 17px;
+
+  font-size: 28px !important;
+
+  margin-bottom: 14px;
+}
+
+.card:nth-child(2n) .icon {
+  background: var(--sage-light);
+}
+
+.card:nth-child(3n) .icon {
+  background: var(--rose-light);
+}
+
+.card .eyebrow {
+  color: var(--brand) !important;
+
+  font-size: 13px !important;
+
+  letter-spacing: .08em;
+}
+
+.card h3 {
+  font-size: 21px !important;
+
+  letter-spacing: -.3px;
+}
+
+.card p {
+  line-height: 1.7;
+}
+
+
+/* ---------- tags ---------- */
+
+.card .tag {
+  background: #f1edff !important;
+
+  color: #6357ad !important;
+
+  border-radius: 999px !important;
+
+  padding: 6px 11px !important;
+}
+
+
+/* ---------- LIBRARY ---------- */
+
+.library-hero {
+  padding-top: 80px !important;
+}
+
+.library-hero h1 {
+  font-size: 46px !important;
+  letter-spacing: -2px;
+}
+
+.library-hero h1 span {
+  color: var(--brand) !important;
+
+  font-family:
+    "Caveat",
+    cursive !important;
+
+  font-size: 1.15em;
+}
+
+.search-area {
+  max-width: 700px !important;
+}
+
+.search-box {
+  border: 1px solid #e5ded8 !important;
+
+  border-radius: 18px !important;
+
+  padding: 17px 20px !important;
+
+  box-shadow:
+    0 8px 25px rgba(55,48,75,.06);
+
+  outline: none;
+}
+
+.search-box:focus {
+  border-color: #cfc4ee !important;
+
+  box-shadow:
+    0 0 0 4px #f1edff;
+}
+
+.filters select {
+  border: 1px solid #e4ded8 !important;
+
+  border-radius: 14px !important;
+
+  padding: 12px 17px !important;
+
+  color: var(--ink);
+
+  box-shadow:
+    0 3px 10px rgba(50,40,70,.04);
+}
+
+
+/* ---------- WORKSHEET CARDS ---------- */
+
+.question {
+  background: rgba(255,255,255,.92) !important;
+
+  border: 1px solid #e7e0da !important;
+
+  border-radius: 20px !important;
+
+  padding: 26px !important;
+
+  box-shadow:
+    0 7px 25px rgba(55,48,75,.055) !important;
+
+  transition:
+    transform .2s ease,
+    box-shadow .2s ease !important;
+}
+
+.question:hover {
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 13px 30px rgba(55,48,75,.09) !important;
+}
+
+.question .q-number {
+  background: #f0ecff !important;
+
+  color: var(--brand) !important;
+
+  border-radius: 999px !important;
+
+  padding: 5px 12px !important;
+}
+
+
+/* ---------- INPUTS ---------- */
+
+.question input[type="text"],
+.question select {
+  border: 1.5px solid #ddd6d0 !important;
+
+  border-radius: 12px !important;
+
+  background: #fffdfa !important;
+
+  transition:
+    border-color .2s ease,
+    box-shadow .2s ease !important;
+}
+
+.question input[type="text"]:focus,
+.question select:focus {
+  outline: none;
+
+  border-color: #b9afe0 !important;
+
+  box-shadow:
+    0 0 0 4px #f1edff;
+}
+
+
+/* ---------- MULTIPLE CHOICE ---------- */
+
+.mc-option {
+  background: #fffdfa !important;
+
+  border: 1px solid #e3ddd7 !important;
+
+  border-radius: 14px !important;
+
+  padding: 14px 16px !important;
+
+  transition:
+    transform .15s ease,
+    border-color .15s ease,
+    background .15s ease !important;
+}
+
+.mc-option:hover {
+  transform: translateX(4px);
+
+  border-color: #bdb2e5 !important;
+
+  background: #f8f5ff !important;
+}
+
+
+/* ---------- RESULT ---------- */
+
+.result {
+  background:
+    linear-gradient(
+      135deg,
+      #f1edff,
+      #eef7f0
+    ) !important;
+
+  border: 1px solid #e0d9ee;
+
+  border-radius: 24px !important;
+
+  box-shadow:
+    0 12px 30px rgba(60,50,90,.07);
+}
+
+.result .score {
+  color: var(--brand) !important;
+
+  font-family:
+    "Caveat",
+    cursive;
+
+  font-size: 54px !important;
+}
+
+
+/* ---------- FOOTER ---------- */
+
+footer.site-footer {
+  background: #f5f0ea !important;
+
+  border-top: 1px solid #e5ddd6 !important;
+
+  padding: 42px 20px !important;
+
+  color: #777383 !important;
+}
+
+
+/* ---------- SOCIAL BUTTONS ---------- */
+
+.icon-btn {
+  background: white !important;
+
+  border: 1px solid #e6dfda;
+
+  box-shadow:
+    0 4px 12px rgba(40,30,60,.05);
+}
+
+.icon-btn:hover {
+  transform: translateY(-4px) !important;
+
+  background: #f1edff !important;
+
+  color: var(--brand) !important;
+}
+
+
+/* ---------- handwritten little labels ---------- */
+
+.hero-badge,
+.eyebrow {
+  font-family:
+    "Caveat",
+    "Segoe Print",
+    cursive;
+}
+
+
+/* ---------- mobile ---------- */
+
+@media (max-width: 700px) {
+
+  header.site-header {
+    padding: 14px 18px !important;
+  }
+
+  .site-header nav {
+    gap: 0;
+  }
+
+  .site-header nav a {
+    padding: 7px 8px;
+    font-size: 12px !important;
+  }
+
+  .hero {
+    padding:
+      65px 22px
+      55px !important;
+
+    text-align: center !important;
+  }
+
+  .hero h1 {
+    font-size: 43px !important;
+    letter-spacing: -2px;
+  }
+
+  .hero p {
+    font-size: 16px !important;
+  }
+
+  .hero-search {
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  .card:nth-child(3n+1),
+  .card:nth-child(3n+2),
+  .card:nth-child(3n) {
+    transform: none;
+  }
+}
