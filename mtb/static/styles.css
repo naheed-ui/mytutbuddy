@@ -1788,352 +1788,649 @@ body.warm { background: #fff9f2; }
   .cta-band { grid-template-columns: 1fr; }
 }
 /* =========================================================
-   MyTutBuddy — Pinterest-inspired aesthetic refresh
-   Visual layer only — keeps existing functionality intact
+   MyTutBuddy — FINAL PREMIUM AESTHETIC OVERRIDE
+   Keep this section at the VERY BOTTOM of styles.css
    ========================================================= */
 
 :root {
-  --brand: #6f5bd3;
-  --brand-dark: #5142a8;
-  --ink: #2f3040;
-  --muted: #777483;
-  --bg: #fbf7f1;
-  --surface: #fffdf9;
-  --soft-lavender: #eeebfa;
-  --soft-sage: #e8eee5;
-  --soft-yellow: #f8edc9;
-  --soft-pink: #f5e8e7;
-  --border: #e8e1d9;
-  --shadow-soft: 0 12px 35px rgba(65, 55, 90, 0.08);
-  --shadow-hover: 0 18px 45px rgba(65, 55, 90, 0.13);
+  --brand: #7567d9 !important;
+  --brand-dark: #5a4bb6 !important;
+  --ink: #202334 !important;
+  --muted: #70717f !important;
+  --bg: #fcf8f2 !important;
+  --border: #e9e2d9 !important;
 }
 
-/* ---------- Base ---------- */
+/* ---------- PAGE ---------- */
 
 html {
-  scroll-behavior: smooth;
+  background: #fcf8f2 !important;
 }
 
-body {
-  background: var(--bg) !important;
-  color: var(--ink) !important;
-  font-family:
-    Inter,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Segoe UI",
-    sans-serif !important;
+body,
+body.warm {
+  background: #fcf8f2 !important;
+  color: #202334 !important;
 }
 
-/* ---------- Header ---------- */
+/* ---------- HEADER ---------- */
 
-header,
-.site-header,
-.navbar {
-  background: rgba(255, 253, 249, 0.94) !important;
-  border-bottom: 1px solid var(--border) !important;
-  box-shadow: 0 2px 18px rgba(60, 50, 70, 0.04) !important;
-  backdrop-filter: blur(12px);
+header.site-header {
+  min-height: 74px !important;
+  padding: 15px clamp(22px, 6vw, 88px) !important;
+  background: rgba(255,253,249,.96) !important;
+  border-bottom: 1px solid #e9e2d9 !important;
+  box-shadow: 0 4px 22px rgba(45,38,55,.045) !important;
+  backdrop-filter: blur(14px);
 }
 
-header a,
-.site-header a,
-.navbar a {
-  color: var(--ink) !important;
-  transition: color 0.2s ease;
+.logo {
+  color: #202334 !important;
+  font-size: 23px !important;
+  font-weight: 800 !important;
+  letter-spacing: -0.04em;
 }
 
-header a:hover,
-.site-header a:hover,
-.navbar a:hover {
-  color: var(--brand) !important;
+.logo::after {
+  content: ".";
+  color: #7567d9;
 }
 
-/* ---------- Main headings ---------- */
-
-h1,
-h2,
-h3,
-h4 {
-  color: var(--ink) !important;
-  letter-spacing: -0.025em;
+.site-header nav {
+  display: flex !important;
+  align-items: center;
+  gap: 28px !important;
 }
 
-h1 {
-  line-height: 1.08;
-}
-
-p {
-  color: var(--muted);
-}
-
-/* ---------- Buttons ---------- */
-
-button,
-.btn,
-a.btn,
-input[type="submit"],
-input[type="button"] {
-  border-radius: 14px !important;
+.site-header nav a {
+  margin-left: 0 !important;
+  color: #454654 !important;
+  font-size: 14px !important;
   font-weight: 650 !important;
-  transition:
-    transform 0.2s ease,
-    box-shadow 0.2s ease,
-    background 0.2s ease !important;
 }
 
-button:hover,
-.btn:hover,
-a.btn:hover,
-input[type="submit"]:hover,
-input[type="button"]:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-hover) !important;
+.site-header nav a:hover {
+  color: #7567d9 !important;
 }
 
-button,
-.btn-primary,
-.primary,
-a.btn-primary {
-  background: var(--brand) !important;
-  border-color: var(--brand) !important;
+.site-header nav .nav-cta {
   color: white !important;
-  box-shadow: 0 8px 22px rgba(111, 91, 211, 0.20);
-}
-
-button:hover,
-.btn-primary:hover,
-.primary:hover,
-a.btn-primary:hover {
-  background: var(--brand-dark) !important;
-}
-
-.btn-secondary,
-.secondary {
-  background: var(--surface) !important;
-  color: var(--brand) !important;
-  border: 1px solid #ddd6f2 !important;
-}
-
-/* ---------- Search boxes ---------- */
-
-input[type="search"],
-.search-input,
-input[placeholder*="Search"],
-input[placeholder*="search"] {
-  background: rgba(255, 253, 249, 0.96) !important;
-  color: var(--ink) !important;
-  border: 1px solid var(--border) !important;
-  border-radius: 16px !important;
-  box-shadow: 0 5px 20px rgba(60, 50, 70, 0.05) !important;
-  transition:
-    border-color 0.2s ease,
-    box-shadow 0.2s ease !important;
-}
-
-input[type="search"]:focus,
-.search-input:focus,
-input[placeholder*="Search"]:focus,
-input[placeholder*="search"]:focus {
-  outline: none !important;
-  border-color: #b9ace8 !important;
-  box-shadow:
-    0 0 0 4px rgba(111, 91, 211, 0.10),
-    0 8px 25px rgba(60, 50, 70, 0.07) !important;
-}
-
-/* ---------- Form fields ---------- */
-
-input,
-select,
-textarea {
-  background: #fffdfa !important;
-  color: var(--ink) !important;
-  border: 1px solid var(--border) !important;
-  border-radius: 13px !important;
-}
-
-input:focus,
-select:focus,
-textarea:focus {
-  outline: none !important;
-  border-color: #b9ace8 !important;
-  box-shadow: 0 0 0 4px rgba(111, 91, 211, 0.09) !important;
-}
-
-textarea {
-  min-height: 120px;
-  resize: vertical;
-}
-
-/* ---------- Cards ---------- */
-
-.card,
-.worksheet-card,
-.grade-card,
-.feature-card,
-.info-card,
-.form-card {
-  background: var(--surface) !important;
-  border: 1px solid var(--border) !important;
-  border-radius: 22px !important;
-  box-shadow: var(--shadow-soft) !important;
-  transition:
-    transform 0.25s ease,
-    box-shadow 0.25s ease !important;
-}
-
-.card:hover,
-.worksheet-card:hover,
-.grade-card:hover,
-.feature-card:hover,
-.info-card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-hover) !important;
-}
-
-/* ---------- Worksheet cards ---------- */
-
-.worksheet-card {
-  overflow: hidden;
-}
-
-.worksheet-card h3,
-.worksheet-card h2 {
-  color: var(--ink) !important;
-}
-
-.worksheet-card .tag,
-.tag,
-.badge {
-  background: var(--soft-lavender) !important;
-  color: var(--brand-dark) !important;
+  background: #7567d9 !important;
+  padding: 11px 19px !important;
   border-radius: 999px !important;
-  border: none !important;
+  box-shadow: 0 9px 22px rgba(117,103,217,.22) !important;
 }
 
-/* ---------- Select filters ---------- */
-
-select {
-  appearance: auto;
-  min-height: 44px;
-  padding: 0 38px 0 14px !important;
-  cursor: pointer;
+.site-header nav .nav-cta:hover {
+  background: #5a4bb6 !important;
+  color: white !important;
 }
 
-/* ---------- Links ---------- */
+/* ---------- HERO ---------- */
 
-a {
-  transition:
-    color 0.2s ease,
-    opacity 0.2s ease;
-}
-
-a:hover {
-  opacity: 0.88;
-}
-
-/* ---------- Soft section backgrounds ---------- */
-
-section:nth-of-type(even) {
-  background: transparent;
-}
-
-/* ---------- Hero areas ---------- */
-
-.hero,
-.hero-section,
 .home-hero {
-  background:
-    radial-gradient(
-      circle at 15% 20%,
-      rgba(232, 238, 229, 0.72),
-      transparent 32%
-    ),
-    radial-gradient(
-      circle at 85% 25%,
-      rgba(238, 235, 250, 0.78),
-      transparent 34%
-    ),
-    var(--bg) !important;
+  max-width: 1180px !important;
+  margin: auto !important;
+  padding: 90px 42px 70px !important;
+  gap: 70px !important;
 }
 
-/* ---------- Decorative pills ---------- */
-
-.pill,
-.eyebrow,
-.kicker {
-  background: var(--soft-yellow) !important;
-  color: #765e28 !important;
+.home-hero .pill {
+  background: #f2ead7 !important;
+  color: #655d4c !important;
+  border: 1px solid #e9ddc2 !important;
   border-radius: 999px !important;
+  padding: 8px 14px !important;
+  font-size: 12px !important;
+  font-weight: 700 !important;
+}
+
+.home-hero h1 {
+  font-size: clamp(42px, 5vw, 64px) !important;
+  line-height: 1.02 !important;
+  letter-spacing: -0.055em !important;
+  color: #202334 !important;
+  margin: 20px 0 !important;
+}
+
+.home-hero h1 .squiggle {
+  color: #7567d9 !important;
+}
+
+.home-hero .lead {
+  max-width: 570px !important;
+  font-size: 17px !important;
+  line-height: 1.7 !important;
+  color: #70717f !important;
+}
+
+/* ---------- MAIN BUTTON ---------- */
+
+.btn-warm {
+  background: #7567d9 !important;
+  color: white !important;
+  border-radius: 14px !important;
+  padding: 14px 22px !important;
+  font-weight: 750 !important;
+  box-shadow: 0 12px 28px rgba(117,103,217,.24) !important;
+}
+
+.btn-warm:hover {
+  background: #5a4bb6 !important;
+  transform: translateY(-2px);
+}
+
+/* ---------- SECONDARY BUTTON ---------- */
+
+.btn-ghost {
+  background: #fffdf9 !important;
+  color: #5a4bb6 !important;
+  border: 1px solid #dcd5ef !important;
+  border-radius: 14px !important;
+  padding: 14px 22px !important;
+  font-weight: 700 !important;
+}
+
+.btn-ghost:hover {
+  background: #f3effb !important;
+  transform: translateY(-2px);
+}
+
+/* ---------- SEARCH ---------- */
+
+.home-search {
+  max-width: 540px !important;
+  background: #fffdf9 !important;
+  border: 1px solid #e9e2d9 !important;
+  border-radius: 15px !important;
+  padding: 4px !important;
+  box-shadow: 0 7px 25px rgba(45,38,55,.055) !important;
+}
+
+.home-search input {
   border: none !important;
+  background: transparent !important;
+  box-shadow: none !important;
 }
 
-/* ---------- Footer ---------- */
-
-footer {
-  background: #f4efe8 !important;
-  border-top: 1px solid var(--border) !important;
+.home-search button {
+  background: #27283b !important;
+  border-radius: 12px !important;
 }
 
-footer a {
-  color: var(--muted) !important;
+/* ---------- LIVE WORKSHEET PREVIEW ---------- */
+
+.demo-card {
+  background: #fffdf9 !important;
+  border: 1px solid #e4dfd8 !important;
+  border-radius: 24px !important;
+  box-shadow: 0 20px 55px rgba(55,48,75,.11) !important;
 }
 
-footer a:hover {
-  color: var(--brand) !important;
+.demo-chrome {
+  background: #27283b !important;
 }
 
-/* ---------- Free Demo / Teach With Us ---------- */
+.demo-stage {
+  background: #fffdf9 !important;
+}
 
+.demo-num {
+  background: #eeeafb !important;
+  color: #7567d9 !important;
+}
+
+.demo-node {
+  background: #fffefa !important;
+  border-color: #e4dfd8 !important;
+  border-radius: 11px !important;
+}
+
+.demo-dot {
+  border-color: #7567d9 !important;
+}
+
+.demo-controls {
+  background: #fffdf9 !important;
+  border-top: 1px solid #eee9e1 !important;
+}
+
+.demo-dotbtn.is-active {
+  background: #7567d9 !important;
+}
+
+/* ---------- SECTIONS ---------- */
+
+.home-section {
+  max-width: 1180px !important;
+  padding: 65px 42px !important;
+}
+
+.section-head h2 {
+  font-size: 32px !important;
+  letter-spacing: -0.04em !important;
+  color: #202334 !important;
+}
+
+.section-head p {
+  color: #70717f !important;
+}
+
+/* ---------- HOW IT WORKS ---------- */
+
+.step {
+  background: rgba(255,253,249,.7) !important;
+  border: 1px solid #e9e2d9 !important;
+  border-radius: 20px !important;
+  padding: 28px 24px !important;
+  box-shadow: 0 5px 22px rgba(45,38,55,.035) !important;
+}
+
+.step:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 18px 45px rgba(55,48,75,.10) !important;
+}
+
+.step-num {
+  background: #eeeafb !important;
+  color: #7567d9 !important;
+}
+
+.step h3 {
+  color: #202334 !important;
+}
+
+.step p {
+  color: #70717f !important;
+}
+
+/* ---------- CHIPS ---------- */
+
+.chip {
+  background: #fffdf9 !important;
+  border: 1px solid #e9e2d9 !important;
+  color: #555661 !important;
+  border-radius: 999px !important;
+}
+
+/* ---------- WORKSHEET CARDS ---------- */
+
+.warm-card {
+  background: #fffdf9 !important;
+  border: 1px solid #e9e2d9 !important;
+  border-radius: 20px !important;
+  padding: 24px !important;
+  box-shadow: 0 6px 25px rgba(45,38,55,.045) !important;
+}
+
+.warm-card:hover {
+  transform: translateY(-5px) !important;
+  border-color: #dcd5ef !important;
+  box-shadow: 0 18px 45px rgba(55,48,75,.10) !important;
+}
+
+.warm-card .eyebrow {
+  color: #7567d9 !important;
+}
+
+.warm-card h3 {
+  color: #202334 !important;
+}
+
+.warm-card p {
+  color: #70717f !important;
+}
+
+.warm-card .card-link,
+.center-link a {
+  color: #5a4bb6 !important;
+}
+
+/* ---------- CTA SECTION ---------- */
+
+.cta-band {
+  background: linear-gradient(
+    135deg,
+    #f4eee4 0%,
+    #eeeaf7 100%
+  ) !important;
+  border: 1px solid #e9e2d9 !important;
+  border-radius: 28px !important;
+  padding: 28px !important;
+  box-shadow: 0 12px 40px rgba(45,38,55,.055) !important;
+}
+
+.cta-card {
+  background: rgba(255,253,249,.97) !important;
+  border: 1px solid #e7dfd5 !important;
+  border-radius: 20px !important;
+  padding: 25px !important;
+}
+
+.cta-card h3 {
+  color: #202334 !important;
+}
+
+.cta-card p {
+  color: #70717f !important;
+}
+
+/* ---------- LIBRARY PAGE ---------- */
+
+.library-hero h1 {
+  color: #202334 !important;
+  letter-spacing: -0.05em !important;
+}
+
+.library-hero h1 span {
+  color: #7567d9 !important;
+}
+
+.search-box {
+  background: #fffdf9 !important;
+  border: 1px solid #e9e2d9 !important;
+  border-radius: 15px !important;
+  box-shadow: 0 7px 25px rgba(45,38,55,.05) !important;
+}
+
+.filters select {
+  background: #fffdf9 !important;
+  border: 1px solid #e9e2d9 !important;
+  border-radius: 12px !important;
+}
+
+/* ---------- FOOTER ---------- */
+
+footer.site-footer {
+  background: #27283b !important;
+  border-top: none !important;
+  color: #c7c5cf !important;
+}
+
+.site-footer p {
+  color: #aaa8b5 !important;
+}
+
+.site-footer a {
+  color: #dddbe4 !important;
+}
+
+.site-footer a:hover {
+  color: white !important;
+}
+
+/* ---------- MOBILE ---------- */
+
+@media (max-width: 800px) {
+  .home-hero {
+    padding: 60px 22px 45px !important;
+    gap: 42px !important;
+  }
+
+  .home-section {
+    padding: 48px 22px !important;
+  }
+
+  .home-hero h1 {
+    font-size: 42px !important;
+  }
+}
+
+@media (max-width: 560px) {
+  .site-header nav {
+    display: none !important;
+  }
+
+  .home-hero h1 {
+    font-size: 36px !important;
+  }
+
+  .hero-cta {
+    flex-direction: column;
+  }
+
+  .btn-warm,
+  .btn-ghost {
+    text-align: center;
+    width: 100%;
+  }
+}
+/* =========================================================
+   MyTutBuddy — FORM PAGE FIX
+   Keep this AFTER all other CSS
+   ========================================================= */
+
+/* Form page layout */
+.form-page,
+.page-form,
+.form-wrap {
+  max-width: 1100px !important;
+  margin: 0 auto !important;
+  padding: 70px 28px 90px !important;
+}
+
+/* Form heading */
+.form-page h1,
+.page-form h1,
+.form-wrap h1 {
+  font-size: clamp(36px, 5vw, 52px) !important;
+  line-height: 1.05 !important;
+  letter-spacing: -0.045em !important;
+  color: #202334 !important;
+  margin-bottom: 14px !important;
+}
+
+.form-page > p,
+.page-form > p,
+.form-wrap > p {
+  color: #70717f !important;
+  font-size: 16px !important;
+  line-height: 1.7 !important;
+}
+
+/* Form card */
+.form-card,
 form {
-  background: transparent;
+  background: #fffdf9 !important;
+  border: 1px solid #e9e2d9 !important;
+  border-radius: 24px !important;
+  box-shadow: 0 18px 55px rgba(45,38,55,.08) !important;
 }
 
+/* Main form */
+form {
+  padding: 34px !important;
+  margin-top: 28px !important;
+}
+
+/* Form rows */
+.form-grid {
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: 22px 24px !important;
+}
+
+/* Individual field */
+.form-field,
+.field,
+form .field {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 7px !important;
+  margin-bottom: 20px !important;
+}
+
+/* Full width fields */
+.form-field.full,
+.field.full,
+.full-width {
+  grid-column: 1 / -1 !important;
+}
+
+/* Labels */
 form label {
-  color: var(--ink);
-  font-weight: 600;
+  display: block !important;
+  color: #303143 !important;
+  font-size: 14px !important;
+  font-weight: 700 !important;
+  margin-bottom: 6px !important;
 }
 
-form button[type="submit"] {
-  margin-top: 8px;
+/* Inputs */
+form input[type="text"],
+form input[type="email"],
+form input[type="tel"],
+form input[type="number"],
+form input[type="url"],
+form input[type="file"],
+form select,
+form textarea {
+  width: 100% !important;
+  min-height: 48px !important;
+  padding: 12px 14px !important;
+  box-sizing: border-box !important;
+  border: 1px solid #ded9d2 !important;
+  border-radius: 12px !important;
+  background: #fff !important;
+  color: #202334 !important;
+  font: inherit !important;
+  font-size: 15px !important;
+  outline: none !important;
+  transition: border-color .2s ease, box-shadow .2s ease !important;
 }
 
-/* ---------- Images ---------- */
-
-img {
-  max-width: 100%;
+/* Textarea */
+form textarea {
+  min-height: 135px !important;
+  resize: vertical !important;
 }
 
-.card img,
-.feature-card img,
-.grade-card img {
-  border-radius: 18px;
+/* Select */
+form select {
+  cursor: pointer !important;
+  appearance: auto !important;
 }
 
-/* ---------- Mobile polish ---------- */
+/* Focus */
+form input:focus,
+form select:focus,
+form textarea:focus {
+  border-color: #7567d9 !important;
+  box-shadow: 0 0 0 4px rgba(117,103,217,.10) !important;
+}
 
-@media (max-width: 768px) {
-  h1 {
-    font-size: clamp(2rem, 9vw, 3rem);
+/* File upload */
+form input[type="file"] {
+  padding: 10px !important;
+  background: #faf8f4 !important;
+}
+
+/* Help text */
+form small,
+.form-help,
+.help-text {
+  color: #858591 !important;
+  font-size: 12px !important;
+  line-height: 1.5 !important;
+}
+
+/* Preview mode notice */
+.form-notice,
+.preview-notice,
+form .notice {
+  background: #f5f1ff !important;
+  border: 1px solid #ded6f8 !important;
+  color: #51477d !important;
+  border-radius: 12px !important;
+  padding: 13px 16px !important;
+  margin-bottom: 24px !important;
+  font-size: 13px !important;
+}
+
+/* Checkbox / consent */
+form input[type="checkbox"] {
+  width: 18px !important;
+  height: 18px !important;
+  min-height: 18px !important;
+  accent-color: #7567d9 !important;
+  flex: 0 0 auto !important;
+}
+
+form label:has(input[type="checkbox"]) {
+  display: flex !important;
+  align-items: flex-start !important;
+  gap: 10px !important;
+  font-weight: 500 !important;
+  line-height: 1.5 !important;
+}
+
+/* Submit button */
+form button[type="submit"],
+form .submit-btn,
+form .btn-submit {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-height: 50px !important;
+  padding: 13px 24px !important;
+  border: none !important;
+  border-radius: 13px !important;
+  background: #7567d9 !important;
+  color: white !important;
+  font-size: 14px !important;
+  font-weight: 750 !important;
+  cursor: pointer !important;
+  box-shadow: 0 10px 25px rgba(117,103,217,.22) !important;
+  transition: transform .2s ease, background .2s ease !important;
+}
+
+form button[type="submit"]:hover,
+form .submit-btn:hover,
+form .btn-submit:hover {
+  background: #5a4bb6 !important;
+  transform: translateY(-2px) !important;
+}
+
+form button[type="submit"]:disabled,
+form button:disabled {
+  opacity: .55 !important;
+  cursor: not-allowed !important;
+  transform: none !important;
+}
+
+/* Required star */
+form .required,
+form .asterisk {
+  color: #7567d9 !important;
+}
+
+/* Before you apply / additional content */
+.form-page section,
+.page-form section,
+.form-wrap section {
+  margin-top: 35px !important;
+}
+
+/* Mobile */
+@media (max-width: 700px) {
+  .form-page,
+  .page-form,
+  .form-wrap {
+    padding: 45px 18px 65px !important;
   }
 
-  h2 {
-    font-size: clamp(1.6rem, 7vw, 2.2rem);
-  }
-
-  .card,
-  .worksheet-card,
-  .grade-card,
-  .feature-card,
-  .info-card,
-  .form-card {
+  form {
+    padding: 22px !important;
     border-radius: 18px !important;
   }
 
-  button,
-  .btn,
-  a.btn {
-    min-height: 44px;
+  .form-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .form-field.full,
+  .field.full,
+  .full-width {
+    grid-column: auto !important;
   }
 }
