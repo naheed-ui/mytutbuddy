@@ -2434,3 +2434,114 @@ form .asterisk {
     grid-column: auto !important;
   }
 }
+/* =========================================================
+   TEACH WITH US CTA
+   ========================================================= */
+
+.teach-cta-card {
+  background: linear-gradient(135deg, #f8f5ff 0%, #fffaf5 100%);
+  border: 1px solid #e5def8;
+  border-radius: 28px;
+  padding: 42px 36px;
+  max-width: 650px;
+  margin: 40px auto;
+  text-align: left;
+  box-shadow: 0 12px 35px rgba(65, 45, 120, 0.08);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Soft decorative circle */
+
+.teach-cta-card::after {
+  content: "";
+  position: absolute;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background: rgba(112, 91, 214, 0.07);
+  right: -70px;
+  top: -70px;
+  pointer-events: none;
+}
+
+.teach-cta-icon {
+  width: 46px;
+  height: 46px;
+  border-radius: 14px;
+  background: #ffffff;
+  border: 1px solid #e7e0f8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #6753d6;
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.teach-cta-card h2 {
+  margin: 0 0 12px;
+  color: #202238;
+  font-size: 28px;
+  line-height: 1.2;
+  font-weight: 750;
+  position: relative;
+  z-index: 1;
+}
+
+.teach-cta-card p {
+  margin: 0 0 26px;
+  max-width: 560px;
+  color: #667085;
+  font-size: 16px;
+  line-height: 1.7;
+  position: relative;
+  z-index: 1;
+}
+
+.teach-cta-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 13px 22px;
+  border-radius: 12px;
+  background: #6753d6;
+  color: #ffffff !important;
+  text-decoration: none !important;
+  font-size: 15px;
+  font-weight: 700;
+  transition: all 0.2s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.teach-cta-button:hover {
+  background: #5542c2;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(103, 83, 214, 0.22);
+}
+
+/* Mobile */
+
+@media (max-width: 700px) {
+  .teach-cta-card {
+    margin: 30px 16px;
+    padding: 30px 24px;
+    border-radius: 22px;
+  }
+
+  .teach-cta-card h2 {
+    font-size: 24px;
+  }
+
+  .teach-cta-card p {
+    font-size: 15px;
+  }
+
+  .teach-cta-button {
+    width: 100%;
+  }
+}
