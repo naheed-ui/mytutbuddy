@@ -257,7 +257,9 @@ function main() {
   write(path.join(OUT_DIR, "index.html"), renderHomepage(worksheets, "/"));
   write(path.join(OUT_DIR, "worksheets", "index.html"), renderLibraryPage(worksheets, "/worksheets/"));
   buildStaticPages();
-
+write(path.join(OUT_DIR, "free-demo", "index.html"), renderFreeDemoPage("/free-demo/"));
+write(path.join(OUT_DIR, "teach-with-us", "index.html"), renderTeacherPage("/teach-with-us/"));
+write(path.join(OUT_DIR, "thank-you", "index.html"), renderThankYouPage("/thank-you/"));
   for (const w of worksheets) {
     const relPath = `/worksheets/${w.gradeSlug}/${w.topicSlug}/${w.slug}/`;
     write(path.join(OUT_DIR, relPath, "index.html"), renderWorksheetPage(w, relPath));
