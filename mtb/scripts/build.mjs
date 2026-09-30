@@ -7,7 +7,11 @@ import { renderWorksheetPage } from "../templates/worksheet.mjs";
 import { renderLibraryPage } from "../templates/library.mjs";
 import { renderHomepage } from "../templates/homepage.mjs";
 import { renderStaticPage } from "../templates/static-page.mjs";
-
+import {
+  renderFreeDemoPage,
+  renderTeacherPage,
+  renderThankYouPage
+} from "../templates/forms.mjs";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.join(__dirname, "..");
 const DATA_DIR = path.join(ROOT, "data", "worksheets");
