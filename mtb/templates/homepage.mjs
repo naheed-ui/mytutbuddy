@@ -249,14 +249,12 @@ ${videoSection}
     </div>
     <div class="cta-cards">
       <div class="cta-card student">
-        <span class="cta-emoji" aria-hidden="true">🎈</span>
         <h3>Students &amp; parents</h3>
         <p>Want a little extra help? Book a free demo class and tell us about your grade, board and goals.</p>
         <a class="btn-warm" href="${BASE_PATH}/free-demo/">Book a free demo class</a>
       </div>
       <div class="cta-card teacher">
-        <span class="cta-emoji" aria-hidden="true">🍎</span>
-        <h3>Maths teachers &amp; tutors</h3>
+        <h3> Tutors</h3>
         <p>Passionate about teaching Maths? Share your experience and upload your CV to apply.</p>
         <a class="btn-ghost" href="${BASE_PATH}/teach-with-us/">Teach with us</a>
       </div>
