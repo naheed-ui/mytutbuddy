@@ -6116,3 +6116,64 @@ body.warm {
     left: 3%;
   }
 }
+/* =========================
+   FOOTER — WARM JOURNAL STYLE
+   ========================= */
+
+.site-footer {
+  background: #f3eadf !important;
+  border-top: 1px solid #d8c7b5 !important;
+  color: #5a3828 !important;
+  padding: 48px 24px 34px !important;
+  text-align: center;
+}
+
+.site-footer a {
+  color: #5a3828 !important;
+  text-decoration: none;
+  font-weight: 600;
+  transition: opacity 0.2s ease;
+}
+
+.site-footer a:hover {
+  color: #3f251a !important;
+  opacity: 0.75;
+}
+
+.site-footer .footer-links {
+  color: #5a3828 !important;
+}
+
+.site-footer .footer-links a {
+  color: #5a3828 !important;
+}
+
+.site-footer .footer-social {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+  margin: 22px 0;
+}
+
+.site-footer .footer-social a {
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: #fffaf5;
+  border: 1px solid #d8c7b5;
+  box-shadow: 0 4px 12px rgba(90, 56, 40, 0.08);
+}
+
+.site-footer .footer-social svg {
+  width: 20px;
+  height: 20px;
+}
+
+.site-footer .footer-copy {
+  color: #6b4937 !important;
+  font-size: 14px;
+}
