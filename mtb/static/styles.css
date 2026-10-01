@@ -5455,3 +5455,664 @@ body.warm {
   }
 
 }
+/* =========================================================
+   MYTUTBUDDY — PINTEREST JOURNAL HOMEPAGE
+   ========================================================= */
+
+.journal-hero {
+  min-height: calc(100vh - 82px);
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 70px 6vw 80px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(460px, 0.9fr);
+  gap: 70px;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.journal-hero-copy {
+  max-width: 680px;
+  position: relative;
+  z-index: 5;
+}
+
+.journal-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 9px 16px;
+  margin-bottom: 26px;
+  border-radius: 999px;
+  background: #f8edc9;
+  color: #6d5a42;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: .02em;
+  box-shadow: 0 5px 15px rgba(50, 40, 80, .06);
+}
+
+.journal-kicker span {
+  color: #7564d8;
+  font-size: 17px;
+}
+
+.journal-hero h1 {
+  margin: 0;
+  max-width: 720px;
+  color: #25253d;
+  font-size: clamp(54px, 6vw, 88px);
+  line-height: .98;
+  letter-spacing: -0.055em;
+  font-weight: 800;
+}
+
+.journal-hero h1 em {
+  display: block;
+  color: #7664d9;
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 600;
+  letter-spacing: -0.035em;
+}
+
+.journal-lead {
+  max-width: 590px;
+  margin: 30px 0 28px;
+  color: #68677d;
+  font-size: 20px;
+  line-height: 1.65;
+}
+
+.journal-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 13px;
+  margin-bottom: 25px;
+}
+
+.journal-actions a {
+  text-decoration: none;
+}
+
+.btn-warm,
+.btn-ghost {
+  min-height: 54px;
+  padding: 0 24px;
+  border-radius: 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 15px;
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.btn-warm {
+  color: white;
+  background: #7664d9;
+  box-shadow: 0 12px 28px rgba(118, 100, 217, .22);
+}
+
+.btn-warm:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 34px rgba(118, 100, 217, .28);
+}
+
+.btn-ghost {
+  color: #7664d9;
+  background: rgba(255,255,255,.72);
+  border: 1px solid #ddd7f4;
+}
+
+.btn-ghost:hover {
+  transform: translateY(-3px);
+}
+
+.journal-search {
+  max-width: 590px;
+  min-height: 58px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 6px 8px 6px 18px;
+  background: white;
+  border: 1px solid #e5dfd6;
+  border-radius: 18px;
+  box-shadow: 0 12px 35px rgba(52, 42, 70, .08);
+}
+
+.journal-search > span {
+  font-size: 24px;
+  color: #7664d9;
+}
+
+.journal-search input {
+  width: 100%;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: #25253d;
+  font-size: 16px;
+}
+
+.journal-search input::placeholder {
+  color: #aaa5a0;
+}
+
+.journal-trust {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 20px;
+  margin-top: 17px;
+  color: #777286;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.journal-trust span {
+  white-space: nowrap;
+}
+
+
+/* =========================================================
+   JOURNAL VISUAL
+   ========================================================= */
+
+.journal-visual {
+  min-height: 600px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: journalFloat 6s ease-in-out infinite;
+}
+
+@keyframes journalFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+
+/* paper */
+
+.journal-paper {
+  width: min(430px, 80%);
+  min-height: 490px;
+  padding: 34px 34px 28px;
+  position: relative;
+  z-index: 3;
+  background:
+    repeating-linear-gradient(
+      to bottom,
+      #fffdf8 0,
+      #fffdf8 31px,
+      #eee8dc 32px
+    );
+  border-radius: 5px;
+  box-shadow:
+    0 30px 70px rgba(48, 42, 70, .18),
+    0 5px 12px rgba(48, 42, 70, .08);
+  transform: rotate(2deg);
+  overflow: hidden;
+}
+
+.journal-paper::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 54px;
+  width: 1px;
+  height: 100%;
+  background: #f1c9c9;
+  opacity: .8;
+}
+
+.paper-topline {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  z-index: 2;
+  color: #928b82;
+  font-family: Arial, sans-serif;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .12em;
+}
+
+.paper-title {
+  position: relative;
+  z-index: 2;
+  margin: 65px 0 28px 30px;
+  color: #29283e;
+  font-family: Georgia, serif;
+  font-size: 28px;
+  line-height: 1.2;
+}
+
+.paper-title strong {
+  font-size: 39px;
+  color: #7664d9;
+}
+
+.paper-rule {
+  height: 2px;
+  width: 70%;
+  margin: 0 0 34px 30px;
+  background: #d9d2c7;
+}
+
+.paper-equation {
+  margin-left: 30px;
+  color: #29283e;
+  font-family: Georgia, serif;
+  font-size: 37px;
+  font-weight: 700;
+  letter-spacing: .02em;
+}
+
+.paper-work {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 24px 0 30px 70px;
+  color: #6356b9;
+  font-family: "Comic Sans MS", "Segoe Print", cursive;
+  font-size: 24px;
+  transform: rotate(-2deg);
+}
+
+.paper-check {
+  margin-left: 30px;
+  color: #5d735f;
+  font-family: "Comic Sans MS", "Segoe Print", cursive;
+  font-size: 17px;
+}
+
+.paper-check span {
+  color: #5e9c72;
+  font-size: 24px;
+}
+
+.paper-footer {
+  position: absolute;
+  left: 64px;
+  bottom: 25px;
+  color: #9a938a;
+  font-family: Georgia, serif;
+  font-size: 13px;
+  letter-spacing: .12em;
+}
+
+
+/* =========================================================
+   FLOATING NOTES
+   ========================================================= */
+
+.sticky-note {
+  position: absolute;
+  z-index: 6;
+  width: 145px;
+  min-height: 125px;
+  padding: 19px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  box-shadow: 0 16px 30px rgba(52, 42, 70, .13);
+  font-family: "Comic Sans MS", "Segoe Print", cursive;
+  animation: noteFloat 5s ease-in-out infinite;
+}
+
+.sticky-note span {
+  font-size: 13px;
+}
+
+.sticky-note b {
+  font-size: 24px;
+  margin: 3px 0;
+}
+
+.note-yellow {
+  top: 70px;
+  right: 3%;
+  background: #fff0a8;
+  transform: rotate(7deg);
+}
+
+.note-lilac {
+  bottom: 65px;
+  left: 2%;
+  background: #e8ddff;
+  transform: rotate(-7deg);
+  animation-delay: -2s;
+}
+
+@keyframes noteFloat {
+  0%, 100% {
+    margin-top: 0;
+  }
+  50% {
+    margin-top: -12px;
+  }
+}
+
+
+/* =========================================================
+   PROGRESS CARD
+   ========================================================= */
+
+.mini-card {
+  position: absolute;
+  right: 0;
+  bottom: 55px;
+  z-index: 7;
+  width: 150px;
+  padding: 19px;
+  background: white;
+  border: 1px solid #eee8df;
+  border-radius: 18px;
+  box-shadow: 0 18px 35px rgba(52, 42, 70, .13);
+  transform: rotate(3deg);
+}
+
+.mini-label {
+  display: block;
+  color: #99919a;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .12em;
+}
+
+.mini-card strong {
+  display: block;
+  margin: 5px 0;
+  color: #7664d9;
+  font-size: 32px;
+}
+
+.mini-card small {
+  color: #777286;
+}
+
+.mini-progress {
+  height: 7px;
+  margin-top: 12px;
+  overflow: hidden;
+  background: #eeeaf7;
+  border-radius: 99px;
+}
+
+.mini-progress i {
+  display: block;
+  width: 60%;
+  height: 100%;
+  background: #7664d9;
+  border-radius: inherit;
+  animation: progressGrow 2.5s ease-in-out infinite alternate;
+}
+
+@keyframes progressGrow {
+  from {
+    width: 45%;
+  }
+  to {
+    width: 75%;
+  }
+}
+
+
+/* =========================================================
+   DOODLES
+   ========================================================= */
+
+.doodle {
+  position: absolute;
+  z-index: 8;
+  color: #7664d9;
+  pointer-events: none;
+}
+
+.doodle-star {
+  top: 13%;
+  left: 7%;
+  font-size: 38px;
+  animation: doodleSpin 8s linear infinite;
+}
+
+.doodle-spark {
+  right: 9%;
+  top: 31%;
+  font-size: 28px;
+  animation: doodlePulse 2.2s ease-in-out infinite;
+}
+
+.doodle-heart {
+  bottom: 18%;
+  right: 14%;
+  color: #d59cae;
+  font-size: 32px;
+  animation: doodlePulse 3s ease-in-out infinite;
+}
+
+@keyframes doodleSpin {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes doodlePulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: .65;
+  }
+  50% {
+    transform: scale(1.25);
+    opacity: 1;
+  }
+}
+
+
+/* =========================================================
+   TAPE
+   ========================================================= */
+
+.tape {
+  position: absolute;
+  z-index: 9;
+  width: 115px;
+  height: 28px;
+  background: rgba(248, 220, 166, .7);
+  box-shadow: 0 2px 5px rgba(60, 50, 40, .08);
+}
+
+.tape-one {
+  top: 10%;
+  left: 39%;
+  transform: rotate(-7deg);
+}
+
+.tape-two {
+  bottom: 12%;
+  right: 31%;
+  transform: rotate(8deg);
+}
+
+
+/* =========================================================
+   HOW IT WORKS
+   ========================================================= */
+
+.home-section {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 90px 6vw;
+}
+
+.section-head {
+  max-width: 650px;
+  margin: 0 auto 45px;
+  text-align: center;
+}
+
+.section-head h2 {
+  margin-bottom: 10px;
+  color: #25253d;
+  font-size: clamp(36px, 4vw, 54px);
+  letter-spacing: -.04em;
+}
+
+.section-head p {
+  color: #777286;
+  font-size: 17px;
+}
+
+.steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+.step {
+  padding: 30px;
+  background: #fffdf9;
+  border: 1px solid #ece6dd;
+  border-radius: 24px;
+  box-shadow: 0 12px 30px rgba(52, 42, 70, .05);
+}
+
+.step-num {
+  display: inline-flex;
+  width: 38px;
+  height: 38px;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 18px;
+  border-radius: 50%;
+  background: #eee9ff;
+  color: #7664d9;
+  font-weight: 800;
+}
+
+.step h3 {
+  margin: 0 0 9px;
+  color: #29283e;
+  font-size: 21px;
+}
+
+.step p {
+  margin: 0;
+  color: #777286;
+  line-height: 1.6;
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+  .journal-hero {
+    min-height: auto;
+    grid-template-columns: 1fr;
+    gap: 35px;
+    padding-top: 45px;
+  }
+
+  .journal-hero h1 {
+    font-size: clamp(48px, 12vw, 70px);
+  }
+
+  .journal-lead {
+    font-size: 18px;
+  }
+
+  .journal-visual {
+    min-height: 560px;
+    order: 2;
+  }
+
+  .steps {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+
+  .journal-hero {
+    padding: 35px 20px 60px;
+  }
+
+  .journal-kicker {
+    font-size: 12px;
+  }
+
+  .journal-hero h1 {
+    font-size: 48px;
+  }
+
+  .journal-lead {
+    font-size: 17px;
+  }
+
+  .journal-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .btn-warm,
+  .btn-ghost {
+    width: 100%;
+  }
+
+  .journal-visual {
+    min-height: 500px;
+  }
+
+  .journal-paper {
+    width: 78%;
+    min-height: 410px;
+    padding: 25px;
+  }
+
+  .paper-title {
+    margin-top: 55px;
+    font-size: 22px;
+  }
+
+  .paper-title strong {
+    font-size: 30px;
+  }
+
+  .paper-equation {
+    font-size: 28px;
+  }
+
+  .sticky-note {
+    width: 105px;
+    min-height: 95px;
+    padding: 12px;
+  }
+
+  .sticky-note b {
+    font-size: 18px;
+  }
+
+  .mini-card {
+    right: 2%;
+    bottom: 25px;
+    width: 125px;
+  }
+
+  .doodle-star {
+    left: 3%;
+  }
+}
