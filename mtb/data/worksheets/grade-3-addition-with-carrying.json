@@ -103,7 +103,7 @@
       "instruction": "Record the carry above the correct column.",
       "addends": ["458", "176"],
       "answer": "634",
-      "carries": ["", "1", ""],
+      "carries": ["1", "1", ""],
       "showCarries": true,
       "marks": 2
     },
