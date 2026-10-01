@@ -1,0 +1,121 @@
+{
+  "slug": "grade-4-addition-with-carrying",
+  "title": "Grade 4 Addition — With Carrying",
+  "grade": "Grade 4",
+  "topic": "Number",
+  "subtopic": "Addition with Carrying",
+  "difficulty": "Medium",
+  "shortDescription": "Practise adding five- and six-digit numbers with different carrying patterns.",
+  "seoTitle": "Grade 4 Addition With Carrying | MyTutBuddy",
+  "seoDescription": "Interactive Grade 4 addition worksheet with five- and six-digit vertical addition and carrying boxes.",
+  "intro": "Add each pair of numbers. Record every carry in the small boxes above the correct columns.",
+  "resultMessages": {
+    "perfect": "🏆 Perfect! You got every question correct!",
+    "great": "🌟 Great work! Keep practising your addition.",
+    "good": "👏 Good job! Review the questions you missed.",
+    "effort": "💪 Good effort! Check each column carefully and try again.",
+    "keepPractising": "📚 Keep practising! Careful column work will make you stronger."
+  },
+  "questions": [
+    {
+      "type": "vertical-addition",
+      "prompt": "Add and show the carries.",
+      "instruction": "Record each carry above the correct column.",
+      "addends": ["575435", "766563"],
+      "answer": "1341998",
+      "carries": ["1", "1", "1", "", "", "", ""],
+      "showCarries": true,
+      "marks": 2
+    },
+    {
+      "type": "vertical-addition",
+      "prompt": "Add and show the carries.",
+      "instruction": "Record each carry carefully.",
+      "addends": ["270555", "488162"],
+      "answer": "758717",
+      "carries": ["1", "", "", "1", "", ""],
+      "showCarries": true,
+      "marks": 2
+    },
+    {
+      "type": "vertical-addition",
+      "prompt": "Add and show the carries.",
+      "instruction": "Record each carry above the correct column.",
+      "addends": ["319684", "802729"],
+      "answer": "1122413",
+      "carries": ["1", "", "1", "1", "1", "1", ""],
+      "showCarries": true,
+      "marks": 2
+    },
+    {
+      "type": "vertical-addition",
+      "prompt": "Add and show the carries.",
+      "instruction": "Record every carry carefully.",
+      "addends": ["835911", "816751"],
+      "answer": "1652662",
+      "carries": ["1", "", "1", "1", "", "", ""],
+      "showCarries": true,
+      "marks": 2
+    },
+    {
+      "type": "vertical-addition",
+      "prompt": "Add and show the carries.",
+      "instruction": "Write each carry in the small box.",
+      "addends": ["89840", "93227"],
+      "answer": "183067",
+      "carries": ["1", "1", "1", "", "", ""],
+      "showCarries": true,
+      "marks": 2
+    },
+    {
+      "type": "vertical-addition",
+      "prompt": "Add and show the carry.",
+      "instruction": "Record the carry above the correct column.",
+      "addends": ["80010", "42087"],
+      "answer": "122097",
+      "carries": ["1", "", "", "", "", ""],
+      "showCarries": true,
+      "marks": 2
+    },
+    {
+      "type": "vertical-addition",
+      "prompt": "Add and show the carries.",
+      "instruction": "Record every carry carefully.",
+      "addends": ["70589", "59735"],
+      "answer": "130324",
+      "carries": ["1", "1", "1", "1", "1", ""],
+      "showCarries": true,
+      "marks": 2
+    },
+    {
+      "type": "vertical-addition",
+      "prompt": "Add and show the carries.",
+      "instruction": "Record each carry above the correct column.",
+      "addends": ["771088", "821590"],
+      "answer": "1592678",
+      "carries": ["1", "", "", "", "1", "", ""],
+      "showCarries": true,
+      "marks": 2
+    },
+    {
+      "type": "vertical-addition",
+      "prompt": "Add and show the carries.",
+      "instruction": "Record each carry carefully.",
+      "addends": ["520651", "380746"],
+      "answer": "901397",
+      "carries": ["1", "", "1", "", "", ""],
+      "showCarries": true,
+      "marks": 2
+    },
+    {
+      "type": "vertical-addition",
+      "prompt": "Add and show the carries.",
+      "instruction": "Record every carry above the correct column.",
+      "addends": ["37653", "84341"],
+      "answer": "121994",
+      "carries": ["1", "1", "", "", "", ""],
+      "showCarries": true,
+      "marks": 2
+    }
+  ]
+}
