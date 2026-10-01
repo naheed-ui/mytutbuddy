@@ -44,22 +44,7 @@ export function renderHomepage(worksheets, path) {
       </a>`;
     })
     .join("\n");
-
-  const videoSection = HERO_VIDEO_URL
-    ? `<section class="home-section home-video">
-  <div class="section-head">
-    <h2>See it in action</h2>
-    <p>A quick look at how a MyTutBuddy worksheet works.</p>
-  </div>
-  <div class="video-frame">
-    <video controls muted playsinline preload="metadata"${HERO_VIDEO_POSTER ? ` poster="${escapeHtml(HERO_VIDEO_POSTER)}"` : ""}>
-      <source src="${escapeHtml(HERO_VIDEO_URL)}" type="video/mp4">
-      Your browser can't play this video.
-    </video>
-  </div>
-</section>`
-    : "";
-
+const videoSection = "";
   return `<!DOCTYPE html>
 <html lang="en">
 <head>
