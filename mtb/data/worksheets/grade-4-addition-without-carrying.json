@@ -1,0 +1,111 @@
+{
+  "slug": "grade-4-addition-without-carrying",
+  "title": "Grade 4 Addition — Without Carrying",
+  "grade": "Grade 4",
+  "topic": "Number",
+  "subtopic": "Addition without Carrying",
+  "difficulty": "Easy",
+  "shortDescription": "Practise adding five- and six-digit numbers without carrying.",
+  "seoTitle": "Grade 4 Addition Without Carrying | MyTutBuddy",
+  "seoDescription": "Interactive Grade 4 Maths worksheet practising five- and six-digit addition without carrying.",
+  "intro": "Add each pair of numbers. Take care to line up each place value correctly.",
+  "resultMessages": {
+    "perfect": "🏆 Perfect! Excellent place-value work!",
+    "great": "🌟 Great work! Keep practising.",
+    "good": "👏 Good job! Check the questions you missed.",
+    "effort": "💪 Good effort! Remember to line up your place values.",
+    "keepPractising": "📚 Keep practising! You are getting better."
+  },
+  "questions": [
+    {
+      "type": "vertical-addition",
+      "prompt": "Add the numbers.",
+      "instruction": "Enter the answer one digit at a time.",
+      "addends": ["281256", "301712"],
+      "answer": "582968",
+      "showCarries": false,
+      "marks": 1
+    },
+    {
+      "type": "vertical-addition",
+      "prompt": "Add the numbers.",
+      "instruction": "Enter the answer one digit at a time.",
+      "addends": ["332016", "315601"],
+      "answer": "647617",
+      "showCarries": false,
+      "marks": 1
+    },
+    {
+      "type": "vertical-addition",
+      "prompt": "Add the numbers.",
+      "instruction": "Enter the answer one digit at a time.",
+      "addends": ["217164", "220630"],
+      "answer": "437794",
+      "showCarries": false,
+      "marks": 1
+    },
+    {
+      "type": "vertical-addition",
+      "prompt": "Add the numbers.",
+      "instruction": "Enter the answer one digit at a time.",
+      "addends": ["202841", "283146"],
+      "answer": "485987",
+      "showCarries": false,
+      "marks": 1
+    },
+    {
+      "type": "vertical-addition",
+      "prompt": "Add the numbers.",
+      "instruction": "Enter the answer one digit at a time.",
+      "addends": ["240145", "159203"],
+      "answer": "399348",
+      "showCarries": false,
+      "marks": 1
+    },
+    {
+      "type": "vertical-addition",
+      "prompt": "Add the numbers.",
+      "instruction": "Enter the answer one digit at a time.",
+      "addends": ["231653", "132224"],
+      "answer": "363877",
+      "showCarries": false,
+      "marks": 1
+    },
+    {
+      "type": "vertical-addition",
+      "prompt": "Add the numbers.",
+      "instruction": "Enter the answer one digit at a time.",
+      "addends": ["265712", "334004"],
+      "answer": "599716",
+      "showCarries": false,
+      "marks": 1
+    },
+    {
+      "type": "vertical-addition",
+      "prompt": "Add the numbers.",
+      "instruction": "Enter the answer one digit at a time.",
+      "addends": ["325102", "273734"],
+      "answer": "598836",
+      "showCarries": false,
+      "marks": 1
+    },
+    {
+      "type": "vertical-addition",
+      "prompt": "Add the numbers.",
+      "instruction": "Enter the answer one digit at a time.",
+      "addends": ["217510", "430273"],
+      "answer": "647783",
+      "showCarries": false,
+      "marks": 1
+    },
+    {
+      "type": "vertical-addition",
+      "prompt": "Add the numbers.",
+      "instruction": "Enter the answer one digit at a time.",
+      "addends": ["268353", "401411"],
+      "answer": "669764",
+      "showCarries": false,
+      "marks": 1
+    }
+  ]
+}
