@@ -1,0 +1,81 @@
+{
+  "slug": "grade-4-multiplication-2-digit-by-1-digit-without-carrying",
+  "title": "Grade 4 Multiplication — 2-Digit × 1-Digit Without Carrying",
+  "grade": "Grade 4",
+  "topic": "Number",
+  "subtopic": "Multiplication without Carrying",
+  "difficulty": "Easy",
+  "shortDescription": "Practise multiplying two-digit numbers by one-digit numbers without carrying.",
+  "seoTitle": "Grade 4 Multiplication 2-Digit by 1-Digit Without Carrying | MyTutBuddy",
+  "seoDescription": "Interactive Grade 4 multiplication worksheet with two-digit by one-digit multiplication without carrying.",
+  "intro": "Multiply each two-digit number by the one-digit number. No carrying is needed in these questions.",
+  "resultMessages": {
+    "perfect": "🏆 Perfect! Excellent multiplication work!",
+    "great": "🌟 Great work! Keep practising your multiplication.",
+    "good": "👏 Good job! Check the questions you missed.",
+    "effort": "💪 Good effort! Take your time with each multiplication.",
+    "keepPractising": "📚 Keep practising! You are getting stronger at multiplication."
+  },
+  "questions": [
+    {
+      "type": "text",
+      "prompt": "Calculate: 21 × 3 =",
+      "answer": "63",
+      "marks": 1
+    },
+    {
+      "type": "text",
+      "prompt": "Calculate: 32 × 2 =",
+      "answer": "64",
+      "marks": 1
+    },
+    {
+      "type": "text",
+      "prompt": "Calculate: 42 × 2 =",
+      "answer": "84",
+      "marks": 1
+    },
+    {
+      "type": "text",
+      "prompt": "Calculate: 23 × 3 =",
+      "answer": "69",
+      "marks": 1
+    },
+    {
+      "type": "text",
+      "prompt": "Calculate: 12 × 4 =",
+      "answer": "48",
+      "marks": 1
+    },
+    {
+      "type": "text",
+      "prompt": "Calculate: 31 × 3 =",
+      "answer": "93",
+      "marks": 1
+    },
+    {
+      "type": "text",
+      "prompt": "Calculate: 22 × 4 =",
+      "answer": "88",
+      "marks": 1
+    },
+    {
+      "type": "text",
+      "prompt": "Calculate: 41 × 2 =",
+      "answer": "82",
+      "marks": 1
+    },
+    {
+      "type": "text",
+      "prompt": "Calculate: 13 × 3 =",
+      "answer": "39",
+      "marks": 1
+    },
+    {
+      "type": "text",
+      "prompt": "Calculate: 24 × 2 =",
+      "answer": "48",
+      "marks": 1
+    }
+  ]
+}
