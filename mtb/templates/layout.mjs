@@ -51,12 +51,13 @@ export function renderHeader() {
 }
 
 function socialIcon(name, url) {
-  const icons = {
-    instagram:
-      '<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>',
-    youtube:
-      '<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="4"/><path d="M10 9l6 3-6 3V9z" fill="currentColor" stroke="none"/></svg>',
-  };
+const icons = {
+  instagram:
+    '<svg viewBox="0 0 24 24" width="18" height="18" fill="none"><rect x="3" y="3" width="18" height="18" rx="5" stroke="#E4405F" stroke-width="2"/><circle cx="12" cy="12" r="4" stroke="#E4405F" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.2" fill="#E4405F"/></svg>',
+
+  youtube:
+    '<svg viewBox="0 0 24 24" width="18" height="18" fill="none"><rect x="2" y="5" width="20" height="14" rx="4" fill="#FF0000"/><path d="M10 8.5L16 12L10 15.5V8.5Z" fill="#FFFFFF"/></svg>',
+};
   return `<a class="icon-btn" href="${url}" target="_blank" rel="noopener" aria-label="${name}">${icons[name] || ""}</a>`;
 }
 
