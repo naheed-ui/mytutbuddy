@@ -1,5 +1,5 @@
 import { renderHead, renderHeader, renderFooter, escapeHtml } from "./layout.mjs";
-import { BASE_PATH, HERO_VIDEO_URL, HERO_VIDEO_POSTER } from "../scripts/config.mjs";
+import { BASE_PATH } from "../scripts/config.mjs";
 
 const GRADE_ICONS = {
   "Grade 6": "📗",
@@ -67,103 +67,142 @@ ${head}
 </head>
 <body class="warm">
 ${renderHeader()}
+<!-- ============ PINTEREST JOURNAL HERO ============ -->
+<section class="journal-hero">
 
-<!-- ============ HERO ============ -->
-<section class="home-hero">
-  <div class="home-hero-text">
-    <p class="pill">✨ Draw lines, drop in answers, show your working</p>
-    <h1>Maths practice that <span class="squiggle">talks back</span></h1>
-    <p class="lead">Interactive worksheets for Grade 6 to A-Level and SAT. Answer your way, get marked instantly, and see exactly what to review — no printing, no PDFs.</p>
+  <div class="journal-hero-copy">
 
-    <div class="hero-cta">
-      <a class="btn-warm" href="${BASE_PATH}/worksheets/">Try a worksheet</a>
-      <a class="btn-ghost" href="${BASE_PATH}/free-demo/">Book a free demo class</a>
+    <div class="journal-kicker">
+      <span>✦</span> a little smarter, one page at a time
     </div>
 
-    <form class="home-search" action="${BASE_PATH}/worksheets/" method="get" role="search">
-      <label class="sr-only" for="home-q">Search worksheets</label>
-      <input id="home-q" type="text" name="q" placeholder="Search e.g. algebra, fractions, place value…">
-      <button type="submit" aria-label="Search">🔎</button>
+    <h1>
+      Maths can feel<br>
+      <em>beautifully simple.</em>
+    </h1>
+
+    <p class="journal-lead">
+      Interactive practice made for curious learners —
+      write, try, get feedback and keep going.
+    </p>
+
+    <div class="journal-actions">
+      <a class="btn-warm" href="${BASE_PATH}/worksheets/">
+        Explore worksheets <span>→</span>
+      </a>
+
+      <a class="btn-ghost" href="${BASE_PATH}/free-demo/">
+        Book a free demo
+      </a>
+    </div>
+
+    <form
+      class="journal-search"
+      action="${BASE_PATH}/worksheets/"
+      method="get"
+      role="search"
+    >
+      <span aria-hidden="true">⌕</span>
+
+      <label class="sr-only" for="home-q">
+        Search worksheets
+      </label>
+
+      <input
+        id="home-q"
+        type="text"
+        name="q"
+        placeholder="What are you practising today?"
+      >
     </form>
 
-    <ul class="hero-badges">
-      <li>⚡ Instant marking</li>
-      <li>📱 Works on phone &amp; iPad</li>
-      <li>🎯 Grade 6 – A-Level</li>
-    </ul>
-  </div>
-
-  <div class="home-hero-demo">
-    <div class="demo-card" id="demo" aria-label="Animated preview of a MyTutBuddy worksheet">
-      <div class="demo-chrome">
-        <span class="demo-lights" aria-hidden="true"><i></i><i></i><i></i></span>
-        <span class="demo-title">Live worksheet preview</span>
-        <span class="demo-score" aria-hidden="true">Score <b>0</b></span>
-      </div>
-
-      <div class="demo-stage" aria-hidden="true">
-
-        <!-- Scene 1: draw-a-line matching -->
-        <div class="demo-scene is-active" data-scene="0">
-          <p class="demo-q"><span class="demo-num">1</span> Join each number to the place value of its <b class="red">red digit</b>.</p>
-          <div class="demo-match">
-            <svg class="demo-lines"></svg>
-            <div class="demo-col">
-              <div class="demo-node"><span>3<b class="red">5</b>7</span><i class="demo-dot"></i></div>
-              <div class="demo-node"><span><b class="red">8</b>42</span><i class="demo-dot"></i></div>
-              <div class="demo-node"><span>46<b class="red">0</b></span><i class="demo-dot"></i></div>
-            </div>
-            <div class="demo-col right">
-              <div class="demo-node"><i class="demo-dot"></i><span>Hundreds</span></div>
-              <div class="demo-node"><i class="demo-dot"></i><span>Ones</span></div>
-              <div class="demo-node"><i class="demo-dot"></i><span>Tens</span></div>
-            </div>
-            <span class="demo-pen">✏️</span>
-          </div>
-        </div>
-
-        <!-- Scene 2: fill the boxes -->
-        <div class="demo-scene" data-scene="1">
-          <p class="demo-q"><span class="demo-num">2</span> Multiply, then simplify.</p>
-          <div class="demo-eq">
-            <span class="demo-frac"><span>2</span><span>3</span></span>
-            <span class="demo-op">×</span>
-            <span class="demo-frac"><span>3</span><span>5</span></span>
-            <span class="demo-op">=</span>
-            <span class="demo-frac"><span class="demo-box"></span><span class="demo-box"></span></span>
-            <span class="demo-op">=</span>
-            <span class="demo-frac"><span class="demo-box"></span><span class="demo-box"></span></span>
-          </div>
-          <p class="demo-hint">Product first, then the simplified fraction.</p>
-        </div>
-
-        <!-- Scene 3: show working + final answer -->
-        <div class="demo-scene" data-scene="2">
-          <p class="demo-q"><span class="demo-num">3</span> Simplify fully:
-            <span class="demo-frac small"><span>x² − 9</span><span>x² + 2x</span></span>
-            <span class="demo-op">÷</span>
-            <span class="demo-frac small"><span>x − 3</span><span>x + 2</span></span>
-          </p>
-          <div class="demo-working" data-label="Working (not marked)"></div>
-          <div class="demo-answer-row"><b>Final answer:</b> <span class="demo-answer"></span></div>
-        </div>
-
-        <div class="demo-toast" aria-hidden="true"></div>
-      </div>
-
-      <div class="demo-controls">
-        <div class="demo-dots" role="group" aria-label="Choose a preview">
-          <button type="button" class="demo-dotbtn is-active" data-go="0" aria-label="Matching preview"></button>
-          <button type="button" class="demo-dotbtn" data-go="1" aria-label="Fill-in-the-boxes preview"></button>
-          <button type="button" class="demo-dotbtn" data-go="2" aria-label="Show-your-working preview"></button>
-        </div>
-        <button type="button" class="demo-pause" aria-pressed="false">⏸ Pause</button>
-      </div>
+    <div class="journal-trust">
+      <span>✓ Instant feedback</span>
+      <span>✎ Show your working</span>
+      <span>♡ Learn at your pace</span>
     </div>
-  </div>
-</section>
 
-${videoSection}
+  </div>
+
+
+  <!-- ANIMATED JOURNAL -->
+  <div class="journal-visual">
+
+    <div class="doodle doodle-star">✦</div>
+    <div class="doodle doodle-spark">✧</div>
+    <div class="doodle doodle-heart">♡</div>
+
+    <div class="tape tape-one"></div>
+    <div class="tape tape-two"></div>
+
+
+    <!-- MAIN PAPER -->
+    <div class="journal-paper">
+
+      <div class="paper-topline">
+        <span>MYTUTBUDDY</span>
+        <span>01 / PRACTICE</span>
+      </div>
+
+      <div class="paper-title">
+        today's<br>
+        <strong>maths note</strong>
+      </div>
+
+      <div class="paper-rule"></div>
+
+      <div class="paper-equation">
+        2x + 6 = 18
+      </div>
+
+      <div class="paper-work">
+        <span>2x = 12</span>
+        <span>x = 6</span>
+      </div>
+
+      <div class="paper-check">
+        <span>✓</span> tiny steps count
+      </div>
+
+      <div class="paper-footer">
+        learn · practise · grow
+      </div>
+
+    </div>
+
+
+    <!-- FLOATING NOTES -->
+    <div class="sticky-note note-yellow">
+      <span>focus</span>
+      <b>one</b>
+      <span>topic ♡</span>
+    </div>
+
+    <div class="sticky-note note-lilac">
+      <span>you've</span>
+      <b>got this!</b>
+      <span>✦</span>
+    </div>
+
+
+    <!-- PROGRESS CARD -->
+    <div class="mini-card">
+
+      <span class="mini-label">TODAY</span>
+
+      <strong>3 / 5</strong>
+
+      <small>questions done</small>
+
+      <div class="mini-progress">
+        <i></i>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
 
 <!-- ============ HOW IT WORKS ============ -->
 <section class="home-section">
@@ -252,7 +291,6 @@ ${videoSection}
 </section>
 
 ${renderFooter()}
-<script src="${BASE_PATH}/assets/home-demo.js" defer></script>
 </body>
 </html>
 `;
