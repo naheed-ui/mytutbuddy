@@ -24,7 +24,7 @@
       "addends": ["281256", "301712"],
       "answer": "582968",
       "showCarries": false,
-      "marks": 1
+      "marks": 2
     },
     {
       "type": "vertical-addition",
@@ -33,7 +33,7 @@
       "addends": ["332016", "315601"],
       "answer": "647617",
       "showCarries": false,
-      "marks": 1
+      "marks": 2
     },
     {
       "type": "vertical-addition",
@@ -42,7 +42,7 @@
       "addends": ["217164", "220630"],
       "answer": "437794",
       "showCarries": false,
-      "marks": 1
+      "marks": 2
     },
     {
       "type": "vertical-addition",
@@ -51,7 +51,7 @@
       "addends": ["202841", "283146"],
       "answer": "485987",
       "showCarries": false,
-      "marks": 1
+      "marks": 2
     },
     {
       "type": "vertical-addition",
@@ -60,7 +60,7 @@
       "addends": ["240145", "159203"],
       "answer": "399348",
       "showCarries": false,
-      "marks": 1
+      "marks": 2
     },
     {
       "type": "vertical-addition",
@@ -69,7 +69,7 @@
       "addends": ["231653", "132224"],
       "answer": "363877",
       "showCarries": false,
-      "marks": 1
+      "marks": 2
     },
     {
       "type": "vertical-addition",
@@ -78,7 +78,7 @@
       "addends": ["265712", "334004"],
       "answer": "599716",
       "showCarries": false,
-      "marks": 1
+      "marks": 2
     },
     {
       "type": "vertical-addition",
@@ -87,7 +87,7 @@
       "addends": ["325102", "273734"],
       "answer": "598836",
       "showCarries": false,
-      "marks": 1
+      "marks": 2
     },
     {
       "type": "vertical-addition",
@@ -96,7 +96,7 @@
       "addends": ["217510", "430273"],
       "answer": "647783",
       "showCarries": false,
-      "marks": 1
+      "marks": 2
     },
     {
       "type": "vertical-addition",
@@ -105,7 +105,7 @@
       "addends": ["268353", "401411"],
       "answer": "669764",
       "showCarries": false,
-      "marks": 1
+      "marks": 2
     }
   ]
 }
