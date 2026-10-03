@@ -24,7 +24,6 @@
     "multiplicand": "21",
     "multiplier": "3",
     "answer": "63",
-    "carry": "0",
     "marks": 2
   },
   {
@@ -34,7 +33,6 @@
     "multiplicand": "32",
     "multiplier": "2",
     "answer": "64",
-    "carry": "0",
     "marks": 2
   },
   {
@@ -44,7 +42,6 @@
     "multiplicand": "42",
     "multiplier": "2",
     "answer": "84",
-    "carry": "0",
     "marks": 2
   },
   {
@@ -54,7 +51,6 @@
     "multiplicand": "23",
     "multiplier": "3",
     "answer": "69",
-    "carry": "0",
     "marks": 2
   },
   {
@@ -64,7 +60,6 @@
     "multiplicand": "12",
     "multiplier": "4",
     "answer": "48",
-    "carry": "0",
     "marks": 2
   },
   {
@@ -74,7 +69,6 @@
     "multiplicand": "31",
     "multiplier": "3",
     "answer": "93",
-    "carry": "0",
     "marks": 2
   },
   {
@@ -84,7 +78,6 @@
     "multiplicand": "22",
     "multiplier": "4",
     "answer": "88",
-    "carry": "0",
     "marks": 2
   },
   {
@@ -94,7 +87,6 @@
     "multiplicand": "41",
     "multiplier": "2",
     "answer": "82",
-    "carry": "0",
     "marks": 2
   },
   {
@@ -104,7 +96,6 @@
     "multiplicand": "13",
     "multiplier": "3",
     "answer": "39",
-    "carry": "0",
     "marks": 2
   },
   {
@@ -114,7 +105,6 @@
     "multiplicand": "24",
     "multiplier": "2",
     "answer": "48",
-    "carry": "0",
     "marks": 2
   }
 ]
