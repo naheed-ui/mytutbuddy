@@ -31,7 +31,8 @@ const VALID_TYPES = [
   "expanded-form",
   "fraction-multiplication",
   "show-working",
-  "vertical-addition"
+"vertical-addition",
+"vertical-multiplication"
 ];
 
 function fail(msg) {
