@@ -6177,3 +6177,146 @@ body.warm {
   color: #6b4937 !important;
   font-size: 14px;
 }
+/* =========================================
+   GRADE 4 VERTICAL MULTIPLICATION
+   2-digit × 1-digit
+========================================= */
+
+.vm-wrap {
+  padding: 8px 0 2px;
+  text-align: center;
+}
+
+.vm-instruction {
+  margin-bottom: 18px;
+  color: #64748b;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.vm-calculation {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-end;
+  min-width: 190px;
+  padding: 18px 24px 20px;
+  border: 2px solid #e0e7ff;
+  border-radius: 16px;
+  background: #fafaff;
+}
+
+.vm-carry-row,
+.vm-number-row,
+.vm-answer-row {
+  display: grid;
+  grid-template-columns: 42px 42px 42px;
+  align-items: center;
+  justify-items: center;
+}
+
+.vm-carry-row {
+  min-height: 42px;
+}
+
+.vm-empty {
+  width: 42px;
+  height: 42px;
+}
+
+.vm-digit {
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #172033;
+  font-size: 25px;
+  font-weight: 800;
+}
+
+.vm-multiplier {
+  grid-column: 3;
+}
+
+.vm-operator {
+  width: 42px;
+  color: #6956d8;
+  font-size: 24px;
+  font-weight: 900;
+  text-align: center;
+}
+
+.vm-line {
+  width: 126px;
+  height: 2px;
+  margin: 5px 0 8px;
+  background: #172033;
+}
+
+.vm-input {
+  box-sizing: border-box;
+  width: 42px !important;
+  height: 42px !important;
+  margin: 0 !important;
+  padding: 4px !important;
+  border: 2px solid #cbd5e1 !important;
+  border-radius: 8px !important;
+  background: white !important;
+  color: #172033 !important;
+  font-size: 21px !important;
+  font-weight: 900 !important;
+  text-align: center;
+  box-shadow: none !important;
+}
+
+.vm-carry-input {
+  grid-column: 2;
+  width: 38px !important;
+  height: 36px !important;
+  font-size: 18px !important;
+  background: #fffdf5 !important;
+  border-color: #d8c98b !important;
+}
+
+.vm-input:focus {
+  outline: none !important;
+  border-color: #7c3aed !important;
+  box-shadow: 0 0 0 4px rgba(124, 58, 237, .12) !important;
+}
+
+.vm-input.vm-correct {
+  border-color: #16a34a !important;
+  background: #f0fdf4 !important;
+  color: #15803d !important;
+}
+
+.vm-input.vm-incorrect {
+  border-color: #ef4444 !important;
+  background: #fff1f2 !important;
+  color: #dc2626 !important;
+}
+
+.vm-note {
+  margin-top: 15px;
+  color: #94a3b8;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+body:has(.question[data-type="vertical-multiplication"])
+.question[data-type="vertical-multiplication"].correct {
+  border-color: #86efac;
+  background: #f0fdf4;
+}
+
+body:has(.question[data-type="vertical-multiplication"])
+.question[data-type="vertical-multiplication"].incorrect {
+  border-color: #fca5a5;
+  background: #fff7f7;
+}
+
+body:has(.question[data-type="vertical-multiplication"])
+.question[data-type="vertical-multiplication"].partial {
+  border-color: #fcd34d;
+  background: #fffbeb;
+}
