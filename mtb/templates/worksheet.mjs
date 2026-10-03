@@ -355,6 +355,93 @@ function renderQuestion(q, index) {
 
       </div>
     `;
+      } else if (q.type === "vertical-multiplication") {
+    const multiplicand = String(q.multiplicand);
+    const multiplier = String(q.multiplier);
+    const answer = String(q.answer);
+    const carry = String(q.carry ?? "");
+
+    const tens = multiplicand[0];
+    const ones = multiplicand[1];
+
+    dataAnswer = escapeHtml(
+      JSON.stringify({
+        answer: answer,
+        carry: carry,
+        marks: q.marks || 2
+      })
+    );
+
+    const answerDigits = answer.split("");
+
+    const answerCells = answerDigits
+      .map(
+        (digit, i) => `
+          <input
+            class="vm-input vm-answer-input"
+            data-index="${i}"
+            inputmode="numeric"
+            maxlength="1"
+            autocomplete="off"
+            aria-label="Answer digit ${i + 1}"
+          >
+        `
+      )
+      .join("");
+
+    body = `
+      <div class="vm-wrap">
+
+        <div class="vm-instruction">
+          ${escapeHtml(
+            q.instruction ||
+            "Multiply and show the carry in the small box."
+          )}
+        </div>
+
+        <div class="vm-calculation">
+
+          <div class="vm-carry-row">
+            <span class="vm-empty"></span>
+
+            <input
+              class="vm-input vm-carry-input"
+              inputmode="numeric"
+              maxlength="1"
+              autocomplete="off"
+              aria-label="Carry"
+            >
+          </div>
+
+          <div class="vm-number-row">
+            <span class="vm-empty"></span>
+            <span class="vm-digit">${escapeHtml(tens)}</span>
+            <span class="vm-digit">${escapeHtml(ones)}</span>
+          </div>
+
+          <div class="vm-number-row">
+            <span class="vm-operator">×</span>
+            <span class="vm-digit vm-multiplier">
+              ${escapeHtml(multiplier)}
+            </span>
+          </div>
+
+          <div class="vm-line"></div>
+
+          <div class="vm-answer-row">
+            <span class="vm-empty"></span>
+            ${answerCells}
+          </div>
+
+        </div>
+
+        <div class="vm-note">
+          Enter the carry in the small box above the tens digit.
+          Enter <strong>0</strong> if there is no carry.
+        </div>
+
+      </div>
+    `;
   } else if (q.type === "show-working") {
     const alt =
       q.acceptableAnswers && q.acceptableAnswers.length
@@ -918,6 +1005,19 @@ ${renderFooter()}
           );
         });
       }
+          if (type === "vertical-multiplication") {
+      const answerInputs = q.querySelectorAll(".vm-answer-input");
+      const carryInput = q.querySelector(".vm-carry-input");
+
+      const answerDone = Array.from(answerInputs).every(function (input) {
+        return input.value.trim() !== "";
+      });
+
+      const carryDone =
+        carryInput && carryInput.value.trim() !== "";
+
+      return answerDone && carryDone;
+    }
        if (type === "show-working") {
       const input = q.querySelector(".working-answer-input");
       return !!input && input.value.trim() !== "";
@@ -1160,6 +1260,58 @@ function normalizeWords(str) {
             );
           });
         }    
+              } else if (type === "vertical-multiplication") {
+        const data = JSON.parse(q.dataset.answer);
+
+        const answerInputs = q.querySelectorAll(".vm-answer-input");
+        const carryInput = q.querySelector(".vm-carry-input");
+
+        const actualAnswer = Array.from(answerInputs)
+          .map(function (input) {
+            return input.value.trim();
+          })
+          .join("");
+
+        const answerOk =
+          actualAnswer === String(data.answer);
+
+        const actualCarry =
+          carryInput ? carryInput.value.trim() : "";
+
+        const carryOk =
+          actualCarry === String(data.carry);
+
+        qTotal = Number(data.marks || 2);
+
+        qCorrect =
+          (answerOk ? 1 : 0) +
+          (carryOk ? 1 : 0);
+
+        answerInputs.forEach(function (input) {
+          input.classList.remove(
+            "vm-correct",
+            "vm-incorrect"
+          );
+
+          input.classList.add(
+            answerOk
+              ? "vm-correct"
+              : "vm-incorrect"
+          );
+        });
+
+        if (carryInput) {
+          carryInput.classList.remove(
+            "vm-correct",
+            "vm-incorrect"
+          );
+
+          carryInput.classList.add(
+            carryOk
+              ? "vm-correct"
+              : "vm-incorrect"
+          );
+        }
                 } else if (type === "show-working") {
         const accepted = JSON.parse(q.dataset.answer);
         const input = q.querySelector(".working-answer-input");
