@@ -361,6 +361,8 @@ function renderQuestion(q, index) {
     const answer = String(q.answer);
     const carry = String(q.carry ?? "");
 
+    const showCarryBoxes = q.showCarryBoxes === true;
+
     const tens = multiplicand[0];
     const ones = multiplicand[1];
 
@@ -368,7 +370,8 @@ function renderQuestion(q, index) {
       JSON.stringify({
         answer: answer,
         carry: carry,
-        marks: q.marks || 2
+        marks: q.marks || 1,
+        showCarryBoxes: showCarryBoxes
       })
     );
 
@@ -389,29 +392,37 @@ function renderQuestion(q, index) {
       )
       .join("");
 
+    const carryRow = showCarryBoxes
+      ? `
+        <div class="vm-carry-row">
+          <span class="vm-empty"></span>
+
+          <input
+            class="vm-input vm-carry-input"
+            inputmode="numeric"
+            maxlength="1"
+            autocomplete="off"
+            aria-label="Carry"
+          >
+        </div>
+      `
+      : "";
+
     body = `
       <div class="vm-wrap">
 
         <div class="vm-instruction">
           ${escapeHtml(
             q.instruction ||
-            "Multiply and show the carry in the small box."
+            (showCarryBoxes
+              ? "Multiply and show the carry."
+              : "Multiply.")
           )}
         </div>
 
         <div class="vm-calculation">
 
-          <div class="vm-carry-row">
-            <span class="vm-empty"></span>
-
-            <input
-              class="vm-input vm-carry-input"
-              inputmode="numeric"
-              maxlength="1"
-              autocomplete="off"
-              aria-label="Carry"
-            >
-          </div>
+          ${carryRow}
 
           <div class="vm-number-row">
             <span class="vm-empty"></span>
@@ -436,8 +447,11 @@ function renderQuestion(q, index) {
         </div>
 
         <div class="vm-note">
-          Enter the carry in the small box above the tens digit.
-          Enter <strong>0</strong> if there is no carry.
+          ${
+            showCarryBoxes
+              ? "Enter the carry in the small box above the tens digit. Enter 0 if there is no carry."
+              : "Enter the answer in the boxes below."
+          }
         </div>
 
       </div>
