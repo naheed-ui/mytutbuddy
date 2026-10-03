@@ -445,15 +445,6 @@ function renderQuestion(q, index) {
           </div>
 
         </div>
-
-        <div class="vm-note">
-          ${
-            showCarryBoxes
-              ? "Enter the carry in the small box above the tens digit. Enter 0 if there is no carry."
-              : "Enter the answer in the boxes below."
-          }
-        </div>
-
       </div>
     `;
   } else if (q.type === "show-working") {
