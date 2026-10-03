@@ -1,0 +1,121 @@
+{
+  "slug": "grade-4-multiplication-2-digit-by-1-digit",
+  "title": "Grade 4 Multiplication — 2-Digit × 1-Digit",
+  "grade": "Grade 4",
+  "topic": "Number",
+  "subtopic": "2-Digit Multiplication",
+  "difficulty": "Medium",
+  "shortDescription": "Practise multiplying two-digit numbers by one-digit numbers with and without carrying.",
+  "seoTitle": "Grade 4 Multiplication 2 Digit by 1 Digit | MyTutBuddy",
+  "seoDescription": "Interactive Grade 4 multiplication worksheet practising two-digit by one-digit multiplication with carrying and without carrying.",
+  "intro": "Multiply each two-digit number by the one-digit number. Record the carry in the small box.",
+  "resultMessages": {
+    "perfect": "🏆 Perfect! You mastered 2-digit multiplication!",
+    "great": "🌟 Great work! Your multiplication skills are growing.",
+    "good": "👏 Good job! Check the questions where you made a mistake.",
+    "effort": "💪 Good effort! Keep practising multiplication carefully.",
+    "keepPractising": "📚 Keep practising! Multiplication gets easier with practice."
+  },
+  "questions": [
+    {
+      "type": "vertical-multiplication",
+      "prompt": "Multiply and show the carry.",
+      "instruction": "Multiply 23 by 4.",
+      "multiplicand": "23",
+      "multiplier": "4",
+      "answer": "92",
+      "carry": "0",
+      "marks": 2
+    },
+    {
+      "type": "vertical-multiplication",
+      "prompt": "Multiply and show the carry.",
+      "instruction": "Multiply 41 by 3.",
+      "multiplicand": "41",
+      "multiplier": "3",
+      "answer": "123",
+      "carry": "0",
+      "marks": 2
+    },
+    {
+      "type": "vertical-multiplication",
+      "prompt": "Multiply and show the carry.",
+      "instruction": "Multiply 56 by 2.",
+      "multiplicand": "56",
+      "multiplier": "2",
+      "answer": "112",
+      "carry": "1",
+      "marks": 2
+    },
+    {
+      "type": "vertical-multiplication",
+      "prompt": "Multiply and show the carry.",
+      "instruction": "Multiply 38 by 4.",
+      "multiplicand": "38",
+      "multiplier": "4",
+      "answer": "152",
+      "carry": "3",
+      "marks": 2
+    },
+    {
+      "type": "vertical-multiplication",
+      "prompt": "Multiply and show the carry.",
+      "instruction": "Multiply 47 by 3.",
+      "multiplicand": "47",
+      "multiplier": "3",
+      "answer": "141",
+      "carry": "2",
+      "marks": 2
+    },
+    {
+      "type": "vertical-multiplication",
+      "prompt": "Multiply and show the carry.",
+      "instruction": "Multiply 64 by 7.",
+      "multiplicand": "64",
+      "multiplier": "7",
+      "answer": "448",
+      "carry": "2",
+      "marks": 2
+    },
+    {
+      "type": "vertical-multiplication",
+      "prompt": "Multiply and show the carry.",
+      "instruction": "Multiply 72 by 6.",
+      "multiplicand": "72",
+      "multiplier": "6",
+      "answer": "432",
+      "carry": "1",
+      "marks": 2
+    },
+    {
+      "type": "vertical-multiplication",
+      "prompt": "Multiply and show the carry.",
+      "instruction": "Multiply 85 by 4.",
+      "multiplicand": "85",
+      "multiplier": "4",
+      "answer": "340",
+      "carry": "2",
+      "marks": 2
+    },
+    {
+      "type": "vertical-multiplication",
+      "prompt": "Multiply and show the carry.",
+      "instruction": "Multiply 96 by 5.",
+      "multiplicand": "96",
+      "multiplier": "5",
+      "answer": "480",
+      "carry": "3",
+      "marks": 2
+    },
+    {
+      "type": "vertical-multiplication",
+      "prompt": "Multiply and show the carry.",
+      "instruction": "Multiply 79 by 8.",
+      "multiplicand": "79",
+      "multiplier": "8",
+      "answer": "632",
+      "carry": "7",
+      "marks": 2
+    }
+  ]
+}
