@@ -1073,7 +1073,9 @@ ${renderFooter()}
       });
 
       const carryDone =
-        carryInput && carryInput.value.trim() !== "";
+        carryInput
+          ? carryInput.value.trim() !== ""
+          : true;
 
       return answerDone && carryDone;
     }
@@ -1334,17 +1336,36 @@ function normalizeWords(str) {
         const answerOk =
           actualAnswer === String(data.answer);
 
-        const actualCarry =
-          carryInput ? carryInput.value.trim() : "";
+        const showCarryBoxes = data.showCarryBoxes === true;
 
-        const carryOk =
-          actualCarry === String(data.carry);
+        let carryOk = true;
+
+        if (showCarryBoxes) {
+          const actualCarry =
+            carryInput ? carryInput.value.trim() : "";
+
+          carryOk =
+            actualCarry === String(data.carry || "");
+        }
 
         qTotal = Number(data.marks || 2);
 
-        qCorrect =
-          (answerOk ? 1 : 0) +
-          (carryOk ? 1 : 0);
+        /*
+          WITHOUT carry boxes:
+          - 2 marks for the final answer
+          
+          WITH carry boxes:
+          - 1 mark for the final answer
+          - 1 mark for the carry
+        */
+
+        if (showCarryBoxes) {
+          qCorrect =
+            (answerOk ? 1 : 0) +
+            (carryOk ? 1 : 0);
+        } else {
+          qCorrect = answerOk ? qTotal : 0;
+        }
 
         answerInputs.forEach(function (input) {
           input.classList.remove(
