@@ -6198,146 +6198,105 @@ body.warm {
   display: inline-flex;
   flex-direction: column;
   align-items: center;
-  width: 210px;
-  min-width: 210px;
-  box-sizing: border-box;
-  padding: 18px 18px 20px;
+  min-width: 190px;
+  padding: 18px 24px 20px;
   border: 2px solid #e0e7ff;
   border-radius: 16px;
   background: #fafaff;
-  overflow: visible;
 }
 
-/* Carry + number + answer rows */
 .vm-carry-row,
 .vm-number-row,
 .vm-answer-row {
   display: grid;
-  grid-template-columns: 38px 38px 38px;
-  width: 114px;
-  min-width: 114px;
-  max-width: 114px;
+  grid-template-columns: 42px 42px 42px;
+  width: 126px;
   align-items: center;
   justify-items: center;
-  flex-shrink: 0;
 }
 
-/* Carry row */
 .vm-carry-row {
-  height: 40px;
-  min-height: 40px;
+  min-height: 42px;
 }
 
 .vm-empty {
-  width: 38px;
-  height: 38px;
+  width: 42px;
+  height: 42px;
 }
 
-/* Number digits */
 .vm-digit {
-  width: 38px;
-  height: 38px;
+  width: 42px;
+  height: 42px;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-sizing: border-box;
-
   color: #172033;
   font-size: 25px;
   font-weight: 800;
 }
 
-/* The multiplier sits under the ones column */
-.vm-multiplier {
-  grid-column: 3;
-}
-
-/* Plus / multiplication sign */
 .vm-operator {
-  width: 38px;
+  width: 42px;
   color: #6956d8;
-  font-size: 23px;
+  font-size: 24px;
   font-weight: 900;
   text-align: center;
 }
 
-/* Horizontal calculation line */
+.vm-multiplier {
+  grid-column: 3;
+}
+
 .vm-line {
-  width: 114px;
+  width: 126px;
   height: 2px;
   margin: 5px 0 8px;
   background: #172033;
-  flex-shrink: 0;
 }
 
-/* Answer boxes */
 .vm-input {
-  box-sizing: border-box !important;
-  width: 38px !important;
-  min-width: 38px !important;
-  max-width: 38px !important;
-
-  height: 38px !important;
-  min-height: 38px !important;
-
+  box-sizing: border-box;
+  width: 42px !important;
+  height: 42px !important;
   margin: 0 !important;
-  padding: 2px !important;
-
+  padding: 4px !important;
   border: 2px solid #cbd5e1 !important;
-  border-radius: 7px !important;
-
+  border-radius: 8px !important;
   background: white !important;
   color: #172033 !important;
-
-  font-size: 20px !important;
+  font-size: 21px !important;
   font-weight: 900 !important;
   text-align: center;
-
   box-shadow: none !important;
-
-  /* IMPORTANT: prevents answer boxes from wrapping */
-  flex-shrink: 0;
 }
 
-/* Carry box */
 .vm-carry-input {
-  grid-column: 2 !important;
-
-  width: 32px !important;
-  min-width: 32px !important;
-  max-width: 32px !important;
-
-  height: 32px !important;
-  min-height: 32px !important;
-
-  font-size: 17px !important;
-
+  grid-column: 2;
+  width: 38px !important;
+  height: 36px !important;
+  font-size: 18px !important;
   background: #fffdf5 !important;
   border-color: #d8c98b !important;
 }
 
-/* Focus */
 .vm-input:focus {
   outline: none !important;
   border-color: #7c3aed !important;
   box-shadow: 0 0 0 4px rgba(124, 58, 237, .12) !important;
 }
 
-/* Correct */
 .vm-input.vm-correct {
   border-color: #16a34a !important;
   background: #f0fdf4 !important;
   color: #15803d !important;
 }
 
-/* Incorrect */
 .vm-input.vm-incorrect {
   border-color: #ef4444 !important;
   background: #fff1f2 !important;
   color: #dc2626 !important;
 }
 
-/* Note */
 .vm-note {
   margin-top: 15px;
   color: #94a3b8;
@@ -6345,7 +6304,6 @@ body.warm {
   font-weight: 600;
 }
 
-/* Question feedback */
 body:has(.question[data-type="vertical-multiplication"])
 .question[data-type="vertical-multiplication"].correct {
   border-color: #86efac;
