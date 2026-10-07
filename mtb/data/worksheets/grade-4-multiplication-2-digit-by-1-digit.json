@@ -25,6 +25,7 @@
       "multiplier": "4",
       "answer": "92",
       "carry": "0",
+      "showCarryBoxes": true,
       "marks": 2
     },
     {
@@ -35,6 +36,7 @@
       "multiplier": "3",
       "answer": "123",
       "carry": "0",
+      "showCarryBoxes": true,
       "marks": 2
     },
     {
@@ -45,6 +47,7 @@
       "multiplier": "2",
       "answer": "112",
       "carry": "1",
+      "showCarryBoxes": true,
       "marks": 2
     },
     {
@@ -55,6 +58,7 @@
       "multiplier": "4",
       "answer": "152",
       "carry": "3",
+      "showCarryBoxes": true,
       "marks": 2
     },
     {
@@ -65,6 +69,7 @@
       "multiplier": "3",
       "answer": "141",
       "carry": "2",
+      "showCarryBoxes": true,
       "marks": 2
     },
     {
@@ -75,6 +80,7 @@
       "multiplier": "7",
       "answer": "448",
       "carry": "2",
+      "showCarryBoxes": true,
       "marks": 2
     },
     {
@@ -85,6 +91,7 @@
       "multiplier": "6",
       "answer": "432",
       "carry": "1",
+      "showCarryBoxes": true,
       "marks": 2
     },
     {
@@ -95,6 +102,7 @@
       "multiplier": "4",
       "answer": "340",
       "carry": "2",
+      "showCarryBoxes": true,
       "marks": 2
     },
     {
@@ -104,7 +112,8 @@
       "multiplicand": "96",
       "multiplier": "5",
       "answer": "480",
-      "carry": "3",
+      "carry": "4",
+      "showCarryBoxes": true,
       "marks": 2
     },
     {
@@ -115,6 +124,7 @@
       "multiplier": "8",
       "answer": "632",
       "carry": "7",
+      "showCarryBoxes": true,
       "marks": 2
     }
   ]
