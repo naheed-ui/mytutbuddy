@@ -24,7 +24,7 @@
       "multiplicand": "21",
       "multiplier": "3",
       "answer": "63",
-      "marks": 1
+      "marks": 2
     },
     {
       "type": "vertical-multiplication",
@@ -33,7 +33,7 @@
       "multiplicand": "32",
       "multiplier": "2",
       "answer": "64",
-      "marks": 1
+      "marks": 2
     },
     {
       "type": "vertical-multiplication",
@@ -42,7 +42,7 @@
       "multiplicand": "42",
       "multiplier": "2",
       "answer": "84",
-      "marks": 1
+      "marks": 2
     },
     {
       "type": "vertical-multiplication",
@@ -51,7 +51,7 @@
       "multiplicand": "23",
       "multiplier": "3",
       "answer": "69",
-      "marks": 1
+      "marks": 2
     },
     {
       "type": "vertical-multiplication",
@@ -60,7 +60,7 @@
       "multiplicand": "12",
       "multiplier": "4",
       "answer": "48",
-      "marks": 1
+      "marks": 2
     },
     {
       "type": "vertical-multiplication",
@@ -69,7 +69,7 @@
       "multiplicand": "31",
       "multiplier": "3",
       "answer": "93",
-      "marks": 1
+      "marks": 2
     },
     {
       "type": "vertical-multiplication",
@@ -78,7 +78,7 @@
       "multiplicand": "22",
       "multiplier": "4",
       "answer": "88",
-      "marks": 1
+      "marks": 2
     },
     {
       "type": "vertical-multiplication",
@@ -87,7 +87,7 @@
       "multiplicand": "41",
       "multiplier": "2",
       "answer": "82",
-      "marks": 1
+      "marks": 2
     },
     {
       "type": "vertical-multiplication",
@@ -96,7 +96,7 @@
       "multiplicand": "13",
       "multiplier": "3",
       "answer": "39",
-      "marks": 1
+      "marks": 2
     },
     {
       "type": "vertical-multiplication",
@@ -105,7 +105,7 @@
       "multiplicand": "24",
       "multiplier": "2",
       "answer": "48",
-      "marks": 1
+      "marks": 2
     }
   ]
 }
