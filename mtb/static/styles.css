@@ -6321,3 +6321,311 @@ body:has(.question[data-type="vertical-multiplication"])
   border-color: #fcd34d;
   background: #fffbeb;
 }
+/* =========================================================
+   PAPER GRID WORKSHEET
+   LiveWorksheets-style compact worksheet layout
+========================================================= */
+
+.paper-grid {
+  display: grid;
+  grid-template-columns: repeat(
+    var(--paper-columns, 3),
+    minmax(0, 1fr)
+  );
+
+  gap: 0;
+
+  max-width: 1050px;
+  margin: 28px auto 0;
+
+  padding: 38px 42px;
+
+  background: #ffffff;
+
+  border: 1px solid #d8d8d8;
+
+  box-shadow:
+    0 8px 30px rgba(30, 30, 30, 0.08);
+
+  box-sizing: border-box;
+}
+
+
+/* Individual question */
+
+.paper-grid .question {
+  position: relative;
+
+  min-width: 0;
+
+  padding: 28px 18px 32px;
+
+  margin: 0;
+
+  border: 0;
+
+  border-radius: 0;
+
+  background: white;
+
+  box-shadow: none;
+
+  text-align: center;
+}
+
+
+/* Hide the modern card/question styling */
+
+.paper-grid .q-number {
+  display: none;
+}
+
+.paper-grid .prompt {
+  display: none;
+}
+
+.paper-grid .feedback {
+  display: none;
+}
+
+
+/* Multiplication calculation */
+
+.paper-grid .vm-wrap {
+  padding: 0;
+
+  margin: 0;
+
+  text-align: center;
+}
+
+
+.paper-grid .vm-calculation {
+  display: inline-flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  min-width: 0;
+
+  padding: 0;
+
+  border: 0;
+
+  border-radius: 0;
+
+  background: transparent;
+
+  box-shadow: none;
+}
+
+
+/* Each vertical row */
+
+.paper-grid .vm-grid-row {
+  display: grid;
+
+  grid-template-columns:
+    repeat(
+      var(--vm-columns),
+      34px
+    );
+
+  justify-content: center;
+
+  align-items: center;
+
+  width: max-content;
+
+  min-height: 36px;
+}
+
+
+/* Digits */
+
+.paper-grid .vm-digit {
+  width: 34px;
+  height: 34px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  color: #111827;
+
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  font-size: 27px;
+
+  font-weight: 700;
+}
+
+
+/* Empty alignment cells */
+
+.paper-grid .vm-empty {
+  width: 34px;
+  height: 34px;
+}
+
+
+/* Multiplication operator */
+
+.paper-grid .vm-operator {
+  color: #111827;
+
+  font-size: 27px;
+
+  font-weight: 700;
+}
+
+
+/* Horizontal line */
+
+.paper-grid .vm-line {
+  width: 100%;
+
+  height: 3px;
+
+  margin: 4px 0 8px;
+
+  background: #111827;
+
+  border-radius: 0;
+}
+
+
+/* Answer boxes */
+
+.paper-grid .vm-answer-row {
+  gap: 3px;
+}
+
+
+.paper-grid .vm-answer-row .vm-input {
+  width: 34px !important;
+  height: 34px !important;
+
+  padding: 0 !important;
+
+  margin: 0 !important;
+
+  border: 1px solid #8b8b8b !important;
+
+  border-radius: 2px !important;
+
+  background: #ffffff !important;
+
+  box-shadow: none !important;
+
+  color: #111827 !important;
+
+  font-size: 21px !important;
+
+  font-weight: 700 !important;
+
+  text-align: center;
+}
+
+
+/* Carry boxes */
+
+.paper-grid .vm-carry-row {
+  min-height: 32px;
+}
+
+
+.paper-grid .vm-carry-input {
+  width: 30px !important;
+  height: 30px !important;
+
+  padding: 0 !important;
+
+  border: 1px solid #999 !important;
+
+  border-radius: 2px !important;
+
+  background: #fff !important;
+
+  color: #111827 !important;
+
+  font-size: 17px !important;
+
+  text-align: center;
+}
+
+
+/* Focus */
+
+.paper-grid .vm-input:focus {
+  outline: 2px solid #7664d9 !important;
+
+  outline-offset: 1px;
+
+  box-shadow: none !important;
+}
+
+
+/* Correct */
+
+.paper-grid .vm-input.vm-correct {
+  border: 2px solid #16a34a !important;
+
+  background: #f0fdf4 !important;
+
+  color: #15803d !important;
+}
+
+
+/* Incorrect */
+
+.paper-grid .vm-input.vm-incorrect {
+  border: 2px solid #dc2626 !important;
+
+  background: #fef2f2 !important;
+
+  color: #dc2626 !important;
+}
+
+
+/* Remove large instruction text in paper mode */
+
+.paper-grid .vm-instruction {
+  display: none;
+}
+
+
+/* Tablet */
+
+@media (max-width: 850px) {
+
+  .paper-grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+
+    padding: 28px 20px;
+  }
+
+}
+
+
+/* Phone */
+
+@media (max-width: 560px) {
+
+  .paper-grid {
+    grid-template-columns: 1fr;
+
+    padding: 20px 12px;
+  }
+
+  .paper-grid .question {
+    padding: 28px 10px;
+  }
+
+}
