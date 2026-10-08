@@ -356,169 +356,146 @@ function renderQuestion(q, index) {
       </div>
     `;
    } else if (q.type === "vertical-multiplication") {
-
   const multiplicand = String(q.multiplicand);
   const multiplier = String(q.multiplier);
   const answer = String(q.answer);
-
-  const carries = Array.isArray(q.carries)
-    ? q.carries.map(String)
-    : [String(q.carry ?? "")];
+  const carry = String(q.carry ?? "");
 
   const showCarryBoxes = q.showCarryBoxes === true;
 
-  const columns = Math.max(
-    multiplicand.length,
-    answer.length,
-    multiplier.length + 1
-  );
+  const tens = multiplicand[0];
+  const ones = multiplicand[1];
 
   dataAnswer = escapeHtml(
     JSON.stringify({
       answer: answer,
-      carries: carries,
-      carry: carries[0] || "",
+      carry: carry,
       marks: q.marks || 2,
       showCarryBoxes: showCarryBoxes
     })
   );
 
-  const padNumber = function (value) {
-    return String(value).padStart(columns, " ");
-  };
-
-  const multiplicandPadded = padNumber(multiplicand);
-  const answerPadded = padNumber(answer);
-
-  const multiplierPadded =
-    String(multiplier).padStart(columns, " ");
-
   /*
-    Carry boxes sit above the relevant place-value columns.
+    Layout:
+
+       carry
+        2  3
+      ×   4
+      -----
+       9  2
+
+    or
+
+       carry
+        4  1
+      ×   3
+      -----
+      1  2  3
   */
 
-  let carryRow = "";
+  const answerDigits = answer.split("");
 
-  if (showCarryBoxes) {
+  let answerCells = "";
 
-    const carryBoxes = [];
-
-    for (let i = 0; i < columns; i++) {
-
-      const carryIndex = columns - 1 - i;
-
-      const expected = carries[carryIndex];
-
-      if (
-        carryIndex >= 0 &&
-        carryIndex < carries.length &&
-        expected !== undefined &&
-        expected !== ""
-      ) {
-        carryBoxes.push(`
+  if (answerDigits.length === 2) {
+    // Two-digit answer: align under the two-digit multiplicand
+    answerCells = `
+      <span class="vm-empty"></span>
+      ${answerDigits.map(function (digit, i) {
+        return `
           <input
-            class="vm-input vm-carry-input"
-            data-index="${carryIndex}"
+            class="vm-input vm-answer-input"
+            data-index="${i}"
             inputmode="numeric"
             maxlength="1"
             autocomplete="off"
-            aria-label="Carry ${carryIndex + 1}"
+            aria-label="Answer digit ${i + 1}"
           >
-        `);
-      } else {
-        carryBoxes.push(`<span class="vm-empty"></span>`);
-      }
-    }
-
-    carryRow = `
-      <div class="vm-grid-row vm-carry-row">
-        ${carryBoxes.join("")}
-      </div>
-    `;
-  }
-
-  const numberCells = function (value, className) {
-
-    return value
-      .split("")
-      .map(function (digit) {
-
-        if (digit === " ") {
-          return `<span class="vm-empty"></span>`;
-        }
-
-        return `
-          <span class="${className}">
-            ${escapeHtml(digit)}
-          </span>
         `;
-      })
-      .join("");
-  };
-
-  const answerCells = answerPadded
-    .split("")
-    .map(function () {
-
+      }).join("")}
+    `;
+  } else {
+    // Three-digit answer: use all three columns
+    answerCells = answerDigits.map(function (digit, i) {
       return `
         <input
           class="vm-input vm-answer-input"
+          data-index="${i}"
           inputmode="numeric"
           maxlength="1"
           autocomplete="off"
-          aria-label="Answer digit"
+          aria-label="Answer digit ${i + 1}"
         >
       `;
-    })
-    .join("");
+    }).join("");
+  }
+
+  const carryRow = showCarryBoxes
+    ? `
+      <div class="vm-carry-row">
+        <span class="vm-empty"></span>
+
+        <input
+          class="vm-input vm-carry-input"
+          inputmode="numeric"
+          maxlength="1"
+          autocomplete="off"
+          aria-label="Carry"
+        >
+
+        <span class="vm-empty"></span>
+      </div>
+    `
+    : "";
 
   body = `
     <div class="vm-wrap">
 
-      ${
-        q.instruction
-          ? `<div class="vm-instruction">
-               ${escapeHtml(q.instruction)}
-             </div>`
-          : ""
-      }
+      <div class="vm-instruction">
+        ${escapeHtml(
+          q.instruction ||
+          (showCarryBoxes
+            ? "Multiply and show the carry."
+            : "Multiply.")
+        )}
+      </div>
 
-      <div
-        class="vm-calculation vm-grid-calculation"
-        style="--vm-columns:${columns}"
-      >
+      <div class="vm-calculation">
 
         ${carryRow}
 
-        <div class="vm-grid-row">
-          ${numberCells(
-            multiplicandPadded,
-            "vm-digit"
-          )}
+        <div class="vm-number-row">
+          <span class="vm-empty"></span>
+          <span class="vm-digit">${escapeHtml(tens)}</span>
+          <span class="vm-digit">${escapeHtml(ones)}</span>
         </div>
 
-        <div class="vm-grid-row">
-
-          ${numberCells(
-            multiplierPadded,
-            "vm-digit"
-          )}
-
+        <div class="vm-number-row">
+          <span class="vm-operator">×</span>
+          <span class="vm-empty"></span>
+          <span class="vm-digit vm-multiplier">
+            ${escapeHtml(multiplier)}
+          </span>
         </div>
 
         <div class="vm-line"></div>
 
-        <div class="vm-grid-row vm-answer-row">
+        <div class="vm-answer-row">
           ${answerCells}
         </div>
 
       </div>
 
+      <div class="vm-note">
+        ${
+          showCarryBoxes
+            ? "Enter the carry in the small box above the tens digit. Enter 0 if there is no carry."
+            : "Enter the answer one digit at a time."
+        }
+      </div>
+
     </div>
   `;
-  
-
-   
            
   } else if (q.type === "show-working") {
     const alt =
