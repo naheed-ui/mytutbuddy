@@ -7,98 +7,125 @@
   "difficulty": "Medium",
   "layout": "paper-grid",
   "columns": 3,
-  "shortDescription": "Practise multiplying numbers using regrouping.",
+  "shortDescription": "Practise multiplying numbers by one-digit numbers using regrouping.",
   "seoTitle": "Multiplication with Regrouping Worksheet | MyTutBuddy",
-  "seoDescription": "Interactive Grade 4 multiplication worksheet practising multiplication with regrouping.",
-  "intro": "Multiply each number. Enter the carry and the final answer.",
+  "seoDescription": "Interactive Grade 4 Maths worksheet practising multiplication with regrouping.",
+  "intro": "Multiply each number. Enter the carries above the correct place values, then enter the final answer.",
   "resultMessages": {
     "perfect": "🏆 Perfect! Excellent multiplication!",
     "great": "🌟 Great work! Keep it up!",
     "good": "👏 Good job! Check the questions you missed.",
-    "effort": "💪 Good effort! Keep practising.",
-    "keepPractising": "📚 Keep practising multiplication!"
+    "effort": "💪 Good effort! Keep practising multiplication.",
+    "keepPractising": "📚 Keep practising! Multiplication gets easier with practice."
   },
   "questions": [
     {
       "type": "vertical-multiplication",
-      "multiplicand": "922",
-      "multiplier": "3",
-      "answer": "2766",
-      "carries": ["2"],
-      "showCarryBoxes": true,
-      "marks": 2
-    },
-    {
-      "type": "vertical-multiplication",
-      "multiplicand": "833",
-      "multiplier": "1",
-      "answer": "833",
-      "carries": [],
-      "showCarryBoxes": true,
-      "marks": 2
-    },
-    {
-      "type": "vertical-multiplication",
-      "multiplicand": "721",
-      "multiplier": "4",
-      "answer": "2884",
-      "carries": ["2"],
-      "showCarryBoxes": true,
-      "marks": 2
-    },
-    {
-      "type": "vertical-multiplication",
-      "multiplicand": "623",
-      "multiplier": "4",
-      "answer": "2492",
-      "carries": ["2"],
-      "showCarryBoxes": true,
-      "marks": 2
-    },
-    {
-      "type": "vertical-multiplication",
-      "multiplicand": "531",
-      "multiplier": "5",
-      "answer": "2655",
-      "carries": ["2"],
-      "showCarryBoxes": true,
-      "marks": 2
-    },
-    {
-      "type": "vertical-multiplication",
-      "multiplicand": "411",
-      "multiplier": "9",
-      "answer": "3699",
-      "carries": ["3"],
-      "showCarryBoxes": true,
-      "marks": 2
-    },
-    {
-      "type": "vertical-multiplication",
-      "multiplicand": "723",
+      "multiplicand": "987",
       "multiplier": "6",
-      "answer": "4338",
-      "carries": ["1"],
+      "answer": "5922",
+      "carries": ["4", "5"],
       "showCarryBoxes": true,
-      "marks": 2
+      "marks": 3
     },
     {
       "type": "vertical-multiplication",
-      "multiplicand": "922",
+      "multiplicand": "876",
       "multiplier": "7",
-      "answer": "6454",
-      "carries": ["1"],
+      "answer": "6132",
+      "carries": ["4", "5"],
       "showCarryBoxes": true,
-      "marks": 2
+      "marks": 3
     },
     {
       "type": "vertical-multiplication",
-      "multiplicand": "822",
-      "multiplier": "8",
-      "answer": "6576",
-      "carries": ["1"],
+      "multiplicand": "594",
+      "multiplier": "7",
+      "answer": "4158",
+      "carries": ["2", "6"],
       "showCarryBoxes": true,
-      "marks": 2
+      "marks": 3
+    },
+    {
+      "type": "vertical-multiplication",
+      "multiplicand": "758",
+      "multiplier": "6",
+      "answer": "4548",
+      "carries": ["4", "3"],
+      "showCarryBoxes": true,
+      "marks": 3
+    },
+    {
+      "type": "vertical-multiplication",
+      "multiplicand": "8765",
+      "multiplier": "8",
+      "answer": "70120",
+      "carries": ["4", "5", "6"],
+      "showCarryBoxes": true,
+      "marks": 4
+    },
+    {
+      "type": "vertical-multiplication",
+      "multiplicand": "7346",
+      "multiplier": "7",
+      "answer": "51422",
+      "carries": ["4", "3", "2"],
+      "showCarryBoxes": true,
+      "marks": 4
+    },
+    {
+      "type": "vertical-multiplication",
+      "multiplicand": "9687",
+      "multiplier": "6",
+      "answer": "58122",
+      "carries": ["4", "5", "4"],
+      "showCarryBoxes": true,
+      "marks": 4
+    },
+    {
+      "type": "vertical-multiplication",
+      "multiplicand": "98765",
+      "multiplier": "9",
+      "answer": "888885",
+      "carries": ["4", "5", "6", "7"],
+      "showCarryBoxes": true,
+      "marks": 5
+    },
+    {
+      "type": "vertical-multiplication",
+      "multiplicand": "87654",
+      "multiplier": "8",
+      "answer": "701232",
+      "carries": ["3", "4", "5", "6"],
+      "showCarryBoxes": true,
+      "marks": 5
+    },
+    {
+      "type": "vertical-multiplication",
+      "multiplicand": "76543",
+      "multiplier": "7",
+      "answer": "535801",
+      "carries": ["2", "3", "3", "4"],
+      "showCarryBoxes": true,
+      "marks": 5
+    },
+    {
+      "type": "vertical-multiplication",
+      "multiplicand": "649",
+      "multiplier": "8",
+      "answer": "5192",
+      "carries": ["7", "3"],
+      "showCarryBoxes": true,
+      "marks": 3
+    },
+    {
+      "type": "vertical-multiplication",
+      "multiplicand": "5832",
+      "multiplier": "9",
+      "answer": "52488",
+      "carries": ["1", "7", "7"],
+      "showCarryBoxes": true,
+      "marks": 4
     }
   ]
 }
