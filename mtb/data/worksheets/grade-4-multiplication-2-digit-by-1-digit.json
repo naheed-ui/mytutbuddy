@@ -24,7 +24,7 @@
       "multiplicand": "23",
       "multiplier": "4",
       "answer": "92",
-      "carry": "0",
+      "carry": "1",
       "showCarryBoxes": true,
       "marks": 2
     },
@@ -32,10 +32,10 @@
       "type": "vertical-multiplication",
       "prompt": "Multiply and show the carry.",
       "instruction": "Multiply 41 by 3.",
-      "multiplicand": "41",
+      "multiplicand": "45",
       "multiplier": "3",
-      "answer": "123",
-      "carry": "0",
+      "answer": "135",
+      "carry": "1",
       "showCarryBoxes": true,
       "marks": 2
     },
