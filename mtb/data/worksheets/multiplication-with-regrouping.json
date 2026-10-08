@@ -1,0 +1,104 @@
+{
+  "slug": "multiplication-with-regrouping",
+  "title": "Multiplication with Regrouping",
+  "grade": "Grade 4",
+  "topic": "Number",
+  "subtopic": "Multiplication",
+  "difficulty": "Medium",
+  "layout": "paper-grid",
+  "columns": 3,
+  "shortDescription": "Practise multiplying numbers using regrouping.",
+  "seoTitle": "Multiplication with Regrouping Worksheet | MyTutBuddy",
+  "seoDescription": "Interactive Grade 4 multiplication worksheet practising multiplication with regrouping.",
+  "intro": "Multiply each number. Enter the carry and the final answer.",
+  "resultMessages": {
+    "perfect": "🏆 Perfect! Excellent multiplication!",
+    "great": "🌟 Great work! Keep it up!",
+    "good": "👏 Good job! Check the questions you missed.",
+    "effort": "💪 Good effort! Keep practising.",
+    "keepPractising": "📚 Keep practising multiplication!"
+  },
+  "questions": [
+    {
+      "type": "vertical-multiplication",
+      "multiplicand": "922",
+      "multiplier": "3",
+      "answer": "2766",
+      "carries": ["2"],
+      "showCarryBoxes": true,
+      "marks": 2
+    },
+    {
+      "type": "vertical-multiplication",
+      "multiplicand": "833",
+      "multiplier": "1",
+      "answer": "833",
+      "carries": [],
+      "showCarryBoxes": true,
+      "marks": 2
+    },
+    {
+      "type": "vertical-multiplication",
+      "multiplicand": "721",
+      "multiplier": "4",
+      "answer": "2884",
+      "carries": ["2"],
+      "showCarryBoxes": true,
+      "marks": 2
+    },
+    {
+      "type": "vertical-multiplication",
+      "multiplicand": "623",
+      "multiplier": "4",
+      "answer": "2492",
+      "carries": ["2"],
+      "showCarryBoxes": true,
+      "marks": 2
+    },
+    {
+      "type": "vertical-multiplication",
+      "multiplicand": "531",
+      "multiplier": "5",
+      "answer": "2655",
+      "carries": ["2"],
+      "showCarryBoxes": true,
+      "marks": 2
+    },
+    {
+      "type": "vertical-multiplication",
+      "multiplicand": "411",
+      "multiplier": "9",
+      "answer": "3699",
+      "carries": ["3"],
+      "showCarryBoxes": true,
+      "marks": 2
+    },
+    {
+      "type": "vertical-multiplication",
+      "multiplicand": "723",
+      "multiplier": "6",
+      "answer": "4338",
+      "carries": ["1"],
+      "showCarryBoxes": true,
+      "marks": 2
+    },
+    {
+      "type": "vertical-multiplication",
+      "multiplicand": "922",
+      "multiplier": "7",
+      "answer": "6454",
+      "carries": ["1"],
+      "showCarryBoxes": true,
+      "marks": 2
+    },
+    {
+      "type": "vertical-multiplication",
+      "multiplicand": "822",
+      "multiplier": "8",
+      "answer": "6576",
+      "carries": ["1"],
+      "showCarryBoxes": true,
+      "marks": 2
+    }
+  ]
+}
