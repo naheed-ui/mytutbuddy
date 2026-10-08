@@ -713,9 +713,13 @@ ${
     `
   }
 
-  <div id="questions">
+  <div
+  id="questions"
+  class="${ws.layout === "paper-grid" ? "paper-grid" : ""}"
+  style="--paper-columns:${Number(ws.columns || 3)}"
+>
   ${questionsHtml}
-  </div>
+</div>
 
   <div class="check-btn-wrap">
    <button class="button" onclick="checkAnswers()">
